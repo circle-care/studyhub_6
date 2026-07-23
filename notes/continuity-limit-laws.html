@@ -1,82 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Limit Laws and Continuity · Maths Study Hub</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.notes-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+  border: 3px solid var(--calc);
+  border-radius: 12px 12px 0 0;
+  overflow: hidden;
+  margin-bottom: 0;
+  font-size: 14px;
+}
+.notes-header-cell {
+  padding: 10px 16px;
+  background: var(--calc);
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  border-right: 2px solid rgba(255,255,255,0.3);
+}
+.notes-header-cell:last-child { border-right: none; }
+.notes-header-cell span { display: block; font-size: 11px; opacity: 0.75; font-weight: 400; margin-bottom: 2px; }
+
+.notes-title-bar {
+  background: var(--calc-light);
+  border: 3px solid var(--calc);
+  border-top: none;
+  padding: 12px 20px;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--calc-dark);
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.page-num {
+  background: var(--calc);
+  color: #fff;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.notes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr 1fr;
+  border: 3px solid var(--calc);
+  border-top: none;
+  border-radius: 0 0 12px 12px;
+  overflow: hidden;
+  margin-bottom: 2.5rem;
+}
+
+.notes-col {
+  padding: 20px;
+  border-right: 2px solid var(--border);
+}
+.notes-col:last-child { border-right: none; }
+
+.col-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--calc);
+  margin-bottom: 14px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--calc-light);
+}
+
+.notes-col p { margin-bottom: 12px; font-size: 16px; line-height: 1.8; }
+.notes-col p:last-child { margin-bottom: 0; }
+
+.highlight {
+  background: #FEF9C3;
+  border-left: 4px solid #EAB308;
+  padding: 10px 14px;
+  border-radius: 0 8px 8px 0;
+  margin: 12px 0;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.key-box {
+  background: var(--calc-light);
+  border: 2px solid var(--calc);
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin: 12px 0;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.example-box {
+  background: #F0FDF4;
+  border: 2px solid #16A34A;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin: 12px 0;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.warn-box {
+  background: #FEF2F2;
+  border: 2px solid #DC2626;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin: 12px 0;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.graph-box {
+  background: var(--bg);
+  border: 2px dashed var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  margin: 12px 0;
+  text-align: center;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.graph-ascii {
+  font-family: monospace;
+  font-size: 13px;
+  color: var(--calc-dark);
+  line-height: 1.5;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.divider { border: none; border-top: 2px solid var(--border); margin: 16px 0; }
+
+table.limit-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  margin: 10px 0;
+}
+table.limit-table th {
+  background: var(--calc);
+  color: #fff;
+  padding: 8px 12px;
+  text-align: center;
+  font-size: 13px;
+}
+table.limit-table td {
+  padding: 7px 12px;
+  border: 1px solid var(--border);
+  text-align: center;
+}
+table.limit-table tr:nth-child(even) td { background: var(--bg); }
+
+.arrow-right { color: var(--calc); font-weight: 700; }
+
+.cont-header-cell { background: #0E7490; }
+.notes-cont .notes-header { border-color: #0E7490; }
+.notes-cont .notes-title-bar { background: #CFFAFE; border-color: #0E7490; color: #164E63; }
+.notes-cont .page-num { background: #0E7490; }
+.notes-cont .notes-grid { border-color: #0E7490; }
+.notes-cont .col-label { color: #0E7490; border-bottom-color: #CFFAFE; }
+.notes-cont .key-box { background: #CFFAFE; border-color: #0E7490; }
+.notes-cont .highlight { border-left-color: #0E7490; background: #ECFEFF; }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-brand">📚 Maths Study Hub</span>
+  <a href="../index.html" class="nav-link nav-home">Home</a>
+  <a href="../calendar.html" class="nav-link nav-cal">📅 Calendar</a>
+  <a href="../algebra.html" class="nav-link nav-alg">Algebra</a>
+  <a href="../geometry.html" class="nav-link nav-geo">Geometry</a>
+  <a href="../calculus.html" class="nav-link nav-calc active">Calculus</a>
+  <a href="../assignments.html" class="nav-link nav-assign">Assignments</a>
+  <a href="../exam-prep.html" class="nav-link nav-exam">Exam prep</a>
+  <a href="../study-resources.html" class="nav-link nav-res">Resources</a>
+</nav>
+
+<div class="page-hero" style="background:#CFFAFE; border-bottom-color:#0E7490;">
+  <h1 style="color:#164E63;">∫ Calculus — Limit Laws and Continuity</h1>
+  <p style="color:#0E7490;">Handwritten notes — typed up · Sheet 6</p>
+</div>
+
+<div class="content">
+
 <div class="notes-cont">
-  <div class="notes-header">
-    <div class="notes-title-bar" style="background:#0E7490;">
-      <span class="notes-title">Continuity &amp; the Limit Laws</span>
+
+<div class="notes-header">
+  <div class="notes-header-cell"><span>Subject</span>Calculus</div>
+  <div class="notes-header-cell"><span>Subtopic</span>Continuity</div>
+  <div class="notes-header-cell"><span>Sheet</span>6 of 7</div>
+</div>
+<div class="notes-title-bar">
+  <div class="page-num">6</div>
+  What do the limit laws tell us about continuity?
+</div>
+<div class="notes-grid">
+
+  <div class="notes-col">
+    <div class="col-label">Main points</div>
+
+    <p>If \( f \) and \( g \) are both continuous at \( a \), the limit laws let us build lots of new continuous functions out of them.</p>
+
+    <div class="key-box">
+      <strong>Continuous under:</strong><br>
+      Addition, subtraction, multiplication — always.<br>
+      Division — as long as the denominator isn't zero.<br>
+      Composition — always.
+    </div>
+
+    <hr class="divider">
+
+    <div class="highlight">
+      Any polynomial is continuous on the entire real line — it's built entirely from constants and \( x \) using just sums and products.
     </div>
   </div>
 
-  <div class="notes-grid">
-    <div class="notes-col">
-      <div class="col-label" style="color:#0E7490;">Sum, Difference &amp; Product Rules</div>
-      <p>If <em>f</em> and <em>g</em> are continuous at <em>a</em>, then so are <strong>f + g</strong>, <strong>f − g</strong>, and <strong>f · g</strong>.</p>
-      <div class="key-box" style="border-color:#0E7490;">
-        Why: the limit of a sum/product equals the sum/product of the limits.<br>
-        So lim<sub>x→a</sub> h(x) = h(a) automatically follows.
-      </div>
-      <div class="highlight" style="background:#0E7490;">
-        Any polynomial is continuous on the entire real line — built from constants and <em>x</em> using only sums and products.
-      </div>
-      <p style="margin-top:10px;"><strong>Example:</strong> 5x² is continuous everywhere (product of continuous 5 and continuous x·x). 5x² + x is continuous everywhere (sum of continuous functions).</p>
-      <svg viewBox="0 0 200 150" width="100%" height="150">
-        <defs>
-          <marker id="arrow1" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
-            <path d="M0,0 L6,3 L0,6 Z" fill="#333"/>
-          </marker>
-        </defs>
-        <line x1="10" y1="130" x2="190" y2="130" stroke="#333" stroke-width="1" marker-end="url(#arrow1)"/>
-        <line x1="100" y1="140" x2="100" y2="10" stroke="#333" stroke-width="1" marker-end="url(#arrow1)"/>
-        <path d="M 40 130 Q 100 -20 160 130" fill="none" stroke="#0E7490" stroke-width="2"/>
-        <circle cx="100" cy="130" r="3" fill="#0E7490"/>
-        <text x="100" y="145" font-size="9" text-anchor="middle" fill="#333">5x²  —  continuous everywhere</text>
-      </svg>
+  <div class="notes-col">
+    <div class="col-label">Examples / explanation</div>
+
+    <p><strong>① Sum, difference, product:</strong> if \( f \) and \( g \) are continuous at \( a \), so are \( f+g \), \( f-g \), \( f \times g \).</p>
+
+    <div class="example-box">
+      \( \lim_{x \to a} f(x) = f(a) \) and \( \lim_{x \to a} g(x) = g(a) \)<br><br>
+      \[ \lim_{x \to a} [f(x)g(x)] = f(a)g(a) \]
+      So \( h(x) = f(x)g(x) \) is continuous at \( a \).
     </div>
 
-    <div class="notes-col">
-      <div class="col-label" style="color:#0E7490;">Quotient Rule</div>
-      <p>If <em>f</em> and <em>g</em> are continuous at <em>a</em> and <strong>g(a) ≠ 0</strong>, then f/g is continuous at <em>a</em>.</p>
-      <div class="key-box" style="border-color:#0E7490;">
-        The quotient is only continuous where it's <em>defined</em> — i.e. where the denominator isn't zero.
-      </div>
-      <p style="margin-top:10px;"><strong>Example:</strong> tan x = sin x / cos x. Both sine and cosine are continuous everywhere, so tan x is continuous everywhere <em>except</em> where cos x = 0, i.e. x = ±π/2, ±3π/2, …</p>
-      <svg viewBox="0 0 200 150" width="100%" height="150">
-        <line x1="10" y1="75" x2="190" y2="75" stroke="#333" stroke-width="1" marker-end="url(#arrow1)"/>
-        <line x1="100" y1="140" x2="100" y2="10" stroke="#333" stroke-width="1" marker-end="url(#arrow1)"/>
-        <path d="M 55 140 Q 75 75 95 20" fill="none" stroke="#0E7490" stroke-width="2"/>
-        <path d="M 105 140 Q 125 75 145 20" fill="none" stroke="#0E7490" stroke-width="2"/>
-        <line x1="100" y1="10" x2="100" y2="140" stroke="#999" stroke-width="1" stroke-dasharray="3,3"/>
-        <circle cx="100" cy="75" r="3" fill="none" stroke="#0E7490" stroke-width="1.5"/>
-        <text x="100" y="12" font-size="8" text-anchor="middle" fill="#666">x = π/2</text>
-        <text x="100" y="148" font-size="9" text-anchor="middle" fill="#333">tan x  —  break where cos x = 0</text>
-      </svg>
-      <p style="margin-top:10px;"><strong>Example:</strong> 1/(x² + 1) — polynomial over polynomial, and x² + 1 is never zero, so this is continuous everywhere, no exceptions.</p>
-      <svg viewBox="0 0 200 150" width="100%" height="150">
-        <line x1="10" y1="130" x2="190" y2="130" stroke="#333" stroke-width="1" marker-end="url(#arrow1)"/>
-        <line x1="100" y1="140" x2="100" y2="10" stroke="#333" stroke-width="1" marker-end="url(#arrow1)"/>
-        <path d="M 20 125 Q 100 25 180 125" fill="none" stroke="#0E7490" stroke-width="2"/>
-        <circle cx="100" cy="30" r="3" fill="#0E7490"/>
-        <text x="100" y="145" font-size="9" text-anchor="middle" fill="#333">1/(x²+1)  —  continuous everywhere</text>
-      </svg>
+    <p><strong>② Quotient:</strong> if \( g(a) \neq 0 \), then \( f/g \) is continuous at \( a \).</p>
+
+    <div class="example-box">
+      \( \tan x = \dfrac{\sin x}{\cos x} \) — continuous everywhere <em>except</em> where \( \cos x = 0 \), i.e. \( x = \pm\frac{\pi}{2}, \pm\frac{3\pi}{2}, \dots \)
     </div>
 
-    <div class="notes-col">
-      <div class="col-label" style="color:#0E7490;">Composition Rule</div>
-      <p>If <em>g</em> is continuous at <em>a</em>, and <em>f</em> is continuous at <strong>g(a)</strong>, then the composition <strong>f∘g</strong> is continuous at <em>a</em>.</p>
-      <div class="key-box" style="border-color:#0E7490;">
-        As x → a: g(x) → g(a), and since f is continuous at g(a), f(g(x)) → f(g(a)).<br>
-        So h(x) = f(g(x)) → h(a).
-      </div>
-      <p style="margin-top:10px;"><strong>Example:</strong> sin(x² + 1) — inner function x² + 1 is a continuous polynomial, outer function sin is continuous everywhere, so the composition is continuous everywhere.</p>
-      <svg viewBox="0 0 200 150" width="100%" height="150">
-        <line x1="10" y1="75" x2="190" y2="75" stroke="#333" stroke-width="1" marker-end="url(#arrow1)"/>
-        <line x1="100" y1="140" x2="100" y2="10" stroke="#333" stroke-width="1" marker-end="url(#arrow1)"/>
-        <path d="M 15 75 Q 40 25 65 75 T 115 75 T 165 75 T 190 75" fill="none" stroke="#0E7490" stroke-width="2"/>
-        <circle cx="100" cy="55" r="3" fill="#0E7490"/>
-        <text x="100" y="145" font-size="9" text-anchor="middle" fill="#333">sin(x²+1)  —  continuous everywhere</text>
-      </svg>
-      <div class="divider" style="background:#0E7490;"></div>
-      <div class="highlight" style="background:#0E7490;">
-        Sum, difference, product, quotient (where defined), and composition of continuous functions are all continuous. This covers virtually every function you'll build in this course.
-      </div>
+    <p><strong>③ Composition:</strong> if \( g \) is continuous at \( a \) and \( f \) is continuous at \( g(a) \), then \( f \circ g \) is continuous at \( a \).</p>
+
+    <div class="example-box">
+      \( \sin(x^2+1) \) — inner function \( x^2+1 \) is continuous everywhere, outer function \( \sin \) is continuous everywhere, so the composition is continuous everywhere.
     </div>
+  </div>
+
+  <div class="notes-col">
+    <div class="col-label">Helpful points</div>
+
+    <div class="warn-box">
+      Division law only holds where \( g(a) \neq 0 \). Where the denominator hits zero, continuity breaks — check for those points first.
+    </div>
+
+    <hr class="divider">
+
+    <div class="key-box">
+      \( \dfrac{1}{x^2+1} \) is a polynomial over a polynomial, and the denominator is <strong>never</strong> zero — so this is continuous everywhere, no exceptions.
+    </div>
+
+    <hr class="divider">
+
+    <p>These five rules — sum, difference, product, quotient, composition — cover almost every function you'll build in this course.</p>
+  </div>
+
+</div>
+
+<div class="notes-grid" style="grid-template-columns: 1fr;">
+  <div class="notes-col">
+    <div class="col-label">Extra / summary</div>
+    <table class="limit-table">
+      <tr><th>Operation</th><th>Continuous when...</th></tr>
+      <tr><td>\( f + g \), \( f - g \)</td><td>always, if \( f \), \( g \) continuous</td></tr>
+      <tr><td>\( f \times g \)</td><td>always, if \( f \), \( g \) continuous</td></tr>
+      <tr><td>\( f / g \)</td><td>always, provided \( g(a) \neq 0 \)</td></tr>
+      <tr><td>\( f \circ g \)</td><td>always, if \( g \) continuous at \( a \), \( f \) continuous at \( g(a) \)</td></tr>
+    </table>
   </div>
 </div>
+
+</div>
+
+</div>
+
+<footer>Maths Study Hub</footer>
+
+</body>
+</html>
