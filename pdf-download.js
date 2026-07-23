@@ -38,42 +38,27 @@
       .notes-grid {
         display: block !important;
         border-radius: 0 0 12px 12px;
+        margin-bottom: 0 !important;
       }
       .notes-col {
         border-right: none !important;
         border-bottom: 2px solid #e5e7eb;
         padding-bottom: 20px;
         margin-bottom: 16px;
-        break-inside: avoid-page;
+        /* deliberately NOT break-inside:avoid-page here — a whole
+           column is too big to protect as one block; doing so
+           left large blank gaps when it couldn't fit on the
+           current page and got pushed entirely to the next one */
       }
       .notes-col:last-child { border-bottom: none; margin-bottom: 0; }
 
+      /* only protect the SMALL individual boxes from splitting
+         mid-way — safe since each one is short */
       .key-box, .example-box, .warn-box, .highlight,
-      .graph-box, table.limit-table, .notes-header, .notes-title-bar {
+      .graph-box, table.limit-table {
         break-inside: avoid-page;
       }
-    }
-  `;
-  document.head.appendChild(style);
-
-  // --- 2. add the button, only on actual notes pages ---
-  function init() {
-    const titleBar = document.querySelector('.notes-title-bar');
-    const grid = document.querySelector('.notes-grid');
-    if (!titleBar || !grid) return; // not a notes page — do nothing
-
-    const btn = document.createElement('button');
-    btn.className = 'pdf-download-btn';
-    btn.innerHTML = '⬇️ Download PDF';
-    btn.onclick = () => window.print();
-
-    titleBar.insertAdjacentElement('afterend', btn);
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
-
-})();
+      .notes-header, .notes-title-bar {
+        break-inside: avoid-page;
+        break-after: avoid-page;
+      }
