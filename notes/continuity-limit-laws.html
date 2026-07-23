@@ -1,0 +1,82 @@
+<div class="notes-cont">
+  <div class="notes-header">
+    <div class="notes-title-bar" style="background:#0E7490;">
+      <span class="notes-title">Continuity &amp; the Limit Laws</span>
+    </div>
+  </div>
+
+  <div class="notes-grid">
+    <div class="notes-col">
+      <div class="col-label" style="color:#0E7490;">Sum, Difference &amp; Product Rules</div>
+      <p>If <em>f</em> and <em>g</em> are continuous at <em>a</em>, then so are <strong>f + g</strong>, <strong>f − g</strong>, and <strong>f · g</strong>.</p>
+      <div class="key-box" style="border-color:#0E7490;">
+        Why: the limit of a sum/product equals the sum/product of the limits.<br>
+        So lim<sub>x→a</sub> h(x) = h(a) automatically follows.
+      </div>
+      <div class="highlight" style="background:#0E7490;">
+        Any polynomial is continuous on the entire real line — built from constants and <em>x</em> using only sums and products.
+      </div>
+      <p style="margin-top:10px;"><strong>Example:</strong> 5x² is continuous everywhere (product of continuous 5 and continuous x·x). 5x² + x is continuous everywhere (sum of continuous functions).</p>
+      <svg viewBox="0 0 200 150" width="100%" height="150">
+        <defs>
+          <marker id="arrow1" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+            <path d="M0,0 L6,3 L0,6 Z" fill="#333"/>
+          </marker>
+        </defs>
+        <line x1="10" y1="130" x2="190" y2="130" stroke="#333" stroke-width="1" marker-end="url(#arrow1)"/>
+        <line x1="100" y1="140" x2="100" y2="10" stroke="#333" stroke-width="1" marker-end="url(#arrow1)"/>
+        <path d="M 40 130 Q 100 -20 160 130" fill="none" stroke="#0E7490" stroke-width="2"/>
+        <circle cx="100" cy="130" r="3" fill="#0E7490"/>
+        <text x="100" y="145" font-size="9" text-anchor="middle" fill="#333">5x²  —  continuous everywhere</text>
+      </svg>
+    </div>
+
+    <div class="notes-col">
+      <div class="col-label" style="color:#0E7490;">Quotient Rule</div>
+      <p>If <em>f</em> and <em>g</em> are continuous at <em>a</em> and <strong>g(a) ≠ 0</strong>, then f/g is continuous at <em>a</em>.</p>
+      <div class="key-box" style="border-color:#0E7490;">
+        The quotient is only continuous where it's <em>defined</em> — i.e. where the denominator isn't zero.
+      </div>
+      <p style="margin-top:10px;"><strong>Example:</strong> tan x = sin x / cos x. Both sine and cosine are continuous everywhere, so tan x is continuous everywhere <em>except</em> where cos x = 0, i.e. x = ±π/2, ±3π/2, …</p>
+      <svg viewBox="0 0 200 150" width="100%" height="150">
+        <line x1="10" y1="75" x2="190" y2="75" stroke="#333" stroke-width="1" marker-end="url(#arrow1)"/>
+        <line x1="100" y1="140" x2="100" y2="10" stroke="#333" stroke-width="1" marker-end="url(#arrow1)"/>
+        <path d="M 55 140 Q 75 75 95 20" fill="none" stroke="#0E7490" stroke-width="2"/>
+        <path d="M 105 140 Q 125 75 145 20" fill="none" stroke="#0E7490" stroke-width="2"/>
+        <line x1="100" y1="10" x2="100" y2="140" stroke="#999" stroke-width="1" stroke-dasharray="3,3"/>
+        <circle cx="100" cy="75" r="3" fill="none" stroke="#0E7490" stroke-width="1.5"/>
+        <text x="100" y="12" font-size="8" text-anchor="middle" fill="#666">x = π/2</text>
+        <text x="100" y="148" font-size="9" text-anchor="middle" fill="#333">tan x  —  break where cos x = 0</text>
+      </svg>
+      <p style="margin-top:10px;"><strong>Example:</strong> 1/(x² + 1) — polynomial over polynomial, and x² + 1 is never zero, so this is continuous everywhere, no exceptions.</p>
+      <svg viewBox="0 0 200 150" width="100%" height="150">
+        <line x1="10" y1="130" x2="190" y2="130" stroke="#333" stroke-width="1" marker-end="url(#arrow1)"/>
+        <line x1="100" y1="140" x2="100" y2="10" stroke="#333" stroke-width="1" marker-end="url(#arrow1)"/>
+        <path d="M 20 125 Q 100 25 180 125" fill="none" stroke="#0E7490" stroke-width="2"/>
+        <circle cx="100" cy="30" r="3" fill="#0E7490"/>
+        <text x="100" y="145" font-size="9" text-anchor="middle" fill="#333">1/(x²+1)  —  continuous everywhere</text>
+      </svg>
+    </div>
+
+    <div class="notes-col">
+      <div class="col-label" style="color:#0E7490;">Composition Rule</div>
+      <p>If <em>g</em> is continuous at <em>a</em>, and <em>f</em> is continuous at <strong>g(a)</strong>, then the composition <strong>f∘g</strong> is continuous at <em>a</em>.</p>
+      <div class="key-box" style="border-color:#0E7490;">
+        As x → a: g(x) → g(a), and since f is continuous at g(a), f(g(x)) → f(g(a)).<br>
+        So h(x) = f(g(x)) → h(a).
+      </div>
+      <p style="margin-top:10px;"><strong>Example:</strong> sin(x² + 1) — inner function x² + 1 is a continuous polynomial, outer function sin is continuous everywhere, so the composition is continuous everywhere.</p>
+      <svg viewBox="0 0 200 150" width="100%" height="150">
+        <line x1="10" y1="75" x2="190" y2="75" stroke="#333" stroke-width="1" marker-end="url(#arrow1)"/>
+        <line x1="100" y1="140" x2="100" y2="10" stroke="#333" stroke-width="1" marker-end="url(#arrow1)"/>
+        <path d="M 15 75 Q 40 25 65 75 T 115 75 T 165 75 T 190 75" fill="none" stroke="#0E7490" stroke-width="2"/>
+        <circle cx="100" cy="55" r="3" fill="#0E7490"/>
+        <text x="100" y="145" font-size="9" text-anchor="middle" fill="#333">sin(x²+1)  —  continuous everywhere</text>
+      </svg>
+      <div class="divider" style="background:#0E7490;"></div>
+      <div class="highlight" style="background:#0E7490;">
+        Sum, difference, product, quotient (where defined), and composition of continuous functions are all continuous. This covers virtually every function you'll build in this course.
+      </div>
+    </div>
+  </div>
+</div>
