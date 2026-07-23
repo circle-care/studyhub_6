@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Continuity Cheat Sheet · Maths Study Hub</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.notes-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+  border: 3px solid var(--calc);
+  border-radius: 12px 12px 0 0;
+  overflow: hidden;
+  margin-bottom: 0;
+  font-size: 14px;
+}
+.notes-header-cell {
+  padding: 10px 16px;
+  background: var(--calc);
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  border-right: 2px solid rgba(255,255,255,0.3);
+}
+.notes-header-cell:last-child { border-right: none; }
+.notes-header-cell span { display: block; font-size: 11px; opacity: 0.75; font-weight: 400; margin-bottom: 2px; }
+
+.notes-title-bar {
+  background: var(--calc-light);
+  border: 3px solid var(--calc);
+  border-top: none;
+  padding: 12px 20px;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--calc-dark);
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.page-num {
+  background: var(--calc);
+  color: #fff;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.notes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr 1fr;
+  border: 3px solid var(--calc);
+  border-top: none;
+  border-radius: 0 0 12px 12px;
+  overflow: hidden;
+  margin-bottom: 2.5rem;
+}
+
+.notes-col {
+  padding: 20px;
+  border-right: 2px solid var(--border);
+}
+.notes-col:last-child { border-right: none; }
+
+.col-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--calc);
+  margin-bottom: 14px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--calc-light);
+}
+
+.notes-col p { margin-bottom: 12px; font-size: 16px; line-height: 1.8; }
+.notes-col p:last-child { margin-bottom: 0; }
+
+.highlight {
+  background: #FEF9C3;
+  border-left: 4px solid #EAB308;
+  padding: 10px 14px;
+  border-radius: 0 8px 8px 0;
+  margin: 12px 0;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.key-box {
+  background: var(--calc-light);
+  border: 2px solid var(--calc);
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin: 12px 0;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.example-box {
+  background: #F0FDF4;
+  border: 2px solid #16A34A;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin: 12px 0;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.warn-box {
+  background: #FEF2F2;
+  border: 2px solid #DC2626;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin: 12px 0;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.divider { border: none; border-top: 2px solid var(--border); margin: 16px 0; }
+
+.arrow-right { color: var(--calc); font-weight: 700; }
+
+.cont-header-cell { background: #0E7490; }
+.notes-cont .notes-header { border-color: #0E7490; }
+.notes-cont .notes-title-bar { background: #CFFAFE; border-color: #0E7490; color: #164E63; }
+.notes-cont .page-num { background: #0E7490; }
+.notes-cont .notes-grid { border-color: #0E7490; }
+.notes-cont .col-label { color: #0E7490; border-bottom-color: #CFFAFE; }
+.notes-cont .key-box { background: #CFFAFE; border-color: #0E7490; }
+.notes-cont .highlight { border-left-color: #0E7490; background: #ECFEFF; }
+
+.decision-tree {
+  font-size: 14px;
+  line-height: 2;
+}
+.decision-tree .q { font-weight: 700; color: #0E7490; }
+.decision-tree .yes { color: #16A34A; font-weight: 700; }
+.decision-tree .no { color: #DC2626; font-weight: 700; }
+.decision-tree ul { margin: 4px 0 4px 20px; padding: 0; list-style: none; }
+.decision-tree li { margin: 4px 0; padding-left: 14px; border-left: 2px solid #CFFAFE; }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-brand">📚 Maths Study Hub</span>
+  <a href="../index.html" class="nav-link nav-home">Home</a>
+  <a href="../calendar.html" class="nav-link nav-cal">📅 Calendar</a>
+  <a href="../algebra.html" class="nav-link nav-alg">Algebra</a>
+  <a href="../geometry.html" class="nav-link nav-geo">Geometry</a>
+  <a href="../calculus.html" class="nav-link nav-calc active">Calculus</a>
+  <a href="../assignments.html" class="nav-link nav-assign">Assignments</a>
+  <a href="../exam-prep.html" class="nav-link nav-exam">Exam prep</a>
+  <a href="../study-resources.html" class="nav-link nav-res">Resources</a>
+</nav>
+
+<div class="page-hero" style="background:var(--calc-light); border-bottom-color:var(--calc);">
+  <h1 style="color:var(--calc-dark);">∫ Continuity Cheat Sheet</h1>
+  <p style="color:var(--calc);">Quick reference — always/never continuous, fraction rules, composition rules, decision tree</p>
+</div>
+
+<div class="content">
+
+<div class="notes-cont">
+<div class="notes-header">
+  <div class="notes-header-cell cont-header-cell"><span>Subject</span>Calculus</div>
+  <div class="notes-header-cell cont-header-cell"><span>Subtopic</span>Continuity</div>
+  <div class="notes-header-cell cont-header-cell"><span>Type</span>Cheat Sheet</div>
+</div>
+<div class="notes-title-bar">
+  <div class="page-num" style="background:#0E7490;">★</div>
+  Continuity — quick reference
+</div>
+<div class="notes-grid" style="border-color:#0E7490;">
+
+  <div class="notes-col">
+    <div class="col-label" style="color:#0E7490; border-bottom-color:#CFFAFE;">Always / never continuous</div>
+
+    <div class="key-box" style="background:#CFFAFE; border-color:#0E7490;">
+      <strong>Always continuous</strong> (on their full domain):
+      <ul style="margin:8px 0 0 18px; padding:0;">
+        <li>Polynomials — \( x^2, x^3, 3x+1 \) etc.</li>
+        <li>\( \sin x \), \( \cos x \)</li>
+        <li>\( e^x \)</li>
+        <li>Constants — \( f(x) = c \)</li>
+        <li>\( |x| \)</li>
+      </ul>
+    </div>
+
+    <div class="warn-box">
+      <strong>NOT always continuous</strong> (breaks somewhere):
+      <ul style="margin:8px 0 0 18px; padding:0;">
+        <li>\( \tan x \) — breaks where \( \cos x = 0 \)</li>
+        <li>\( \dfrac{1}{x} \) — breaks at \( x = 0 \)</li>
+        <li>\( \ln x \) — undefined for \( x \le 0 \)</li>
+        <li>Piecewise functions — check the join points</li>
+        <li>\( \sqrt{x} \) — undefined for \( x < 0 \)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="notes-col">
+    <div class="col-label" style="color:#0E7490; border-bottom-color:#CFFAFE;">Fraction & composition rules</div>
+
+    <p><strong>Fraction rule:</strong></p>
+    <div class="key-box" style="background:#CFFAFE; border-color:#0E7490;">
+      \( \dfrac{f(x)}{g(x)} \) is continuous everywhere <strong>except</strong> where \( g(x) = 0 \).
+    </div>
+    <p>Always find and exclude the zeros of the denominator first.</p>
+
+    <hr class="divider">
+
+    <p><strong>Composition rule:</strong></p>
+    <div class="key-box" style="background:#CFFAFE; border-color:#0E7490;">
+      If \( f \) and \( g \) are both continuous, then \( f(g(x)) \) is continuous wherever \( g(x) \) is defined.
+    </div>
+    <p>Continuous functions built from other continuous functions (by adding, multiplying, dividing off zeros, or composing) stay continuous.</p>
+
+    <hr class="divider">
+
+    <p><strong>Sums, products, differences:</strong></p>
+    <div class="example-box">
+      If \( f(x) \) and \( g(x) \) are continuous at \( a \), then so are:
+      \( f(x) + g(x) \), \( f(x) - g(x) \), \( f(x) \times g(x) \)
+    </div>
+  </div>
+
+  <div class="notes-col">
+    <div class="col-label" style="color:#0E7490; border-bottom-color:#CFFAFE;">Decision tree</div>
+
+    <div class="decision-tree">
+      <p class="q">Is f(a) defined?</p>
+      <ul>
+        <li><span class="no">No</span> → discontinuous (hole or undefined)</li>
+        <li><span class="yes">Yes</span> → continue ↓</li>
+      </ul>
+
+      <p class="q">Does lim<sub>x→a</sub> f(x) exist?</p>
+      <ul>
+        <li><span class="no">No</span> (LH ≠ RH, or blows up, or oscillates) → discontinuous</li>
+        <li><span class="yes">Yes</span> → continue ↓</li>
+      </ul>
+
+      <p class="q">Does the limit equal f(a)?</p>
+      <ul>
+        <li><span class="no">No</span> → discontinuous (removable)</li>
+        <li><span class="yes">Yes</span> → <strong style="color:#16A34A;">CONTINUOUS ✓</strong></li>
+      </ul>
+    </div>
+
+    <hr class="divider">
+
+    <div class="highlight">
+      <strong>Fast check:</strong> if you can draw it at \( x = a \) without lifting your pen, it's continuous there.
+    </div>
+  </div>
+
+</div>
+</div>
+
+</div>
+
+<footer>Maths Study Hub</footer>
+
+</body>
+</html>
