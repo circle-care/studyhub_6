@@ -368,3 +368,33 @@ footer {
   .card-grid { grid-template-columns: 1fr 1fr; }
   .page-hero h1 { font-size: 24px; }
 }
+/* --- PDF download button --- */
+.pdf-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--calc, #0e7490);
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  margin: 16px 0;
+  transition: opacity 0.2s;
+}
+.pdf-download-btn:hover { opacity: 0.85; }
+.pdf-download-btn:disabled { opacity: 0.6; cursor: wait; }
+
+/* --- Print stylesheet --- */
+@media print {
+  nav, .pdf-download-btn, footer { display: none !important; }
+  .page-hero { border: none !important; }
+  body { background: #fff !important; }
+  .notes-grid, .notes-header, .notes-title-bar {
+    box-shadow: none !important;
+    break-inside: avoid;
+  }
+  .content { max-width: 100% !important; }
+}

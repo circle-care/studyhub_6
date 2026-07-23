@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Continuity & Discontinuity · Maths Study Hub</title>
-<link rel="stylesheet" href="../style.css">
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<link rel="stylesheet" href="../style.css"><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 <style>
 .notes-header {
   display: grid;
@@ -210,6 +210,9 @@ table.limit-table tr:nth-child(even) td { background: var(--bg); }
   <div class="page-num" style="background:#0E7490;">1</div>
   What is continuity?
 </div>
+<button class="pdf-download-btn" id="pdfBtn" onclick="downloadPDF()">
+  ⬇️ Download PDF
+</button>
 <div class="notes-grid" style="border-color:#0E7490;">
 
   <div class="notes-col">
@@ -491,6 +494,32 @@ table.limit-table tr:nth-child(even) td { background: var(--bg); }
 </div>
 
 <footer>Maths Study Hub</footer>
+<script>
+function downloadPDF() {
+  const btn = document.getElementById('pdfBtn');
+  const el = document.querySelector('.content');
+  const filename = (document.title.split('·')[0] || document.title)
+    .trim().replace(/\s+/g, '-').toLowerCase() + '.pdf';
 
+  btn.disabled = true;
+  btn.textContent = '⏳ Generating…';
+
+  html2pdf()
+    .set({
+      margin: 10,
+      filename: filename,
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2, useCORS: true },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    })
+    .from(el)
+    .save()
+    .then(() => {
+      btn.disabled = false;
+      btn.innerHTML = '⬇️ Download PDF';
+    });
+}
+</script>
 </body>
+
 </html>
