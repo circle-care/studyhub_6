@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Laws of Limits · Maths Study Hub</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.notes-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+  border: 3px solid var(--calc);
+  border-radius: 12px 12px 0 0;
+  overflow: hidden;
+  margin-bottom: 0;
+  font-size: 14px;
+}
+.notes-header-cell {
+  padding: 10px 16px;
+  background: var(--calc);
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  border-right: 2px solid rgba(255,255,255,0.3);
+}
+.notes-header-cell:last-child { border-right: none; }
+.notes-header-cell span { display: block; font-size: 11px; opacity: 0.75; font-weight: 400; margin-bottom: 2px; }
+
+.notes-title-bar {
+  background: var(--calc-light);
+  border: 3px solid var(--calc);
+  border-top: none;
+  padding: 12px 20px;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--calc-dark);
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.page-num {
+  background: var(--calc);
+  color: #fff;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.notes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr 1fr;
+  border: 3px solid var(--calc);
+  border-top: none;
+  border-radius: 0 0 12px 12px;
+  overflow: hidden;
+  margin-bottom: 2.5rem;
+}
+
+.notes-col {
+  padding: 20px;
+  border-right: 2px solid var(--border);
+}
+.notes-col:last-child { border-right: none; }
+
+.col-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--calc);
+  margin-bottom: 14px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--calc-light);
+}
+
+.notes-col p { margin-bottom: 12px; font-size: 16px; line-height: 1.8; }
+.notes-col p:last-child { margin-bottom: 0; }
+
+.highlight {
+  background: #FEF9C3;
+  border-left: 4px solid #EAB308;
+  padding: 10px 14px;
+  border-radius: 0 8px 8px 0;
+  margin: 12px 0;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.key-box {
+  background: var(--calc-light);
+  border: 2px solid var(--calc);
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin: 12px 0;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.example-box {
+  background: #F0FDF4;
+  border: 2px solid #16A34A;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin: 12px 0;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.warn-box {
+  background: #FEF2F2;
+  border: 2px solid #DC2626;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin: 12px 0;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.graph-box {
+  background: var(--bg);
+  border: 2px dashed var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  margin: 12px 0;
+  text-align: center;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.graph-ascii {
+  font-family: monospace;
+  font-size: 13px;
+  color: var(--calc-dark);
+  line-height: 1.5;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.divider { border: none; border-top: 2px solid var(--border); margin: 16px 0; }
+
+table.limit-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  margin: 10px 0;
+}
+table.limit-table th {
+  background: var(--calc);
+  color: #fff;
+  padding: 8px 12px;
+  text-align: center;
+  font-size: 13px;
+}
+table.limit-table td {
+  padding: 7px 12px;
+  border: 1px solid var(--border);
+  text-align: center;
+}
+table.limit-table tr:nth-child(even) td { background: var(--bg); }
+
+.arrow-right { color: var(--calc); font-weight: 700; }
+
+.cont-header-cell { background: #0E7490; }
+.notes-cont .notes-header { border-color: #0E7490; }
+.notes-cont .notes-title-bar { background: #CFFAFE; border-color: #0E7490; color: #164E63; }
+.notes-cont .page-num { background: #0E7490; }
+.notes-cont .notes-grid { border-color: #0E7490; }
+.notes-cont .col-label { color: #0E7490; border-bottom-color: #CFFAFE; }
+.notes-cont .key-box { background: #CFFAFE; border-color: #0E7490; }
+.notes-cont .highlight { border-left-color: #0E7490; background: #ECFEFF; }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-brand">📚 Maths Study Hub</span>
+  <a href="../index.html" class="nav-link nav-home">Home</a>
+  <a href="../calendar.html" class="nav-link nav-cal">📅 Calendar</a>
+  <a href="../algebra.html" class="nav-link nav-alg">Algebra</a>
+  <a href="../geometry.html" class="nav-link nav-geo">Geometry</a>
+  <a href="../calculus.html" class="nav-link nav-calc active">Calculus</a>
+  <a href="../assignments.html" class="nav-link nav-assign">Assignments</a>
+  <a href="../exam-prep.html" class="nav-link nav-exam">Exam prep</a>
+  <a href="../study-resources.html" class="nav-link nav-res">Resources</a>
+</nav>
+
+<div class="page-hero" style="background:var(--calc-light); border-bottom-color:var(--calc);">
+  <h1 style="color:var(--calc-dark);">∫ Calculus — Laws of Limits</h1>
+  <p style="color:var(--calc);">Handwritten notes — typed up · Sheet 3</p>
+</div>
+
+<div class="content">
+
+<div class="notes-header">
+  <div class="notes-header-cell"><span>Subject</span>Calculus</div>
+  <div class="notes-header-cell"><span>Subtopic</span>Limits — Introduction</div>
+  <div class="notes-header-cell"><span>Sheet</span>3 of 3</div>
+</div>
+<div class="notes-title-bar">
+  <div class="page-num">3</div>
+  Laws of limits — the first four are easy!
+</div>
+<div class="notes-grid">
+
+  <div class="notes-col">
+    <div class="col-label">Main points</div>
+
+    <p>When you <strong>know</strong> two limits, you can work out the limit of combinations of those functions.</p>
+
+    <div class="example-box">
+      <strong>Example:</strong><br>
+      \( \lim_{x \to a} f(x) = 5 \) and \( \lim_{x \to a} g(x) = 3 \)<br><br>
+      Then: \( \lim_{x \to a} [f(x) + g(x)] = 5 + 3 = 8 \)
+    </div>
+
+    <hr class="divider">
+
+    <p>The four laws work for <strong>one-sided limits</strong> too, as long as both sides are coming from the <strong>same direction</strong>.</p>
+
+    <div class="highlight">
+      These laws only work when the individual limits already exist. If a limit does not exist, you cannot apply the laws.
+    </div>
+  </div>
+
+  <div class="notes-col">
+    <div class="col-label">The four laws</div>
+
+    <p>If \( \lim_{x \to a} f(x) = L \) and \( \lim_{x \to a} g(x) = M \), then:</p>
+
+    <div class="key-box">
+      <strong>① Addition:</strong>
+      \[ \lim_{x \to a} [f(x) + g(x)] = L + M \]
+
+      <strong>② Subtraction:</strong>
+      \[ \lim_{x \to a} [f(x) - g(x)] = L - M \]
+
+      <strong>③ Multiplication:</strong>
+      \[ \lim_{x \to a} [f(x) \times g(x)] = L \times M \]
+
+      <strong>④ Division</strong> (if \( M \neq 0 \)):
+      \[ \lim_{x \to a} \frac{f(x)}{g(x)} = \frac{L}{M} \]
+    </div>
+
+    <div class="example-box">
+      <strong>Worked example using law ③:</strong><br>
+      \( \lim_{x \to a} f(x) = L \), \( \lim_{x \to a} g(x) = M \)<br>
+      \[ \lim_{x \to a} [f(x) \times g(x)] = L \times M \]
+    </div>
+  </div>
+
+  <div class="notes-col">
+    <div class="col-label">Helpful points</div>
+
+    <div class="key-box">
+      <strong>Division law — important condition:</strong><br>
+      Division only works if \( M \neq 0 \).<br>
+      If \( M = 0 \), you cannot divide — the limit may not exist or may tend to \( \infty \).
+    </div>
+
+    <hr class="divider">
+
+    <p>Also holds for <strong>subtraction</strong> — works with one-sided limits as long as both are coming from the same direction.</p>
+
+    <div class="highlight">
+      You can <strong>combine</strong> these laws. For example, to find the limit of \( f(x) + g(x) - h(x) \), apply the addition law then the subtraction law.
+    </div>
+
+    <div class="warn-box">
+      Always check the individual limits exist <strong>before</strong> applying any law.
+    </div>
+  </div>
+
+</div>
+
+</div>
+
+<footer>Maths Study Hub</footer>
+
+</body>
+</html>
