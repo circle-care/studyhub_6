@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Limits of Quotients · Maths Study Hub</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.notes-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+  border: 3px solid var(--calc);
+  border-radius: 12px 12px 0 0;
+  overflow: hidden;
+  margin-bottom: 0;
+  font-size: 14px;
+}
+.notes-header-cell {
+  padding: 10px 16px;
+  background: var(--calc);
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  border-right: 2px solid rgba(255,255,255,0.3);
+}
+.notes-header-cell:last-child { border-right: none; }
+.notes-header-cell span { display: block; font-size: 11px; opacity: 0.75; font-weight: 400; margin-bottom: 2px; }
+
+.notes-title-bar {
+  background: var(--calc-light);
+  border: 3px solid var(--calc);
+  border-top: none;
+  padding: 12px 20px;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--calc-dark);
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.page-num {
+  background: var(--calc);
+  color: #fff;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.notes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr 1fr;
+  border: 3px solid var(--calc);
+  border-top: none;
+  border-radius: 0 0 12px 12px;
+  overflow: hidden;
+  margin-bottom: 2.5rem;
+}
+
+.notes-col {
+  padding: 20px;
+  border-right: 2px solid var(--border);
+}
+.notes-col:last-child { border-right: none; }
+
+.col-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--calc);
+  margin-bottom: 14px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--calc-light);
+}
+
+.notes-col p { margin-bottom: 12px; font-size: 16px; line-height: 1.8; }
+.notes-col p:last-child { margin-bottom: 0; }
+
+.highlight {
+  background: #FEF9C3;
+  border-left: 4px solid #EAB308;
+  padding: 10px 14px;
+  border-radius: 0 8px 8px 0;
+  margin: 12px 0;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.key-box {
+  background: var(--calc-light);
+  border: 2px solid var(--calc);
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin: 12px 0;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.example-box {
+  background: #F0FDF4;
+  border: 2px solid #16A34A;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin: 12px 0;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.warn-box {
+  background: #FEF2F2;
+  border: 2px solid #DC2626;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin: 12px 0;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.graph-box {
+  background: var(--bg);
+  border: 2px dashed var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  margin: 12px 0;
+  text-align: center;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.graph-ascii {
+  font-family: monospace;
+  font-size: 13px;
+  color: var(--calc-dark);
+  line-height: 1.5;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.divider { border: none; border-top: 2px solid var(--border); margin: 16px 0; }
+
+table.limit-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  margin: 10px 0;
+}
+table.limit-table th {
+  background: var(--calc);
+  color: #fff;
+  padding: 8px 12px;
+  text-align: center;
+  font-size: 13px;
+}
+table.limit-table td {
+  padding: 7px 12px;
+  border: 1px solid var(--border);
+  text-align: center;
+}
+table.limit-table tr:nth-child(even) td { background: var(--bg); }
+
+.arrow-right { color: var(--calc); font-weight: 700; }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-brand">📚 Maths Study Hub</span>
+  <a href="../index.html" class="nav-link nav-home">Home</a>
+  <a href="../calendar.html" class="nav-link nav-cal">📅 Calendar</a>
+  <a href="../algebra.html" class="nav-link nav-alg">Algebra</a>
+  <a href="../geometry.html" class="nav-link nav-geo">Geometry</a>
+  <a href="../calculus.html" class="nav-link nav-calc active">Calculus</a>
+  <a href="../assignments.html" class="nav-link nav-assign">Assignments</a>
+  <a href="../exam-prep.html" class="nav-link nav-exam">Exam prep</a>
+  <a href="../study-resources.html" class="nav-link nav-res">Resources</a>
+</nav>
+
+<div class="page-hero" style="background:var(--calc-light); border-bottom-color:var(--calc);">
+  <h1 style="color:var(--calc-dark);">∫ Calculus — Limits of Quotients</h1>
+  <p style="color:var(--calc);">Handwritten notes — typed up · Sheet 4</p>
+</div>
+
+<div class="content">
+
+<div class="notes-header">
+  <div class="notes-header-cell"><span>Subject</span>Calculus</div>
+  <div class="notes-header-cell"><span>Subtopic</span>Limits</div>
+  <div class="notes-header-cell"><span>Sheet</span>4</div>
+</div>
+<div class="notes-title-bar">
+  <div class="page-num">4</div>
+  Limits of Quotients
+</div>
+<div class="notes-grid">
+
+  <div class="notes-col">
+    <div class="col-label">Main points</div>
+
+    <div class="key-box">
+      \[ \lim_{x \to a} \frac{f(x)}{g(x)} = \frac{\lim_{x \to a} f(x)}{\lim_{x \to a} g(x)} \]
+      provided \( \lim_{x \to a} g(x) \neq 0 \).
+    </div>
+
+    <p>This is the quotient law we already know — as long as the bottom limit isn't zero, just find each limit separately and divide.</p>
+
+    <div class="example-box">
+      <strong>Example:</strong> \( \lim_{x \to 2} \dfrac{x+3}{x} \)<br><br>
+      \( \lim_{x\to2}(x+3)=5 \), \( \lim_{x\to2} x = 2 \), denominator \( \neq 0 \)<br>
+      \[ \lim_{x \to 2} \frac{x+3}{x} = \frac{5}{2} \]
+    </div>
+
+    <hr class="divider">
+
+    <p><strong>Case: numerator nonzero, denominator → 0.</strong></p>
+
+    <div class="warn-box">
+      If \( f(a) \neq 0 \) and \( g(a) = 0 \), the limit <strong>does not exist</strong>. Dividing by an ever-smaller denominator produces an ever-larger (unbounded) result — it can't settle on one value.
+    </div>
+  </div>
+
+  <div class="notes-col">
+    <div class="col-label">Examples / explanation</div>
+
+    <p><strong>Case: both numerator and denominator → 0 (the \( \frac{0}{0} \) case).</strong></p>
+
+    <div class="highlight">
+      \( \dfrac{0}{0} \) is <em>not</em> straightforward. Just knowing both approach zero tells us nothing on its own — we need to know how they approach zero relative to each other. It could give a large number, a small number, or something in between. We don't give up — we do more work.
+    </div>
+
+    <div class="example-box">
+      <strong>Simple check first:</strong> \( \dfrac{2x}{x} \)<br><br>
+      We don't care what happens exactly at \( x=0 \) — everywhere else, \( \dfrac{2x}{x}=2 \). So
+      \[ \lim_{x \to 0} \frac{2x}{x} = 2 \]
+    </div>
+
+    <p><strong>Example 1:</strong> \( \lim\limits_{x \to 0} \dfrac{x^2+2x-3}{x^2-3x+2} \)</p>
+    <div class="example-box">
+      Both numerator and denominator are polynomials — continuous everywhere. Denominator at \( x=0 \) is \( 2 \neq 0 \), so just substitute:
+      \[ \frac{0+0-3}{0-0+2} = \frac{-3}{2} \]
+    </div>
+
+    <p><strong>Example 2:</strong> \( \lim\limits_{x \to 1} \dfrac{x^2+2x-3}{x^2-3x+2} \)</p>
+    <div class="example-box">
+      Substituting \( x=1 \) gives \( \dfrac{0}{0} \) — indeterminate. Factorise both:
+      \[ \frac{x^2+2x-3}{x^2-3x+2} = \frac{(x+3)(x-1)}{(x-2)(x-1)} \]
+      Cancel the common factor \( (x-1) \):
+      \[ = \frac{x+3}{x-2} \]
+      Now substitute \( x=1 \):
+      \[ \frac{1+3}{1-2} = \frac{4}{-1} = -4 \]
+    </div>
+
+    <p><strong>Example 3:</strong> \( \lim\limits_{x \to -1} \dfrac{x-1}{x+\frac{1}{x}+2} \)</p>
+    <div class="example-box">
+      Substituting \( x=-1 \) directly is messy because of the \( \frac{1}{x} \) inside the denominator. Multiply numerator and denominator by \( x \) to clear it:
+      \[ \frac{x-1}{x+\frac{1}{x}+2} \times \frac{x}{x} = \frac{x(x-1)}{x^2+2x+1} \]
+      The denominator now factorises as a perfect square:
+      \[ x^2+2x+1 = (x+1)^2 \]
+      So the expression becomes:
+      \[ \frac{x(x-1)}{(x+1)^2} \]
+      Now substitute \( x=-1 \): numerator \( = (-1)(-2) = 2 \), denominator \( = (0)^2 = 0 \).
+      \[ \frac{2}{0} \]
+      Numerator is nonzero, denominator is \( 0 \) — this is the "numerator ≠ 0, denominator → 0" case from the Main points column.
+      \[ \lim_{x \to -1} \frac{x-1}{x+\frac{1}{x}+2} = \text{DNE} \]
+    </div>
+  </div>
+
+  <div class="notes-col">
+    <div class="col-label">Helpful points</div>
+
+    <div class="key-box">
+      Always substitute first. If you get a real number → done.<br>
+      If you get \( \frac{\text{nonzero}}{0} \) → limit DNE.<br>
+      If you get \( \frac{0}{0} \) → more work needed (factorise, rationalise, etc.).
+    </div>
+
+    <hr class="divider">
+
+    <div class="highlight">
+      \( \frac{0}{0} \) is called an <strong>indeterminate form</strong> — it doesn't tell you the answer directly, only that you need to simplify before you can see the limit.
+    </div>
+
+    <hr class="divider">
+
+    <p>Common simplifying techniques for \( \frac{0}{0} \):</p>
+    <table class="limit-table">
+      <tr><th>Technique</th><th>Use when...</th></tr>
+      <tr><td>Factorise</td><td>polynomials share a common root/factor</td></tr>
+      <tr><td>Rationalise</td><td>a square root is involved</td></tr>
+      <tr><td>Common denominator</td><td>fractions within fractions</td></tr>
+    </table>
+  </div>
+
+</div>
+
+</div>
+
+<footer>Maths Study Hub</footer>
+
+</body>
+</html>
