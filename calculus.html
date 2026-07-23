@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculus — Maths Study Hub</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  /* Styling to match your beautiful dashboard theme */
+  .topic-card {
+    background: #fff;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+  }
+  .topic-card h2 {
+    color: #0e7490; /* Electric Blue header variant */
+    font-size: 20px;
+    margin-bottom: 12px;
+    border-bottom: 2px solid #cffafe;
+    padding-bottom: 6px;
+  }
+  .notes-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .notes-list li {
+    margin: 10px 0;
+  }
+  .notes-link {
+    color: #1f2937;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    transition: color 0.2s;
+  }
+  .notes-link:hover {
+    color: #00d2ff; /* Electric Blue hover */
+    text-decoration: underline;
+  }
+  .tag {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+  .tag-intro { background: #f0fdf4; color: #16a34a; }
+  .tag-cont { background: #fef2f2; color: #dc2626; }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-brand">📚 Maths Study Hub</span>
+  <a href="index.html" class="nav-link nav-home">Home</a>
+  <a href="calendar.html" class="nav-link nav-cal">📅 Calendar</a>
+  <a href="algebra.html" class="nav-link nav-alg">Algebra</a>
+  <a href="geometry.html" class="nav-link nav-geo">Geometry</a>
+  <a href="calculus.html" class="nav-link nav-calc active">Calculus</a>
+  <a href="assignments.html" class="nav-link nav-assign">Assignments</a>
+  <a href="exam-prep.html" class="nav-link nav-exam">Exam prep</a>
+  <a href="study-resources.html" class="nav-link nav-res">Resources</a>
+</nav>
+
+<div class="page-hero" style="background: #cffafe; border-bottom: 2px solid #0e7490;">
+  <h1 style="color: #164E63;">∫ Calculus Learning Portal</h1>
+  <p style="color: #0e7490;">Select a topic below to open your token-saved study notes.</p>
+</div>
+
+<div class="content" style="max-width: 800px; margin: 40px auto; padding: 0 20px;">
+
+  <!-- UNIT 1: LIMITS & CONTINUITY -->
+  <div class="topic-card">
+    <h2>📐 Unit 1: Limits and Continuity</h2>
+    <ul class="notes-list">
+      <li>
+        <a href="notes/limits-intro.html" class="notes-link">
+          📝 Page 1: Limits — Introduction <span class="tag tag-intro">Intro</span>
+        </a>
+      </li>
+      <li>
+        <a href="notes/one-sided-limits.html" class="notes-link">
+          📝 Page 2: One-Sided Limits & Infinity <span class="tag tag-intro">Intro</span>
+        </a>
+      </li>
+      <li>
+        <a href="notes/continuity.html" class="notes-link">
+          📝 Page 3: Continuity & Discontinuity <span class="tag tag-cont">Continuity</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- UNIT 2: DIFFERENTIATION -->
+  <div class="topic-card">
+    <h2>⚡ Unit 2: Differentiation</h2>
+    <ul class="notes-list">
+      <li>
+        <a href="notes/derivatives-intro.html" class="notes-link">
+          📝 Introduction to Derivatives
+        </a>
+      </li>
+      <li>
+        <a href="notes/chain-rule.html" class="notes-link">
+          📝 The Chain Rule & Product Rule
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- UNIT 3: INTEGRATION -->
+  <div class="topic-card">
+    <h2>🌀 Unit 3: Integration</h2>
+    <ul class="notes-list">
+      <li>
+        <a href="notes/integration-basics.html" class="notes-link">
+          📝 Definite and Indefinite Integrals
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculus — Limits and Continuity Notes · Maths Study Hub</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.notes-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+  border: 3px solid var(--calc);
+  border-radius: 12px 12px 0 0;
+  overflow: hidden;
+  margin-bottom: 0;
+  font-size: 14px;
+}
+.notes-header-cell {
+  padding: 10px 16px;
+  background: var(--calc);
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  border-right: 2px solid rgba(255,255,255,0.3);
+}
+.notes-header-cell:last-child { border-right: none; }
+.notes-header-cell span { display: block; font-size: 11px; opacity: 0.75; font-weight: 400; margin-bottom: 2px; }
+
+.notes-title-bar {
+  background: var(--calc-light);
+  border: 3px solid var(--calc);
+  border-top: none;
+  padding: 12px 20px;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--calc-dark);
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.page-num {
+  background: var(--calc);
+  color: #fff;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.notes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr 1fr;
+  border: 3px solid var(--calc);
+  border-top: none;
+  border-radius: 0 0 12px 12px;
+  overflow: hidden;
+  margin-bottom: 2.5rem;
+}
+
+.notes-col {
+  padding: 20px;
+  border-right: 2px solid var(--border);
+}
+.notes-col:last-child { border-right: none; }
+
+.col-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--calc);
+  margin-bottom: 14px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--calc-light);
+}
+
+.notes-col p { margin-bottom: 12px; font-size: 16px; line-height: 1.8; }
+.notes-col p:last-child { margin-bottom: 0; }
+
+.highlight {
+  background: #FEF9C3;
+  border-left: 4px solid #EAB308;
+  padding: 10px 14px;
+  border-radius: 0 8px 8px 0;
+  margin: 12px 0;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.key-box {
+  background: var(--calc-light);
+  border: 2px solid var(--calc);
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin: 12px 0;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.example-box {
+  background: #F0FDF4;
+  border: 2px solid #16A34A;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin: 12px 0;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.warn-box {
+  background: #FEF2F2;
+  border: 2px solid #DC2626;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin: 12px 0;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.graph-box {
+  background: var(--bg);
+  border: 2px dashed var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  margin: 12px 0;
+  text-align: center;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.graph-ascii {
+  font-family: monospace;
+  font-size: 13px;
+  color: var(--calc-dark);
+  line-height: 1.5;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.divider { border: none; border-top: 2px solid var(--border); margin: 16px 0; }
+
+table.limit-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  margin: 10px 0;
+}
+table.limit-table th {
+  background: var(--calc);
+  color: #fff;
+  padding: 8px 12px;
+  text-align: center;
+  font-size: 13px;
+}
+table.limit-table td {
+  padding: 7px 12px;
+  border: 1px solid var(--border);
+  text-align: center;
+}
+table.limit-table tr:nth-child(even) td { background: var(--bg); }
+
+.arrow-right { color: var(--calc); font-weight: 700; }
+
+.cont-header-cell { background: #0E7490; }
+.notes-cont .notes-header { border-color: #0E7490; }
+.notes-cont .notes-title-bar { background: #CFFAFE; border-color: #0E7490; color: #164E63; }
+.notes-cont .page-num { background: #0E7490; }
+.notes-cont .notes-grid { border-color: #0E7490; }
+.notes-cont .col-label { color: #0E7490; border-bottom-color: #CFFAFE; }
+.notes-cont .key-box { background: #CFFAFE; border-color: #0E7490; }
+.notes-cont .highlight { border-left-color: #0E7490; background: #ECFEFF; }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-brand">📚 Maths Study Hub</span>
+  <a href="../index.html" class="nav-link nav-home">Home</a>
+  <a href="../calendar.html" class="nav-link nav-cal">📅 Calendar</a>
+  <a href="../algebra.html" class="nav-link nav-alg">Algebra</a>
+  <a href="../geometry.html" class="nav-link nav-geo">Geometry</a>
+  <a href="../calculus.html" class="nav-link nav-calc active">Calculus</a>
+  <a href="../assignments.html" class="nav-link nav-assign">Assignments</a>
+  <a href="../exam-prep.html" class="nav-link nav-exam">Exam prep</a>
+  <a href="../study-resources.html" class="nav-link nav-res">Resources</a>
+</nav>
+
+<div class="page-hero" style="background:var(--calc-light); border-bottom-color:var(--calc);">
+  <h1 style="color:var(--calc-dark);">∫ Calculus — Limits and Continuity</h1>
+  <p style="color:var(--calc);">Handwritten notes — typed up · 4 pages</p>
+</div>
+
+<div class="content">
+
+<!-- ===================== PAGE 1 ===================== -->
+
+<div class="notes-header">
+  <div class="notes-header-cell"><span>Subject</span>Calculus</div>
+  <div class="notes-header-cell"><span>Subtopic</span>Limits — Introduction</div>
+  <div class="notes-header-cell"><span>Sheet</span>1 of 3</div>
+</div>
+<div class="notes-title-bar">
+  <div class="page-num">1</div>
+  What are limits?
+</div>
+<div class="notes-grid">
+
+  <div class="notes-col">
+    <div class="col-label">Main points</div>
+
+    <p>A <strong>function</strong> \( f(x) \) describes what happens when input values change.</p>
+
+    <div class="highlight">
+      \( f(x) \) maps <strong>inputs</strong> (values of \( x \)) to <strong>outputs</strong> (values of \( f(x) \)).
+    </div>
+
+    <p><strong>Why limits matter:</strong></p>
+    <p>📐 <strong>Derivatives</strong> — use limits to find the slope of a tangent to a curve</p>
+    <p>∫ <strong>Integrals</strong> — use limits to find area under a curve (rectangles getting thinner — Riemann sum)</p>
+
+    <hr class="divider">
+
+    <p><strong>One-sided limits</strong></p>
+    <p>Right-hand limit — approaching from the right:</p>
+    <p>\[ \lim_{x \to 2^+} f(x) = 2 \]</p>
+    <p>Left-hand limit — approaching from the left:</p>
+    <p>\[ \lim_{x \to 2^-} f(x) = -2 \]</p>
+
+    <hr class="divider">
+
+    <p><strong>Tends to infinity</strong></p>
+    <p>If outputs grow rapidly and do not slow down, the limit tends to \( \infty \).</p>
+  </div>
+
+  <div class="notes-col">
+    <div class="col-label">Worked examples and information</div>
+
+    <p>Using the function:</p>
+    <p>\[ f(x) = \frac{\sqrt{3 - 5x} + 2x^2 + 23}{x - 1} \]</p>
+
+    <p>As \( x \to 1 \) (getting closer from the left):</p>
+
+    <table class="limit-table">
+      <thead>
+        <tr><th>Input \( x \)</th><th>Output \( f(x) \)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>0.5</td><td>−1.87</td></tr>
+        <tr><td>0.9</td><td>−1.93</td></tr>
+        <tr><td>0.99</td><td>−1.997</td></tr>
+        <tr><td>0.999</td><td>−1.9997</td></tr>
+        <tr><td class="arrow-right">→ 1</td><td class="arrow-right">→ −2</td></tr>
+      </tbody>
+    </table>
+
+    <p style="margin-top:12px;">So \( f(x) \) is <strong>getting closer to −2</strong> as \( x \) approaches 1.</p>
+
+    <hr class="divider">
+
+    <p><strong>Checking if a limit tends to \( \infty \):</strong></p>
+    <p>Show input values increasing by a factor of 10. If the output also increases by a factor of 10 each time and does not slow down, the limit tends to \( \infty \).</p>
+
+    <table class="limit-table">
+      <thead>
+        <tr><th>Input</th><th>Output</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1.01</td><td>≈ 2.003</td></tr>
+        <tr><td>1.1</td><td>≈ 2.02</td></tr>
+        <tr><td>1.9</td><td>≈ 2.12</td></tr>
+        <tr><td>1.5</td><td>≈ 2 (closer)</td></tr>
+      </tbody>
+    </table>
+
+    <p style="margin-top:12px;">Example of output growing rapidly — limit tends to \( \infty \):</p>
+    <p>1.84, 18.45, 184.2, 1999.5, 19998.45...</p>
+
+    <hr class="divider">
+
+    <p style="font-size:13px; font-weight:700; color:var(--calc); margin-bottom:8px;">One-sided limits at x = 1</p>
+
+    <svg width="100%" viewBox="0 0 340 210" style="display:block;">
+      <defs>
+        <marker id="arr2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+          <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </marker>
+      </defs>
+      <line x1="40" y1="108" x2="318" y2="108" stroke="#374151" stroke-width="1.2" marker-end="url(#arr2)"/>
+      <line x1="55" y1="198" x2="55" y2="14" stroke="#374151" stroke-width="1.2" marker-end="url(#arr2)"/>
+      <line x1="55" y1="48" x2="193" y2="48" stroke="#9CA3AF" stroke-width="0.8" stroke-dasharray="4 3"/>
+      <line x1="55" y1="168" x2="193" y2="168" stroke="#9CA3AF" stroke-width="0.8" stroke-dasharray="4 3"/>
+      <line x1="200" y1="48" x2="200" y2="168" stroke="#9CA3AF" stroke-width="0.8" stroke-dasharray="4 3"/>
+      <path d="M 68,102 C 95,105 138,130 193,166" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/>
+      <path d="M 312,58 C 285,52 248,49 207,49" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="200" cy="48"  r="5" fill="white" stroke="#2563EB" stroke-width="2"/>
+      <circle cx="200" cy="168" r="5" fill="white" stroke="#2563EB" stroke-width="2"/>
+      <text font-family="inherit" font-size="10" fill="#374151" x="48" y="112" text-anchor="end">0</text>
+      <text font-family="inherit" font-size="10" fill="#374151" x="48" y="52"  text-anchor="end">2</text>
+      <text font-family="inherit" font-size="10" fill="#374151" x="48" y="172" text-anchor="end">-2</text>
+      <text font-family="inherit" font-size="10" fill="#374151" x="200" y="122" text-anchor="middle">1</text>
+      <text font-family="inherit" font-size="10" fill="#374151" x="322" y="111">x</text>
+      <text font-family="inherit" font-size="10" fill="#374151" x="58"  y="13">f(x)</text>
+      <text font-family="inherit" font-size="9"  fill="#2563EB" x="100" y="140">x→1⁻</text>
+      <text font-family="inherit" font-size="9"  fill="#2563EB" x="242" y="68">x→1⁺</text>
+      <text font-family="inherit" font-size="9"  fill="#A32D2D" x="170" y="200" text-anchor="middle">LH = −2 ≠ RH = 2</text>
+    </svg>
+
+  </div>
+
+  <div class="notes-col">
+    <div class="col-label">Helpful points</div>
+
+    <div class="key-box">
+      \( + \) superscript means approaching from the <strong>right</strong><br>
+      \( - \) superscript means approaching from the <strong>left</strong>
+    </div>
+
+    <p>\( \lim_{x \to a^+} f(x) \) = right-hand limit</p>
+    <p>\( \lim_{x \to a^-} f(x) \) = left-hand limit</p>
+
+    <hr class="divider">
+
+    <div class="warn-box">
+      <strong>Important:</strong> A limit describes what the function is <em>approaching</em> — not necessarily what it equals at that point.
+    </div>
+
+    <div class="highlight">
+      \( x \to a \) means \( x \) gets very close to \( a \) but <strong>does not have to equal \( a \)</strong>.
+    </div>
+
+    <p>If output keeps growing and does not slow down <span class="arrow-right">→</span> tends to \( \infty \)</p>
+  </div>
+
+</div>
+
+
+<!-- ===================== PAGE 2 ===================== -->
+
+<div class="notes-header">
+  <div class="notes-header-cell"><span>Subject</span>Calculus</div>
+  <div class="notes-header-cell"><span>Subtopic</span>Limits — Introduction</div>
+  <div class="notes-header-cell"><span>Sheet</span>2 of 3</div>
+</div>
+<div class="notes-title-bar">
+  <div class="page-num">2</div>
+  Behaviour and the overall limit
+</div>
+<div class="notes-grid">
+
+  <div class="notes-col">
+    <div class="col-label">Main points</div>
+
+    <p>There can be an <strong>overall limit</strong> only if both the right-hand (RH) and left-hand (LH) limits are equal.</p>
+
+    <div class="key-box">
+      \[ \lim_{x \to a} f(x) = L \]
+      when both LH and RH limits approach the same value \( L \).
+    </div>
+
+    <p>The limit may <strong>not exist</strong> because:</p>
+    <p>① The function blows up (tends to \( \infty \))</p>
+    <p>② RH and LH limits exist but are not equal</p>
+
+    <hr class="divider">
+
+    <p><strong>Finding limits around a:</strong></p>
+    <p>If function \( f(x) \) approaches the same value \( L \) as \( x \) approaches \( a \) from <strong>both sides</strong>, then the limit exists and equals \( L \).</p>
+
+    <p>\[ \lim_{x \to a} f(x) = L \]</p>
+  </div>
+
+  <div class="notes-col">
+    <div class="col-label">Worked examples and information</div>
+
+    <p style="font-size:13px;font-weight:700;color:#374151;margin-bottom:4px;">① Limit exists — both sides approach same value:</p>
+    <svg width="100%" viewBox="0 0 260 148" style="display:block;margin:6px 0 14px;">
+  <defs><marker id="ms2g1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+  <line x1="38" y1="108" x2="252" y2="108" stroke="#374151" stroke-width="1.2" marker-end="url(#ms2g1)"/>
+  <line x1="44" y1="138" x2="44" y2="14" stroke="#374151" stroke-width="1.2" marker-end="url(#ms2g1)"/>
+  <text font-family="inherit" font-size="10" fill="#374151" x="256" y="111">x</text>
+  <text font-family="inherit" font-size="10" fill="#374151" x="47" y="13">f(x)</text>
+  
+  <line x1="44" y1="52" x2="133" y2="52" stroke="#9CA3AF" stroke-width="0.8" stroke-dasharray="4 3"/>
+  <line x1="140" y1="52" x2="140" y2="108" stroke="#9CA3AF" stroke-width="0.8" stroke-dasharray="4 3"/>
+  <path d="M52,100 C75,92 108,72 133,54" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/>
+  <path d="M244,62 C218,55 184,52 147,54" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="140" cy="52" r="5" fill="white" stroke="#2563EB" stroke-width="2"/>
+  <text font-family="inherit" font-size="10" fill="#374151" x="36" y="55" text-anchor="end">L</text>
+  <text font-family="inherit" font-size="10" fill="#374151" x="140" y="120" text-anchor="middle">a</text>
+
+</svg>
+    <p style="font-size:13px;font-weight:700;color:#374151;margin-bottom:4px;">② LH limit exists but RH blows up — no limit:</p>
+    <svg width="100%" viewBox="0 0 260 148" style="display:block;margin:6px 0 14px;">
+  <defs><marker id="ms2g2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+  <line x1="38" y1="108" x2="252" y2="108" stroke="#374151" stroke-width="1.2" marker-end="url(#ms2g2)"/>
+  <line x1="44" y1="138" x2="44" y2="14" stroke="#374151" stroke-width="1.2" marker-end="url(#ms2g2)"/>
+  <text font-family="inherit" font-size="10" fill="#374151" x="256" y="111">x</text>
+  <text font-family="inherit" font-size="10" fill="#374151" x="47" y="13">f(x)</text>
+  
+  <line x1="145" y1="14" x2="145" y2="108" stroke="#EF9F27" stroke-width="1" stroke-dasharray="4 3"/>
+  <path d="M52,100 C80,94 112,84 136,70" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="138" cy="69" r="5" fill="white" stroke="#2563EB" stroke-width="2"/>
+  <path d="M244,95 C215,90 188,80 168,60 C162,44 158,26 155,14" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/>
+  <text font-family="inherit" font-size="10" fill="#2563EB" x="158" y="13">→ ∞</text>
+  <text font-family="inherit" font-size="9" fill="#92400E" x="145" y="120" text-anchor="middle">a</text>
+
+</svg>
+    <p style="font-size:13px;font-weight:700;color:#374151;margin-bottom:4px;">③ Wave never settles — no limit:</p>
+    <svg width="100%" viewBox="0 0 260 148" style="display:block;margin:6px 0 14px;">
+  <defs><marker id="ms2g3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+  <line x1="38" y1="75" x2="252" y2="75" stroke="#374151" stroke-width="1.2" marker-end="url(#ms2g3)"/>
+  <line x1="44" y1="138" x2="44" y2="14" stroke="#374151" stroke-width="1.2" marker-end="url(#ms2g3)"/>
+  <text font-family="inherit" font-size="10" fill="#374151" x="256" y="78">x</text>
+  <text font-family="inherit" font-size="10" fill="#374151" x="47" y="13">f(x)</text>
+  
+  <path d="M52,75 C56,43 61,43 66,75 C71,107 76,107 84,75 C92,43 97,43 104,75 C111,107 115,107 123,75 C131,43 134,43 139,75 C144,107 146,107 150,75 C154,43 156,43 159,75 C162,107 163.5,107 166,75 C168.5,43 169.5,43 171,75 C172.5,107 173,107 174.5,75 C176,43 176.5,43 177.5,75 C178.5,107 179,107 180,75" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/>
+  <line x1="188" y1="20" x2="188" y2="75" stroke="#9CA3AF" stroke-width="0.8" stroke-dasharray="4 3"/>
+  <text font-family="inherit" font-size="9" fill="#374151" x="188" y="86" text-anchor="middle">a</text>
+  <text font-family="inherit" font-size="9" fill="#A32D2D" x="130" y="130" text-anchor="middle">oscillates forever — no limit</text>
+
+</svg>
+    <p style="font-size:13px;font-weight:700;color:#374151;margin-bottom:4px;">④ LH ≠ RH — no overall limit (no axis labels):</p>
+    <svg width="100%" viewBox="0 0 260 190" style="display:block;margin:6px 0 14px;">
+  <defs><marker id="ms2g4" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+  <line x1="38" y1="95" x2="252" y2="95" stroke="#374151" stroke-width="1.2" marker-end="url(#ms2g4)"/>
+  <line x1="44" y1="138" x2="44" y2="14" stroke="#374151" stroke-width="1.2" marker-end="url(#ms2g4)"/>
+  <text font-family="inherit" font-size="10" fill="#374151" x="256" y="98">x</text>
+  <text font-family="inherit" font-size="10" fill="#374151" x="47" y="13">f(x)</text>
+  
+  <line x1="44" y1="40" x2="133" y2="40" stroke="#9CA3AF" stroke-width="0.8" stroke-dasharray="4 3"/>
+  <line x1="44" y1="150" x2="133" y2="150" stroke="#9CA3AF" stroke-width="0.8" stroke-dasharray="4 3"/>
+  <line x1="140" y1="40" x2="140" y2="150" stroke="#9CA3AF" stroke-width="0.8" stroke-dasharray="4 3"/>
+  <path d="M52,87 C78,89 112,108 132,148" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/>
+  <path d="M240,50 C212,44 180,41 148,41" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="140" cy="40" r="5" fill="white" stroke="#2563EB" stroke-width="2"/>
+  <circle cx="140" cy="150" r="5" fill="white" stroke="#2563EB" stroke-width="2"/>
+
+</svg>
+    <p style="font-size:13px;font-weight:700;color:#374151;margin-bottom:4px;">⑤ lim f(x) = L — overall limit exists:</p>
+    <svg width="100%" viewBox="0 0 260 148" style="display:block;margin:6px 0 14px;">
+  <defs><marker id="ms2g5" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+  <line x1="38" y1="108" x2="252" y2="108" stroke="#374151" stroke-width="1.2" marker-end="url(#ms2g5)"/>
+  <line x1="44" y1="138" x2="44" y2="14" stroke="#374151" stroke-width="1.2" marker-end="url(#ms2g5)"/>
+  <text font-family="inherit" font-size="10" fill="#374151" x="256" y="111">x</text>
+  <text font-family="inherit" font-size="10" fill="#374151" x="47" y="13">f(x)</text>
+  
+  <line x1="44" y1="52" x2="133" y2="52" stroke="#9CA3AF" stroke-width="0.8" stroke-dasharray="4 3"/>
+  <line x1="140" y1="52" x2="140" y2="108" stroke="#9CA3AF" stroke-width="0.8" stroke-dasharray="4 3"/>
+  <path d="M52,100 C75,92 108,72 133,54" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/>
+  <path d="M244,62 C218,55 184,52 147,54" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="140" cy="52" r="5" fill="white" stroke="#2563EB" stroke-width="2"/>
+  <text font-family="inherit" font-size="10" fill="#374151" x="36" y="55" text-anchor="end">L</text>
+  <text font-family="inherit" font-size="10" fill="#374151" x="140" y="120" text-anchor="middle">a</text>
+  <text font-family="inherit" font-size="9" fill="#2563EB" x="155" y="40">lim f(x) = L</text>
+  <text font-family="inherit" font-size="9" fill="#6B7280" x="155" y="52">x → a from both sides</text>
+
+</svg>
+  </div>
+
+  <div class="notes-col">
+    <div class="col-label">Helpful points</div>
+
+    <div class="key-box">
+      For an overall limit to exist:<br><br>
+      ① Both LH and RH limits must <strong>exist</strong><br>
+      ② They must be <strong>equal</strong>
+    </div>
+
+    <p>So diagrams ②, ③, ④ do <strong>not</strong> have an overall limit.</p>
+
+    <hr class="divider">
+
+    <div class="highlight">
+      <strong>Remember:</strong> \( x \) approaches \( a \), but \( x \neq a \). We never actually let \( x \) equal \( a \) when finding a limit.
+    </div>
+
+    <div class="warn-box">
+      Even if \( f(a) \) exists, that does <strong>not</strong> mean the limit equals \( f(a) \). These are separate questions.
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ===================== PAGE 3 ===================== -->
+
+<div class="notes-header">
+  <div class="notes-header-cell"><span>Subject</span>Calculus</div>
+  <div class="notes-header-cell"><span>Subtopic</span>Limits — Introduction</div>
+  <div class="notes-header-cell"><span>Sheet</span>3 of 3</div>
+</div>
+<div class="notes-title-bar">
+  <div class="page-num">3</div>
+  Laws of limits — the first four are easy!
+</div>
+<div class="notes-grid">
+
+  <div class="notes-col">
+    <div class="col-label">Main points</div>
+
+    <p>When you <strong>know</strong> two limits, you can work out the limit of combinations of those functions.</p>
+
+    <div class="example-box">
+      <strong>Example:</strong><br>
+      \( \lim_{x \to a} f(x) = 5 \) and \( \lim_{x \to a} g(x) = 3 \)<br><br>
+      Then: \( \lim_{x \to a} [f(x) + g(x)] = 5 + 3 = 8 \)
+    </div>
+
+    <hr class="divider">
+
+    <p>The four laws work for <strong>one-sided limits</strong> too, as long as both sides are coming from the <strong>same direction</strong>.</p>
+
+    <div class="highlight">
+      These laws only work when the individual limits already exist. If a limit does not exist, you cannot apply the laws.
+    </div>
+  </div>
+
+  <div class="notes-col">
+    <div class="col-label">The four laws</div>
+
+    <p>If \( \lim_{x \to a} f(x) = L \) and \( \lim_{x \to a} g(x) = M \), then:</p>
+
+    <div class="key-box">
+      <strong>① Addition:</strong>
+      \[ \lim_{x \to a} [f(x) + g(x)] = L + M \]
+
+      <strong>② Subtraction:</strong>
+      \[ \lim_{x \to a} [f(x) - g(x)] = L - M \]
+
+      <strong>③ Multiplication:</strong>
+      \[ \lim_{x \to a} [f(x) \times g(x)] = L \times M \]
+
+      <strong>④ Division</strong> (if \( M \neq 0 \)):
+      \[ \lim_{x \to a} \frac{f(x)}{g(x)} = \frac{L}{M} \]
+    </div>
+
+    <div class="example-box">
+      <strong>Worked example using law ③:</strong><br>
+      \( \lim_{x \to a} f(x) = L \), \( \lim_{x \to a} g(x) = M \)<br>
+      \[ \lim_{x \to a} [f(x) \times g(x)] = L \times M \]
+    </div>
+  </div>
+
+  <div class="notes-col">
+    <div class="col-label">Helpful points</div>
+
+    <div class="key-box">
+      <strong>Division law — important condition:</strong><br>
+      Division only works if \( M \neq 0 \).<br>
+      If \( M = 0 \), you cannot divide — the limit may not exist or may tend to \( \infty \).
+    </div>
+
+    <hr class="divider">
+
+    <p>Also holds for <strong>subtraction</strong> — works with one-sided limits as long as both are coming from the same direction.</p>
+
+    <div class="highlight">
+      You can <strong>combine</strong> these laws. For example, to find the limit of \( f(x) + g(x) - h(x) \), apply the addition law then the subtraction law.
+    </div>
+
+    <div class="warn-box">
+      Always check the individual limits exist <strong>before</strong> applying any law.
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ===================== PAGE 4 — CONTINUITY ===================== -->
+
+<div style="margin-top: 1rem; padding: 10px 0; border-top: 3px solid var(--assign); margin-bottom: 1.5rem;">
+  <p style="font-size: 14px; color: var(--assign); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;">Next topic — Continuity</p>
+</div>
+
+<div class="notes-cont">
+<div class="notes-header">
+  <div class="notes-header-cell cont-header-cell"><span>Subject</span>Calculus</div>
+  <div class="notes-header-cell cont-header-cell"><span>Subtopic</span>Continuity</div>
+  <div class="notes-header-cell cont-header-cell"><span>Sheet</span>1</div>
+</div>
+<div class="notes-title-bar">
+  <div class="page-num" style="background:#0E7490;">1</div>
+  What is continuity?
+</div>
+<div class="notes-grid" style="border-color:#0E7490;">
+
+  <div class="notes-col">
+    <div class="col-label" style="color:#0E7490; border-bottom-color:#CFFAFE;">Main points</div>
+
+    <div class="key-box" style="background:#CFFAFE; border-color:#0E7490;">
+      <strong>Continuity:</strong> \( f(x) \) is continuous at \( x = a \) when:
+      \[ \lim_{x \to a} f(x) = f(a) \]
+    </div>
+
+    <p>But if \( \lim_{x \to a} f(x) \) does not equal \( f(a) \), we say it is <strong>discontinuous</strong> at that point.</p>
+
+    <hr class="divider">
+
+    <p><strong>Three types of discontinuity:</strong></p>
+
+    <p><strong>①</strong> Limit exists but \( f(a) \) does <strong>not exist</strong> (hole in graph — open circle)</p>
+
+    <p><strong>②</strong> Limit exists but is <strong>not equal</strong> to \( f(a) \) (hole with the dot in the wrong place)</p>
+
+    <p><strong>③</strong> \( f(a) \) exists but the limit does <strong>not exist</strong> — because RH and LH limits are not equal</p>
+
+    <hr class="divider">
+
+    <p>If \( \lim_{x \to a^-} f(x) = f(a) \) — function is <strong>right-continuous</strong> but not overall continuous.</p>
+  </div>
+
+  <div class="notes-col">
+    <div class="col-label" style="color:#0E7490; border-bottom-color:#CFFAFE;">Graphs and information</div>
+
+    <p style="font-size:13px;font-weight:700;color:#0E7490;margin-bottom:4px;">① Continuous — filled dot, both sides meet at f(a):</p>
+    <svg width="100%" viewBox="0 0 260 148" style="display:block;margin:6px 0 14px;">
+  <defs><marker id="cmc1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+  <line x1="38" y1="108" x2="252" y2="108" stroke="#374151" stroke-width="1.2" marker-end="url(#cmc1)"/>
+  <line x1="44" y1="138" x2="44" y2="14" stroke="#374151" stroke-width="1.2" marker-end="url(#cmc1)"/>
+  <text font-family="inherit" font-size="10" fill="#374151" x="256" y="111">x</text>
+  <text font-family="inherit" font-size="10" fill="#374151" x="47" y="13">f(x)</text>
+  
+  <path d="M52,100 C80,88 112,68 133,54" fill="none" stroke="#0E7490" stroke-width="2" stroke-linecap="round"/>
+  <path d="M244,62 C215,55 180,52 147,54" fill="none" stroke="#0E7490" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="140" cy="52" r="6" fill="#0E7490" stroke="#0E7490" stroke-width="1.5"/>
+  <text font-family="inherit" font-size="10" fill="#374151" x="140" y="120" text-anchor="middle">a</text>
+  <text font-family="inherit" font-size="9" fill="#0E7490" x="152" y="42">f(a) = lim f(x) ✓</text>
+
+</svg>
+    <p style="font-size:13px;font-weight:700;color:#0E7490;margin-bottom:4px;">② Open circle — f(a) does not exist:</p>
+    <svg width="100%" viewBox="0 0 260 148" style="display:block;margin:6px 0 14px;">
+  <defs><marker id="cmc2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+  <line x1="38" y1="108" x2="252" y2="108" stroke="#374151" stroke-width="1.2" marker-end="url(#cmc2)"/>
+  <line x1="44" y1="138" x2="44" y2="14" stroke="#374151" stroke-width="1.2" marker-end="url(#cmc2)"/>
+  <text font-family="inherit" font-size="10" fill="#374151" x="256" y="111">x</text>
+  <text font-family="inherit" font-size="10" fill="#374151" x="47" y="13">f(x)</text>
+  
+  <path d="M52,100 C80,88 112,68 133,54" fill="none" stroke="#0E7490" stroke-width="2" stroke-linecap="round"/>
+  <path d="M244,62 C215,55 180,52 147,54" fill="none" stroke="#0E7490" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="140" cy="52" r="6" fill="white" stroke="#0E7490" stroke-width="2"/>
+  <text font-family="inherit" font-size="10" fill="#374151" x="256" y="111">x</text>
+  <text font-family="inherit" font-size="9" fill="#A32D2D" x="152" y="42">f(a) does not exist</text>
+
+</svg>
+    <p style="font-size:13px;font-weight:700;color:#0E7490;margin-bottom:4px;">③ Open circle at limit + filled dot lower — limit ≠ f(a):</p>
+    <svg width="100%" viewBox="0 0 260 148" style="display:block;margin:6px 0 14px;">
+  <defs><marker id="cmc3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+  <line x1="38" y1="108" x2="252" y2="108" stroke="#374151" stroke-width="1.2" marker-end="url(#cmc3)"/>
+  <line x1="44" y1="138" x2="44" y2="14" stroke="#374151" stroke-width="1.2" marker-end="url(#cmc3)"/>
+  <text font-family="inherit" font-size="10" fill="#374151" x="256" y="111">x</text>
+  <text font-family="inherit" font-size="10" fill="#374151" x="47" y="13">f(x)</text>
+  
+  <path d="M52,100 C80,88 112,68 133,52" fill="none" stroke="#0E7490" stroke-width="2" stroke-linecap="round"/>
+  <path d="M244,62 C215,55 180,52 147,52" fill="none" stroke="#0E7490" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="140" cy="50" r="6" fill="white" stroke="#0E7490" stroke-width="2"/>
+  <circle cx="140" cy="82" r="6" fill="#0E7490" stroke="#0E7490" stroke-width="1.5"/>
+  <text font-family="inherit" font-size="10" fill="#374151" x="140" y="120" text-anchor="middle">a</text>
+  <text font-family="inherit" font-size="9" fill="#6B7280" x="152" y="47">limit</text>
+  <text font-family="inherit" font-size="9" fill="#0E7490" x="152" y="86">f(a)</text>
+  <text font-family="inherit" font-size="9" fill="#A32D2D" x="152" y="100">limit ≠ f(a)</text>
+
+</svg>
+    <p style="font-size:13px;font-weight:700;color:#0E7490;margin-bottom:4px;">④ Right-continuous only — filled dot RH, open circle LH:</p>
+    <svg width="100%" viewBox="0 0 260 148" style="display:block;margin:6px 0 14px;">
+  <defs><marker id="cmc4" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+  <line x1="38" y1="108" x2="252" y2="108" stroke="#374151" stroke-width="1.2" marker-end="url(#cmc4)"/>
+  <line x1="44" y1="138" x2="44" y2="14" stroke="#374151" stroke-width="1.2" marker-end="url(#cmc4)"/>
+  <text font-family="inherit" font-size="10" fill="#374151" x="256" y="111">x</text>
+  <text font-family="inherit" font-size="10" fill="#374151" x="47" y="13">f(x)</text>
+  
+  <path d="M52,95 C80,90 112,88 132,85" fill="none" stroke="#0E7490" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="138" cy="84" r="6" fill="white" stroke="#0E7490" stroke-width="2"/>
+  <path d="M244,60 C215,55 180,50 148,48" fill="none" stroke="#0E7490" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="140" cy="47" r="6" fill="#0E7490" stroke="#0E7490" stroke-width="1.5"/>
+  <text font-family="inherit" font-size="10" fill="#374151" x="140" y="120" text-anchor="middle">a</text>
+  <text font-family="inherit" font-size="9" fill="#0E7490" x="150" y="44">f(a) = RH limit ✓</text>
+  <text font-family="inherit" font-size="9" fill="#A32D2D" x="150" y="92">LH limit ≠ f(a)</text>
+
+</svg>
+  </div>
+
+  <div class="notes-col">
+    <div class="col-label" style="color:#0E7490; border-bottom-color:#CFFAFE;">Helpful points</div>
+
+    <div class="key-box" style="background:#CFFAFE; border-color:#0E7490;">
+      <strong>Jump discontinuity:</strong><br>
+      RH and LH limits both exist and you can see them, but they are not equal so there is no overall limit — and therefore no continuity.
+    </div>
+
+    <hr class="divider">
+
+    <div class="key-box" style="background:#CFFAFE; border-color:#0E7490;">
+      <strong>Removable discontinuity:</strong><br>
+      The overall limit <strong>exists</strong> (both sides agree), but the overall limit does not equal \( f(a) \). Called "removable" because you could fix it by redefining \( f(a) \).
+    </div>
+
+    <hr class="divider">
+
+    <div class="highlight" style="border-left-color:#0E7490; background:#ECFEFF;">
+      <strong>Remember:</strong> Right-continuous at \( a \) does NOT mean overall continuous. You need the limit from <em>both</em> sides to equal \( f(a) \).
+    </div>
+
+    <hr class="divider" style="border-color:#CFFAFE;"/>
+    <p style="font-size:13px;font-weight:700;color:#0E7490;margin-bottom:4px;">Jump discontinuity:</p>
+    <svg width="100%" viewBox="0 0 230 145" style="display:block;margin:6px 0 14px;">
+  <defs><marker id="mcr1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+  <line x1="35" y1="105" x2="222" y2="105" stroke="#374151" stroke-width="1.2" marker-end="url(#mcr1)"/>
+  <line x1="42" y1="135" x2="42" y2="14" stroke="#374151" stroke-width="1.2" marker-end="url(#mcr1)"/>
+  <text font-family="inherit" font-size="10" fill="#374151" x="226" y="108">x</text>
+  <text font-family="inherit" font-size="10" fill="#374151" x="44" y="13">f(x)</text>
+  <path d="M50,95 C72,90 100,82 120,80" fill="none" stroke="#0E7490" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="128" cy="79" r="5" fill="white" stroke="#0E7490" stroke-width="2"/>
+  <circle cx="132" cy="42" r="5" fill="#0E7490" stroke="#0E7490" stroke-width="1.5"/>
+  <path d="M138,44 C160,48 185,58 210,75" fill="none" stroke="#0E7490" stroke-width="2" stroke-linecap="round"/>
+  <text font-family="inherit" font-size="9" fill="#374151" x="130" y="116" text-anchor="middle">a</text>
+</svg>
+    <p style="font-size:13px;font-weight:700;color:#0E7490;margin-bottom:4px;">Removable discontinuity:</p>
+    <svg width="100%" viewBox="0 0 230 145" style="display:block;margin:6px 0 14px;">
+  <defs><marker id="mcr2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+  <line x1="35" y1="105" x2="222" y2="105" stroke="#374151" stroke-width="1.2" marker-end="url(#mcr2)"/>
+  <line x1="42" y1="135" x2="42" y2="14" stroke="#374151" stroke-width="1.2" marker-end="url(#mcr2)"/>
+  <text font-family="inherit" font-size="10" fill="#374151" x="226" y="108">x</text>
+  <text font-family="inherit" font-size="10" fill="#374151" x="44" y="13">f(x)</text>
+  <path d="M50,95 C72,82 100,62 122,52" fill="none" stroke="#0E7490" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="130" cy="48" r="5" fill="white" stroke="#0E7490" stroke-width="2"/>
+  <path d="M138,48 C158,54 182,68 210,85" fill="none" stroke="#0E7490" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="130" cy="78" r="5" fill="#0E7490" stroke="#0E7490" stroke-width="1.5"/>
+  <text font-family="inherit" font-size="9" fill="#374151" x="130" y="116" text-anchor="middle">a</text>
+  <text font-family="inherit" font-size="9" fill="#6B7280" x="142" y="45">limit (hole)</text>
+  <text font-family="inherit" font-size="9" fill="#0E7490" x="142" y="80">f(a)</text>
+</svg>
+  </div>
+
+</div>
+</div>
+
+</div>
+
+<!-- ===================== PAGE 5 — CONTINUITY ===================== -->
+
+<div style="margin-top: 1rem; padding: 10px 0; border-top: 3px solid var(--assign); margin-bottom: 1.5rem;">
+  <p style="font-size: 14px; color: var(--assign); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;">Next topic — Continuity</p>
+</div>
+
+<div class="notes-cont">
+<div class="notes-header">
+  <div class="notes-header-cell cont-header-cell"><span>Subject</span>Calculus</div>
+  <div class="notes-header-cell cont-header-cell"><span>Subtopic</span>Continuity</div>
+  <div class="notes-header-cell cont-header-cell"><span>Sheet</span>1</div>
+</div>
+<div class="notes-title-bar">
+  <div class="page-num" style="background:#0E7490;">1</div>
+  Overall Continuity
+</div>
+<div class="notes-grid" style="border-color:#0E7490;">
+
+  <div class="notes-col">
+    <div class="col-label" style="color:#0E7490; border-bottom-color:#CFFAFE;">Main points</div>
+
+    <div class="key-box" style="background:#CFFAFE; border-color:#0E7490;">
+      <strong>Continuity:</strong> \( f(x) \) is continuous at \( x = a \) when:
+      \[ \lim_{x \to a} f(x) = f(a) \]
+    </div>
+
+    <p><strong>When is a function continuous everywhere?</strong></p>
+
+    <p>A function is continuous everywhere — at <strong>every</strong> point — when you never have to lift your pen to draw it.</p>
+
+    <div class="key-box" style="background:#CFFAFE; border-color:#0E7490;">
+      The limit of a continuous function is always the value of that function at that point.
+    </div>
+
+    <hr class="divider">
+
+    <p><strong>Continuous functions</strong> (constants):</p>
+    <ul style="margin:0 0 8px 18px; padding:0;">
+      <li>\( g(x) = x \)</li>
+      <li>\( |x| \)</li>
+      <li>\( \sin x \)</li>
+      <li>\( \cos x \)</li>
+    </ul>
+
+    <div class="highlight" style="border-left-color:#A32D2D; background:#FEF2F2;">
+      <strong>NOT continuous:</strong> \( \tan x = \dfrac{\sin x}{\cos x} \) — always the exception, because \( \cos x = 0 \) at certain points, so \( \tan x \) blows up there.
+    </div>
+  </div>
+
+  <div class="notes-col">
+    <div class="col-label" style="color:#0E7490; border-bottom-color:#CFFAFE;">Graphs and information</div>
+
+    <p style="font-size:13px;font-weight:700;color:#0E7490;margin-bottom:4px;">Constant function — f(x) = 3:</p>
+    <svg width="100%" viewBox="0 0 230 130" style="display:block;margin:6px 0 14px;">
+  <defs><marker id="cmc5" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+  <line x1="30" y1="100" x2="215" y2="100" stroke="#374151" stroke-width="1.2" marker-end="url(#cmc5)"/>
+  <line x1="36" y1="120" x2="36" y2="15" stroke="#374151" stroke-width="1.2" marker-end="url(#cmc5)"/>
+  <text font-family="inherit" font-size="10" fill="#374151" x="219" y="103">x</text>
+  <text font-family="inherit" font-size="10" fill="#374151" x="39" y="14">f(x)</text>
+  <line x1="45" y1="55" x2="205" y2="55" stroke="#0E7490" stroke-width="2" stroke-linecap="round"/>
+  <text font-family="inherit" font-size="9" fill="#0E7490" x="150" y="47">f(x) = 3</text>
+</svg>
+
+    <p style="font-size:13px;font-weight:700;color:#0E7490;margin-bottom:4px;">g(x) = x:</p>
+    <svg width="100%" viewBox="0 0 230 130" style="display:block;margin:6px 0 14px;">
+  <defs><marker id="cmc6" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+  <line x1="30" y1="65" x2="215" y2="65" stroke="#374151" stroke-width="1.2" marker-end="url(#cmc6)"/>
+  <line x1="115" y1="120" x2="115" y2="15" stroke="#374151" stroke-width="1.2" marker-end="url(#cmc6)"/>
+  <text font-family="inherit" font-size="10" fill="#374151" x="219" y="68">x</text>
+  <text font-family="inherit" font-size="10" fill="#374151" x="118" y="14">f(x)</text>
+  <line x1="55" y1="105" x2="175" y2="25" stroke="#0E7490" stroke-width="2" stroke-linecap="round"/>
+  <text font-family="inherit" font-size="9" fill="#0E7490" x="150" y="40">g(x) = x</text>
+</svg>
+
+    <p style="font-size:13px;font-weight:700;color:#0E7490;margin-bottom:4px;">|x|:</p>
+    <svg width="100%" viewBox="0 0 230 130" style="display:block;margin:6px 0 14px;">
+  <defs><marker id="cmc7" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+  <line x1="30" y1="105" x2="215" y2="105" stroke="#374151" stroke-width="1.2" marker-end="url(#cmc7)"/>
+  <line x1="115" y1="120" x2="115" y2="15" stroke="#374151" stroke-width="1.2" marker-end="url(#cmc7)"/>
+  <text font-family="inherit" font-size="10" fill="#374151" x="219" y="108">x</text>
+  <text font-family="inherit" font-size="10" fill="#374151" x="118" y="14">f(x)</text>
+  <path d="M55,30 L115,100 L175,30" fill="none" stroke="#0E7490" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text font-family="inherit" font-size="9" fill="#0E7490" x="150" y="40">|x|</text>
+</svg>
+
+    <p style="font-size:13px;font-weight:700;color:#0E7490;margin-bottom:4px;">sin x:</p>
+    <svg width="100%" viewBox="0 0 230 130" style="display:block;margin:6px 0 14px;">
+  <defs><marker id="cmc8" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+  <line x1="20" y1="65" x2="215" y2="65" stroke="#374151" stroke-width="1.2" marker-end="url(#cmc8)"/>
+  <line x1="30" y1="115" x2="30" y2="15" stroke="#374151" stroke-width="1.2" marker-end="url(#cmc8)"/>
+  <text font-family="inherit" font-size="10" fill="#374151" x="219" y="68">x</text>
+  <text font-family="inherit" font-size="10" fill="#374151" x="33" y="14">f(x)</text>
+  <path d="M30,65 C55,20 75,20 100,65 C125,110 145,110 170,65 C185,38 195,38 205,65" fill="none" stroke="#0E7490" stroke-width="2" stroke-linecap="round"/>
+  <text font-family="inherit" font-size="9" fill="#0E7490" x="150" y="35">sin x</text>
+</svg>
+  </div>
+
+  <div class="notes-col">
+    <div class="col-label" style="color:#0E7490; border-bottom-color:#CFFAFE;">Helpful points</div>
+
+    <p><strong>x1 — jump discontinuity (two jumps):</strong></p>
+    <svg width="100%" viewBox="0 0 230 155" style="display:block;margin:6px 0 14px;">
+  <defs><marker id="cmc9" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+  <line x1="20" y1="90" x2="220" y2="90" stroke="#374151" stroke-width="1.2" marker-end="url(#cmc9)"/>
+  <line x1="105" y1="145" x2="105" y2="15" stroke="#374151" stroke-width="1.2" marker-end="url(#cmc9)"/>
+  <text font-family="inherit" font-size="10" fill="#374151" x="224" y="93">x</text>
+  <text font-family="inherit" font-size="10" fill="#374151" x="108" y="14">f(x)</text>
+  <path d="M45,35 C65,45 85,55 95,62" fill="none" stroke="#0E7490" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="100" cy="65" r="5" fill="white" stroke="#0E7490" stroke-width="2"/>
+  <text font-family="inherit" font-size="8" fill="#A32D2D" x="10" y="60">Not continuous</text>
+  <text font-family="inherit" font-size="8" fill="#A32D2D" x="10" y="70">— jump</text>
+  <path d="M105,80 C118,88 128,100 133,112" fill="none" stroke="#0E7490" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="134" cy="115" r="5" fill="#0E7490" stroke="#0E7490" stroke-width="1.5"/>
+  <path d="M139,113 C155,105 175,95 205,75" fill="none" stroke="#0E7490" stroke-width="2" stroke-linecap="round"/>
+  <text font-family="inherit" font-size="8" fill="#A32D2D" x="140" y="135">Not continuous</text>
+</svg>
+
+    <p><strong>x2 — continuous wave, non-uniform:</strong></p>
+    <svg width="100%" viewBox="0 0 230 130" style="display:block;margin:6px 0 14px;">
+  <defs><marker id="cmc10" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+  <line x1="20" y1="65" x2="220" y2="65" stroke="#374151" stroke-width="1.2" marker-end="url(#cmc10)"/>
+  <line x1="110" y1="115" x2="110" y2="15" stroke="#374151" stroke-width="1.2" marker-end="url(#cmc10)"/>
+  <text font-family="inherit" font-size="10" fill="#374151" x="224" y="68">x</text>
+  <text font-family="inherit" font-size="10" fill="#374151" x="113" y="14">f(x)</text>
+  <path d="M35,95 C50,55 60,25 75,25 C90,25 92,55 100,60 C108,65 115,50 130,45 C150,38 160,60 170,80 C180,95 190,100 205,75" fill="none" stroke="#0E7490" stroke-width="2" stroke-linecap="round"/>
+</svg>
+
+    <div class="highlight" style="border-left-color:#0E7490; background:#ECFEFF;">
+      x2 never lifts the pen — irregular amplitude and shape, but still <strong>continuous</strong> at every point, same as a messier version of \( \sin x \).
+    </div>
+  </div>
+
+</div>
+</div>
+
+<footer>Maths Study Hub</footer>
+
+</body>
+</html>

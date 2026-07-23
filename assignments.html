@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Assignments · Maths Study Hub</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <span class="nav-brand">📚 Maths Study Hub</span>
+  <a href="index.html" class="nav-link nav-home">Home</a>
+  <a href="calendar.html" class="nav-link nav-cal">📅 Calendar</a>
+  <a href="algebra.html" class="nav-link nav-alg">Algebra</a>
+  <a href="geometry.html" class="nav-link nav-geo">Geometry</a>
+  <a href="calculus.html" class="nav-link nav-calc">Calculus</a>
+  <a href="assignments.html" class="nav-link nav-assign active">Assignments</a>
+  <a href="exam-prep.html" class="nav-link nav-exam">Exam prep</a>
+  <a href="study-resources.html" class="nav-link nav-res">Resources</a>
+</nav>
+
+<div id="pw-screen" class="pw-screen">
+  <div class="pw-box">
+    <div style="font-size:48px; margin-bottom:12px;">🔒</div>
+    <h2>Assignments</h2>
+    <p>This section is password protected. Enter your password to continue.</p>
+    <input type="password" id="pw-input" class="pw-input" placeholder="••••••••"
+           onkeydown="if(event.key==='Enter') checkPassword()">
+    <button class="pw-btn" onclick="checkPassword()">Unlock</button>
+    <div id="pw-error" class="pw-error">Incorrect password. Please try again.</div>
+  </div>
+</div>
+
+<div id="page-content" class="page-content">
+
+  <div class="page-hero" style="background:var(--assign-light); border-bottom-color:var(--assign);">
+    <h1 style="color:var(--assign-dark);">📝 Assignments</h1>
+    <p style="color:var(--assign);">TMA tracker for MST124 and MST125</p>
+  </div>
+
+  <div class="content">
+
+    <div style="text-align:right; margin-bottom:1rem;">
+      <button onclick="lockPage()"
+        style="background:none; border:2px solid var(--border); border-radius:8px; padding:8px 16px; font-size:13px; font-weight:700; cursor:pointer; color:var(--muted); font-family:inherit;">
+        🔒 Lock page
+      </button>
+    </div>
+
+    <div class="banner banner-warn">
+      <span class="banner-icon">⏳</span>
+      <div>
+        <div class="banner-title">MST125 TMA03 due 12 August 2026</div>
+        <div class="banner-sub">Allow enough time to complete and review before submitting</div>
+      </div>
+    </div>
+
+    <div class="section-title" style="color:#1D4ED8; border-bottom-color:#1D4ED8;">🔵 MST124 — Essential Mathematics 1</div>
+
+    <table class="tma-table" style="margin-bottom:2.5rem;">
+      <thead>
+        <tr>
+          <th>TMA</th>
+          <th>Deadline</th>
+          <th>Status</th>
+          <th>Score</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>TMA01</strong></td>
+          <td>—</td>
+          <td><span class="status-pill status-todo">—</span></td>
+          <td>—</td>
+          <td>Add details</td>
+        </tr>
+        <tr>
+          <td><strong>TMA02</strong></td>
+          <td>13 May 2026</td>
+          <td><span class="status-pill status-done">✅ Submitted</span></td>
+          <td>—</td>
+          <td>Add score when returned</td>
+        </tr>
+        <tr>
+          <td><strong>TMA03</strong></td>
+          <td>1 July 2026</td>
+          <td><span class="status-pill status-done">✅ Submitted</span></td>
+          <td>—</td>
+          <td>Add score when returned</td>
+        </tr>
+        <tr>
+          <td><strong>TMA04</strong></td>
+          <td>—</td>
+          <td><span class="status-pill status-todo">To do</span></td>
+          <td>—</td>
+          <td>Add deadline when known</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="section-title" style="color:#0D9488; border-bottom-color:#0D9488;">🟣 MST125 — Essential Mathematics 2</div>
+
+    <table class="tma-table" style="margin-bottom:2.5rem;">
+      <thead>
+        <tr>
+          <th>TMA</th>
+          <th>Deadline</th>
+          <th>Status</th>
+          <th>Score</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>TMA01</strong></td>
+          <td>—</td>
+          <td><span class="status-pill status-todo">—</span></td>
+          <td>—</td>
+          <td>Add details</td>
+        </tr>
+        <tr>
+          <td><strong>TMA02</strong></td>
+          <td>24 June 2026</td>
+          <td><span class="status-pill status-done">✅ Submitted</span></td>
+          <td>—</td>
+          <td>Add score when returned</td>
+        </tr>
+        <tr>
+          <td><strong>TMA03</strong></td>
+          <td>12 August 2026</td>
+          <td><span class="status-pill status-active">⏳ Upcoming</span></td>
+          <td>—</td>
+          <td>Current focus</td>
+        </tr>
+        <tr>
+          <td><strong>TMA04</strong></td>
+          <td>—</td>
+          <td><span class="status-pill status-todo">To do</span></td>
+          <td>—</td>
+          <td>Add deadline when known</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="section-title" style="color:var(--muted); border-bottom-color:var(--border);">💡 TMA tips</div>
+
+    <div class="unit-list">
+      <div class="unit-card">
+        <div style="font-size:28px;">📖</div>
+        <div class="unit-info">
+          <div class="unit-title">Read the question carefully</div>
+          <div class="unit-desc">Read it at least twice before starting. Identify exactly what is being asked.</div>
+        </div>
+      </div>
+      <div class="unit-card">
+        <div style="font-size:28px;">✍️</div>
+        <div class="unit-info">
+          <div class="unit-title">Show all your working</div>
+          <div class="unit-desc">Marks are awarded for method — even a wrong final answer can score marks if the working is clear.</div>
+        </div>
+      </div>
+      <div class="unit-card">
+        <div style="font-size:28px;">✅</div>
+        <div class="unit-info">
+          <div class="unit-title">Always check your answer</div>
+          <div class="unit-desc">Substitute back in, differentiate your integral, or try a test value to verify.</div>
+        </div>
+      </div>
+      <div class="unit-card">
+        <div style="font-size:28px;">⏰</div>
+        <div class="unit-info">
+          <div class="unit-title">Submit at least a day early</div>
+          <div class="unit-desc">Technical issues happen. Never submit in the final hour before the cut-off.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>Maths Study Hub</footer>
+
+</div>
+
+<script>
+const KEY = 'mathsHubAccess';
+const PASS = btoa('maths2026');
+
+function checkPassword() {
+  const entered = document.getElementById('pw-input').value;
+  if (btoa(entered) === PASS) {
+    sessionStorage.setItem(KEY, '1');
+    showContent();
+  } else {
+    document.getElementById('pw-error').style.display = 'block';
+    document.getElementById('pw-input').value = '';
+    document.getElementById('pw-input').focus();
+  }
+}
+
+function showContent() {
+  document.getElementById('pw-screen').style.display = 'none';
+  document.getElementById('page-content').style.display = 'block';
+}
+
+function lockPage() {
+  sessionStorage.removeItem(KEY);
+  document.getElementById('pw-screen').style.display = 'flex';
+  document.getElementById('page-content').style.display = 'none';
+  document.getElementById('pw-input').value = '';
+}
+
+if (sessionStorage.getItem(KEY) === '1') {
+  showContent();
+}
+</script>
+
+</body>
+</html>
