@@ -62,3 +62,48 @@
         break-inside: avoid-page;
         break-after: avoid-page;
       }
+
+      /* graphs were sized for a narrow column — cap them so they
+         don't stretch to fill the full print width */
+      .notes-col svg {
+        max-width: 320px !important;
+        width: 100% !important;
+        height: auto !important;
+        display: block;
+        margin: 6px auto 14px !important;
+      }
+
+      /* remove trailing space that was causing an extra blank
+         page at the end of the document */
+      .content > *:last-child {
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+
+  // --- 2. add a button after EVERY notes section on the page ---
+  // (some pages, like continuity.html, have more than one
+  // .notes-title-bar + .notes-grid pair on a single page)
+  function init() {
+    const titleBars = document.querySelectorAll('.notes-title-bar');
+    if (!titleBars.length) return; // not a notes page — do nothing
+
+    titleBars.forEach((titleBar) => {
+      const btn = document.createElement('button');
+      btn.className = 'pdf-download-btn';
+      btn.innerHTML = '⬇️ Download PDF';
+      btn.onclick = () => window.print();
+
+      titleBar.insertAdjacentElement('afterend', btn);
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+})();
