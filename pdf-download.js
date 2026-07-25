@@ -60,7 +60,6 @@
       }
       .notes-header, .notes-title-bar {
         break-inside: avoid-page;
-        break-after: avoid-page;
       }
 
       /* graphs were sized for a narrow column — cap them so they
