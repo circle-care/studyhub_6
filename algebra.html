@@ -5,6 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Algebra · Maths Study Hub</title>
 <link rel="stylesheet" href="style.css">
+<style>
+  .topic-card { background: #fff; border: 2px solid #e5e7eb; border-radius: 12px; padding: 24px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
+  .topic-card h2 { color: var(--alg); font-size: 20px; margin-bottom: 12px; border-bottom: 2px solid var(--alg-light); padding-bottom: 6px; }
+  .notes-list { list-style: none; padding: 0; margin: 0; }
+  .notes-list li { margin: 10px 0; }
+  .notes-link { color: #1f2937; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; font-size: 16px; transition: color 0.2s; }
+  .notes-link:hover { color: var(--alg); text-decoration: underline; }
+  .tag { font-size: 11px; font-weight: 700; text-transform: uppercase; padding: 2px 8px; border-radius: 4px; }
+  .tag-intro { background: #f0fdf4; color: #16a34a; }
+</style>
 </head>
 <body>
 
@@ -58,13 +68,13 @@
       <span class="status-pill status-todo">To do</span>
     </div>
 
-    <div class="unit-card">
-      <div class="unit-num" style="background:var(--alg-light); color:var(--alg);">4</div>
+    <div class="unit-card" style="border-left: 6px solid var(--alg);">
+      <div class="unit-num" style="background:var(--alg); color:#fff;">4</div>
       <div class="unit-info">
         <div class="unit-title">Matrices</div>
         <div class="unit-desc">Matrix algebra · determinants · inverse matrices · solving simultaneous equations</div>
       </div>
-      <span class="status-pill status-todo">To do</span>
+      <span class="status-pill status-active">In progress</span>
     </div>
 
     <div class="unit-card">
@@ -85,6 +95,34 @@
       <span class="status-pill status-todo">To do</span>
     </div>
 
+  </div>
+
+  <div class="section-title" style="color:var(--alg); border-bottom-color:var(--alg); margin-top:2.5rem;">📝 Study notes</div>
+
+  <div class="topic-card">
+    <h2>Unit 4: Matrices</h2>
+    <ul class="notes-list">
+      <li>
+        <a href="notes/matrices-notation.html" class="notes-link">
+          📝 Page 1: Notation & Basic Operations <span class="tag tag-intro">Intro</span>
+        </a>
+      </li>
+      <li>
+        <a href="notes/matrices-multiplication.html" class="notes-link">
+          📝 Page 2: Matrix Multiplication <span class="tag tag-intro">Intro</span>
+        </a>
+      </li>
+      <li>
+        <a href="notes/matrices-inverses-determinants.html" class="notes-link">
+          📝 Page 3: Determinants & Inverses <span class="tag tag-intro">Intro</span>
+        </a>
+      </li>
+      <li>
+        <a href="notes/matrices-applications-linear-equations.html" class="notes-link">
+          📝 Page 4: Applications & Linear Equations <span class="tag tag-intro">Intro</span>
+        </a>
+      </li>
+    </ul>
   </div>
 
   <div class="section-title" style="color:var(--alg); border-bottom-color:var(--alg); margin-top:2.5rem;">📖 Study guides for this area</div>

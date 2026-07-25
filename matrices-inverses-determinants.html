@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Determinants & Inverses · Maths Study Hub</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="../pdf-download.js" defer></script>
+<style>
+.notes-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+  border: 3px solid #4F46E5;
+  border-radius: 12px 12px 0 0;
+  overflow: hidden;
+  margin-bottom: 0;
+  font-size: 14px;
+}
+.notes-header-cell {
+  padding: 10px 16px;
+  background: #4F46E5;
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  border-right: 2px solid rgba(255,255,255,0.3);
+}
+.notes-header-cell:last-child { border-right: none; }
+.notes-header-cell span { display: block; font-size: 11px; opacity: 0.75; font-weight: 400; margin-bottom: 2px; }
+
+.notes-title-bar {
+  background: #EEF2FF;
+  border: 3px solid #4F46E5;
+  border-top: none;
+  padding: 12px 20px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #3730A3;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.page-num {
+  background: #4F46E5;
+  color: #fff;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.notes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr 1fr;
+  border: 3px solid #4F46E5;
+  border-top: none;
+  border-radius: 0 0 12px 12px;
+  overflow: hidden;
+  margin-bottom: 2.5rem;
+}
+
+.notes-col {
+  padding: 20px;
+  border-right: 2px solid #e5e7eb;
+}
+.notes-col:last-child { border-right: none; }
+
+.col-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #4F46E5;
+  margin-bottom: 14px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid #EEF2FF;
+}
+
+.notes-col p { margin-bottom: 12px; font-size: 16px; line-height: 1.8; }
+.notes-col p:last-child { margin-bottom: 0; }
+
+.highlight {
+  background: #FEF9C3;
+  border-left: 4px solid #EAB308;
+  padding: 10px 14px;
+  border-radius: 0 8px 8px 0;
+  margin: 12px 0;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.key-box {
+  background: #EEF2FF;
+  border: 2px solid #4F46E5;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin: 12px 0;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.example-box {
+  background: #F0FDF4;
+  border: 2px solid #16A34A;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin: 12px 0;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.warn-box {
+  background: #FEF2F2;
+  border: 2px solid #DC2626;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin: 12px 0;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.divider { border: none; border-top: 2px solid #e5e7eb; margin: 16px 0; }
+
+table.limit-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  margin: 10px 0;
+}
+table.limit-table th {
+  background: #4F46E5;
+  color: #fff;
+  padding: 8px 12px;
+  text-align: center;
+  font-size: 13px;
+}
+table.limit-table td {
+  padding: 7px 12px;
+  border: 1px solid #e5e7eb;
+  text-align: center;
+}
+table.limit-table tr:nth-child(even) td { background: #f9fafb; }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-brand">📚 Maths Study Hub</span>
+  <a href="../index.html" class="nav-link nav-home">Home</a>
+  <a href="../calendar.html" class="nav-link nav-cal">📅 Calendar</a>
+  <a href="../algebra.html" class="nav-link nav-alg active">Algebra</a>
+  <a href="../geometry.html" class="nav-link nav-geo">Geometry</a>
+  <a href="../calculus.html" class="nav-link nav-calc">Calculus</a>
+  <a href="../assignments.html" class="nav-link nav-assign">Assignments</a>
+  <a href="../exam-prep.html" class="nav-link nav-exam">Exam prep</a>
+  <a href="../study-resources.html" class="nav-link nav-res">Resources</a>
+</nav>
+
+<div class="page-hero" style="background:#EEF2FF; border-bottom:2px solid #4F46E5;">
+  <h1 style="color:#3730A3;">▦ Algebra — Matrices</h1>
+  <p style="color:#4F46E5;">Determinants and inverses (2×2)</p>
+</div>
+
+<div class="content">
+
+<div class="notes-header">
+  <div class="notes-header-cell"><span>Subject</span>Algebra</div>
+  <div class="notes-header-cell"><span>Subtopic</span>Matrices</div>
+  <div class="notes-header-cell"><span>Sheet</span>3 of 4</div>
+</div>
+<div class="notes-title-bar">
+  <div class="page-num">3</div>
+  Determinants and inverses (2×2 matrices)
+</div>
+<div class="notes-grid">
+
+  <div class="notes-col">
+    <div class="col-label">Main points</div>
+
+    <div class="key-box">
+      For \( A = \begin{pmatrix} a & b \\ c & d \end{pmatrix} \):
+      \[ \det A = ad - bc \]
+    </div>
+
+    <p>The determinant is a single number. It tells you immediately whether \(A\) has an inverse.</p>
+
+    <hr class="divider">
+
+    <div class="key-box">
+      \[ A^{-1} = \frac{1}{\det A}\begin{pmatrix} d & -b \\ -c & a \end{pmatrix} \]
+      Swap \(a\) and \(d\), negate \(b\) and \(c\), then divide everything by the determinant.
+    </div>
+
+    <hr class="divider">
+
+    <div class="warn-box">
+      \(A\) is invertible <strong>only if \(\det A \neq 0\)</strong>. If \(\det A = 0\), \(A^{-1}\) does not exist — you'd be dividing by zero.
+    </div>
+  </div>
+
+  <div class="notes-col">
+    <div class="col-label">Examples / explanation</div>
+
+    <p><strong>Computing a determinant:</strong></p>
+    <div class="example-box">
+      \[ A = \begin{pmatrix} 3 & 2 \\ 5 & 4 \end{pmatrix} \]
+      \[ \det A = (3)(4) - (2)(5) = 12 - 10 = 2 \]
+      Since \( \det A = 2 \neq 0\), \(A\) is invertible.
+    </div>
+
+    <p><strong>Finding the inverse:</strong></p>
+    <div class="example-box">
+      Using the same \(A\), swap \(a,d\) and negate \(b,c\):
+      \[ A^{-1} = \frac{1}{2}\begin{pmatrix} 4 & -2 \\ -5 & 3 \end{pmatrix} = \begin{pmatrix} 2 & -1 \\ -2.5 & 1.5 \end{pmatrix} \]
+    </div>
+
+    <p><strong>Checking the answer:</strong></p>
+    <div class="example-box">
+      A correct inverse must satisfy \(AA^{-1} = I\) (the identity matrix). Multiply them together and confirm you get \(\begin{pmatrix}1&0\\0&1\end{pmatrix}\) — a good habit to build in, and an easy way to catch arithmetic slips.
+    </div>
+
+    <p><strong>A singular (non-invertible) matrix:</strong></p>
+    <div class="example-box">
+      \[ B = \begin{pmatrix} 2 & 4 \\ 1 & 2 \end{pmatrix} \]
+      \[ \det B = (2)(2)-(4)(1) = 4-4 = 0 \]
+      \(B\) has <strong>no inverse</strong> — it's called a <strong>singular matrix</strong>. Notice row 2 is just row 1 halved — the rows aren't "independent," which is exactly what makes a matrix singular.
+    </div>
+  </div>
+
+  <div class="notes-col">
+    <div class="col-label">Helpful points</div>
+
+    <div class="key-box">
+      Memory trick for the inverse: <strong>"swap the main diagonal, negate the other diagonal, divide by the determinant."</strong>
+    </div>
+
+    <hr class="divider">
+
+    <div class="highlight">
+      Always calculate \(\det A\) <strong>first</strong>, before attempting the inverse. If it's 0, stop — there's no inverse, no matter what the question asks you to do with it.
+    </div>
+
+    <hr class="divider">
+
+    <div class="warn-box">
+      Don't forget the \(\dfrac{1}{\det A}\) factor out the front — it's easy to swap/negate correctly but forget to divide through, which silently gives a wrong final matrix.
+    </div>
+
+    <hr class="divider">
+
+    <table class="limit-table">
+      <tr><th>\(\det A\)</th><th>Invertible?</th></tr>
+      <tr><td>Nonzero</td><td>Yes</td></tr>
+      <tr><td>Zero</td><td>No (singular)</td></tr>
+    </table>
+  </div>
+
+</div>
+
+</div>
+
+<footer>Maths Study Hub</footer>
+
+</body>
+</html>

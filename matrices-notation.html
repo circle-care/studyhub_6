@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Matrix Notation & Basic Operations · Maths Study Hub</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="../pdf-download.js" defer></script>
+<style>
+.notes-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+  border: 3px solid #4F46E5;
+  border-radius: 12px 12px 0 0;
+  overflow: hidden;
+  margin-bottom: 0;
+  font-size: 14px;
+}
+.notes-header-cell {
+  padding: 10px 16px;
+  background: #4F46E5;
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  border-right: 2px solid rgba(255,255,255,0.3);
+}
+.notes-header-cell:last-child { border-right: none; }
+.notes-header-cell span { display: block; font-size: 11px; opacity: 0.75; font-weight: 400; margin-bottom: 2px; }
+
+.notes-title-bar {
+  background: #EEF2FF;
+  border: 3px solid #4F46E5;
+  border-top: none;
+  padding: 12px 20px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #3730A3;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.page-num {
+  background: #4F46E5;
+  color: #fff;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.notes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr 1fr;
+  border: 3px solid #4F46E5;
+  border-top: none;
+  border-radius: 0 0 12px 12px;
+  overflow: hidden;
+  margin-bottom: 2.5rem;
+}
+
+.notes-col {
+  padding: 20px;
+  border-right: 2px solid #e5e7eb;
+}
+.notes-col:last-child { border-right: none; }
+
+.col-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #4F46E5;
+  margin-bottom: 14px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid #EEF2FF;
+}
+
+.notes-col p { margin-bottom: 12px; font-size: 16px; line-height: 1.8; }
+.notes-col p:last-child { margin-bottom: 0; }
+
+.highlight {
+  background: #FEF9C3;
+  border-left: 4px solid #EAB308;
+  padding: 10px 14px;
+  border-radius: 0 8px 8px 0;
+  margin: 12px 0;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.key-box {
+  background: #EEF2FF;
+  border: 2px solid #4F46E5;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin: 12px 0;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.example-box {
+  background: #F0FDF4;
+  border: 2px solid #16A34A;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin: 12px 0;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.warn-box {
+  background: #FEF2F2;
+  border: 2px solid #DC2626;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin: 12px 0;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.divider { border: none; border-top: 2px solid #e5e7eb; margin: 16px 0; }
+
+table.limit-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  margin: 10px 0;
+}
+table.limit-table th {
+  background: #4F46E5;
+  color: #fff;
+  padding: 8px 12px;
+  text-align: center;
+  font-size: 13px;
+}
+table.limit-table td {
+  padding: 7px 12px;
+  border: 1px solid #e5e7eb;
+  text-align: center;
+}
+table.limit-table tr:nth-child(even) td { background: #f9fafb; }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-brand">📚 Maths Study Hub</span>
+  <a href="../index.html" class="nav-link nav-home">Home</a>
+  <a href="../calendar.html" class="nav-link nav-cal">📅 Calendar</a>
+  <a href="../algebra.html" class="nav-link nav-alg active">Algebra</a>
+  <a href="../geometry.html" class="nav-link nav-geo">Geometry</a>
+  <a href="../calculus.html" class="nav-link nav-calc">Calculus</a>
+  <a href="../assignments.html" class="nav-link nav-assign">Assignments</a>
+  <a href="../exam-prep.html" class="nav-link nav-exam">Exam prep</a>
+  <a href="../study-resources.html" class="nav-link nav-res">Resources</a>
+</nav>
+
+<div class="page-hero" style="background:#EEF2FF; border-bottom:2px solid #4F46E5;">
+  <h1 style="color:#3730A3;">▦ Algebra — Matrices</h1>
+  <p style="color:#4F46E5;">Notation, terminology & basic operations</p>
+</div>
+
+<div class="content">
+
+<div class="notes-header">
+  <div class="notes-header-cell"><span>Subject</span>Algebra</div>
+  <div class="notes-header-cell"><span>Subtopic</span>Matrices</div>
+  <div class="notes-header-cell"><span>Sheet</span>1 of 4</div>
+</div>
+<div class="notes-title-bar">
+  <div class="page-num">1</div>
+  Notation, terminology and basic operations
+</div>
+<div class="notes-grid">
+
+  <div class="notes-col">
+    <div class="col-label">Main points</div>
+
+    <p>A matrix is a rectangular array of numbers. Its <strong>size</strong> (or <strong>order</strong>) is written \( m \times n \): \( m \) rows, \( n \) columns — always rows first.</p>
+
+    <div class="key-box">
+      A matrix with 3 rows and 2 columns is \(3\times2\). A matrix with the same number of rows and columns (\( n\times n \)) is called a <strong>square matrix</strong>.
+    </div>
+
+    <hr class="divider">
+
+    <p><strong>Element notation:</strong> \( a_{ij} \) means the entry in row \(i\), column \(j\) — row number always comes first, then column.</p>
+
+    <hr class="divider">
+
+    <p><strong>Addition / subtraction:</strong> only defined when both matrices are exactly the <strong>same size</strong>. Add or subtract corresponding entries.</p>
+
+    <p><strong>Scalar multiplication:</strong> multiply every single entry by the scalar.</p>
+  </div>
+
+  <div class="notes-col">
+    <div class="col-label">Examples / explanation</div>
+
+    <p><strong>Size and elements:</strong></p>
+    <div class="example-box">
+      \[ A = \begin{pmatrix} 2 & 5 & -1 \\ 0 & 3 & 4 \end{pmatrix} \]
+      \(A\) is a \(2\times3\) matrix (2 rows, 3 columns).<br>
+      \( a_{12} = 5 \) (row 1, column 2). \( a_{23} = 4 \) (row 2, column 3). \( a_{21} = 0 \).
+    </div>
+
+    <p><strong>Square matrix example:</strong></p>
+    <div class="example-box">
+      \[ B = \begin{pmatrix} 1 & 4 \\ 2 & 6 \end{pmatrix} \]
+      \(B\) is \(2\times2\) — square, since rows = columns.
+    </div>
+
+    <p><strong>Addition (same size only):</strong></p>
+    <div class="example-box">
+      \[ \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix} + \begin{pmatrix} 5 & -1 \\ 0 & 2 \end{pmatrix} = \begin{pmatrix} 6 & 1 \\ 3 & 6 \end{pmatrix} \]
+      Add each pair of corresponding entries.
+    </div>
+
+    <p><strong>Subtraction:</strong></p>
+    <div class="example-box">
+      \[ \begin{pmatrix} 6 & 1 \\ 3 & 6 \end{pmatrix} - \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix} = \begin{pmatrix} 5 & -1 \\ 0 & 2 \end{pmatrix} \]
+    </div>
+
+    <p><strong>Scalar multiplication:</strong></p>
+    <div class="example-box">
+      \[ 3\begin{pmatrix} 1 & -2 \\ 0 & 4 \end{pmatrix} = \begin{pmatrix} 3 & -6 \\ 0 & 12 \end{pmatrix} \]
+      Every entry gets multiplied by 3, including the zero.
+    </div>
+  </div>
+
+  <div class="notes-col">
+    <div class="col-label">Helpful points</div>
+
+    <div class="warn-box">
+      Addition/subtraction of matrices with <strong>different sizes is undefined</strong> — not zero, not an error you can force through, it simply doesn't exist. Always check sizes match first.
+    </div>
+
+    <hr class="divider">
+
+    <div class="key-box">
+      \( a_{ij} \): think "row, then column" — like reading coordinates on a grid, row first (like a street number), then column (like an avenue number).
+    </div>
+
+    <hr class="divider">
+
+    <div class="highlight">
+      A \(1\times n\) matrix is a <strong>row vector</strong>. An \(m\times1\) matrix is a <strong>column vector</strong>. Both are still "matrices" technically.
+    </div>
+
+    <hr class="divider">
+
+    <table class="limit-table">
+      <tr><th>Size</th><th>Rows × Cols</th></tr>
+      <tr><td>Row vector</td><td>\(1\times n\)</td></tr>
+      <tr><td>Column vector</td><td>\(m\times1\)</td></tr>
+      <tr><td>Square matrix</td><td>\(n\times n\)</td></tr>
+    </table>
+  </div>
+
+</div>
+
+</div>
+
+<footer>Maths Study Hub</footer>
+
+</body>
+</html>

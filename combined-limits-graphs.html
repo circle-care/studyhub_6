@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Combined Limits from Graphs · Maths Study Hub</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="../pdf-download.js" defer></script>
+<style>
+.notes-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+  border: 3px solid var(--calc);
+  border-radius: 12px 12px 0 0;
+  overflow: hidden;
+  margin-bottom: 0;
+  font-size: 14px;
+}
+.notes-header-cell {
+  padding: 10px 16px;
+  background: var(--calc);
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  border-right: 2px solid rgba(255,255,255,0.3);
+}
+.notes-header-cell:last-child { border-right: none; }
+.notes-header-cell span { display: block; font-size: 11px; opacity: 0.75; font-weight: 400; margin-bottom: 2px; }
+
+.notes-title-bar {
+  background: var(--calc-light);
+  border: 3px solid var(--calc);
+  border-top: none;
+  padding: 12px 20px;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--calc-dark);
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.page-num {
+  background: var(--calc);
+  color: #fff;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.notes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr 1fr;
+  border: 3px solid var(--calc);
+  border-top: none;
+  border-radius: 0 0 12px 12px;
+  overflow: hidden;
+  margin-bottom: 2.5rem;
+}
+
+.notes-col {
+  padding: 20px;
+  border-right: 2px solid var(--border);
+}
+.notes-col:last-child { border-right: none; }
+
+.col-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--calc);
+  margin-bottom: 14px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--calc-light);
+}
+
+.notes-col p { margin-bottom: 12px; font-size: 16px; line-height: 1.8; }
+.notes-col p:last-child { margin-bottom: 0; }
+
+.highlight {
+  background: #FEF9C3;
+  border-left: 4px solid #EAB308;
+  padding: 10px 14px;
+  border-radius: 0 8px 8px 0;
+  margin: 12px 0;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.key-box {
+  background: var(--calc-light);
+  border: 2px solid var(--calc);
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin: 12px 0;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.example-box {
+  background: #F0FDF4;
+  border: 2px solid #16A34A;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin: 12px 0;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.warn-box {
+  background: #FEF2F2;
+  border: 2px solid #DC2626;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin: 12px 0;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.graph-box {
+  background: var(--bg);
+  border: 2px dashed var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  margin: 12px 0;
+  text-align: center;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.divider { border: none; border-top: 2px solid var(--border); margin: 16px 0; }
+
+table.limit-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  margin: 10px 0;
+}
+table.limit-table th {
+  background: var(--calc);
+  color: #fff;
+  padding: 8px 12px;
+  text-align: center;
+  font-size: 13px;
+}
+table.limit-table td {
+  padding: 7px 12px;
+  border: 1px solid var(--border);
+  text-align: center;
+}
+table.limit-table tr:nth-child(even) td { background: var(--bg); }
+
+.cont-header-cell { background: #0E7490; }
+.notes-cont .notes-header { border-color: #0E7490; }
+.notes-cont .notes-title-bar { background: #CFFAFE; border-color: #0E7490; color: #164E63; }
+.notes-cont .page-num { background: #0E7490; }
+.notes-cont .notes-grid { border-color: #0E7490; }
+.notes-cont .col-label { color: #0E7490; border-bottom-color: #CFFAFE; }
+.notes-cont .key-box { background: #CFFAFE; border-color: #0E7490; }
+.notes-cont .highlight { border-left-color: #0E7490; background: #ECFEFF; }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-brand">📚 Maths Study Hub</span>
+  <a href="../index.html" class="nav-link nav-home">Home</a>
+  <a href="../calendar.html" class="nav-link nav-cal">📅 Calendar</a>
+  <a href="../algebra.html" class="nav-link nav-alg">Algebra</a>
+  <a href="../geometry.html" class="nav-link nav-geo">Geometry</a>
+  <a href="../calculus.html" class="nav-link nav-calc active">Calculus</a>
+  <a href="../assignments.html" class="nav-link nav-assign">Assignments</a>
+  <a href="../exam-prep.html" class="nav-link nav-exam">Exam prep</a>
+  <a href="../study-resources.html" class="nav-link nav-res">Resources</a>
+</nav>
+
+<div class="page-hero" style="background:#CFFAFE; border-bottom-color:#0E7490;">
+  <h1 style="color:#164E63;">∫ Calculus — Combined Limits from Graphs</h1>
+  <p style="color:#0E7490;">Handwritten notes — typed up · Sheet 10</p>
+</div>
+
+<div class="content">
+
+<div class="notes-cont">
+
+<div class="notes-header">
+  <div class="notes-header-cell cont-header-cell"><span>Subject</span>Calculus</div>
+  <div class="notes-header-cell cont-header-cell"><span>Subtopic</span>Continuity</div>
+  <div class="notes-header-cell cont-header-cell"><span>Sheet</span>10</div>
+</div>
+<div class="notes-title-bar">
+  <div class="page-num">10</div>
+  Reading combined limits (+, −, ×, ÷) straight off a graph
+</div>
+<div class="notes-grid">
+
+  <div class="notes-col">
+    <div class="col-label">Main points</div>
+
+    <p>When \( f \) and \( g \) are both graphed, use the limit laws directly on the <strong>heights the curves approach</strong>:</p>
+
+    <div class="key-box">
+      \[ \lim_{x\to a}[f\pm g] = \lim_{x\to a}f \pm \lim_{x\to a}g \]
+      \[ \lim_{x\to a}[fg] = \lim_{x\to a}f \cdot \lim_{x\to a}g \]
+      \[ \lim_{x\to a}\frac{f}{g} = \frac{\lim_{x\to a}f}{\lim_{x\to a}g}, \quad \text{provided denominator} \neq 0 \]
+    </div>
+
+    <hr class="divider">
+
+    <p><strong>The big rule about circles:</strong></p>
+
+    <div class="warn-box">
+      A <strong>limit only cares where the curve is heading</strong> — not what dot is actually plotted at that <em>x</em>-value. Open circles, filled circles, missing points: none of it changes the limit. It only matters if you're asked for \( f(a) \) itself, or whether the function is <strong>continuous</strong> there.
+    </div>
+
+    <hr class="divider">
+
+    <p>If either individual limit doesn't exist (e.g. a jump), the combined two-sided limit usually doesn't exist either — check one-sided limits separately in that case.</p>
+  </div>
+
+  <div class="notes-col">
+    <div class="col-label">Examples / explanation</div>
+
+    <p><strong>Example 1 — Addition, ignore the circles:</strong></p>
+    <div class="example-box">
+      As \( x\to3 \): the curve for \( f \) heads to height 4 (open circle there, \( f(3)=1 \) plotted separately below). The curve for \( g \) heads to height 2 (filled circle, so \( g(3)=2 \) too).
+      \[ \lim_{x\to3}[f(x)+g(x)] = 4 + 2 = 6 \]
+      The open circle on \( f \) is irrelevant here — we only used where the curve was heading (4), never the plotted value \( f(3)=1 \).
+    </div>
+    <div class="graph-box">
+      <svg viewBox="0 0 260 150" width="100%" height="140" xmlns="http://www.w3.org/2000/svg">
+        <defs><marker id="cg1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#374151" stroke-width="1.5"/></marker></defs>
+        <line x1="20" y1="120" x2="245" y2="120" stroke="#374151" stroke-width="1.2" marker-end="url(#cg1)"/>
+        <line x1="140" y1="140" x2="140" y2="15" stroke="#374151" stroke-width="1.2" marker-end="url(#cg1)"/>
+        <text x="248" y="123" font-size="10" fill="#374151">x</text>
+        <text x="143" y="14" font-size="10" fill="#374151">y</text>
+        <path d="M40,100 C80,80 115,55 137,42" fill="none" stroke="#0E7490" stroke-width="2"/>
+        <path d="M143,42 C170,50 200,65 230,80" fill="none" stroke="#0E7490" stroke-width="2"/>
+        <circle cx="140" cy="40" r="5" fill="white" stroke="#0E7490" stroke-width="2"/>
+        <circle cx="140" cy="95" r="5" fill="#0E7490"/>
+        <text x="145" y="38" font-size="9" fill="#0E7490">f heads to 4</text>
+        <text x="145" y="98" font-size="9" fill="#6B7280">f(3)=1 (dot)</text>
+        <text x="130" y="132" font-size="9" fill="#374151">3</text>
+      </svg>
+      \( f \) approaches 4 as \(x\to3\) (open circle) but is actually defined as 1 there (filled dot) — a removable discontinuity. The limit uses 4.
+    </div>
+
+    <p><strong>Example 2 — Division, denominator → 0 (nonzero numerator):</strong></p>
+    <div class="example-box">
+      As \( x\to1 \): \( f(x) \to 4 \) (nonzero). \( g(x) \) crosses zero at \( x=1\): small and negative just left, small and positive just right (open circle exactly at zero, since \( g(1) \) is undefined).
+      \[ \lim_{x\to1^-}\frac{f}{g} = \frac{4}{\text{small}-} = -\infty \qquad \lim_{x\to1^+}\frac{f}{g} = \frac{4}{\text{small}+} = +\infty \]
+      One-sided limits disagree, so \( \lim_{x\to1}\dfrac{f}{g} \) <strong>does not exist</strong>.
+    </div>
+
+    <p><strong>Example 3 — Multiplication, one factor → 0:</strong></p>
+    <div class="example-box">
+      As \( x\to0 \): \( f(x)\to0 \) (filled dot at the origin, \( f(0)=0 \) too — continuous there). \( g(x)\to-3 \).
+      \[ \lim_{x\to0}[f(x)g(x)] = 0 \times(-3) = 0 \]
+      Doesn't matter that \( g \) is a fairly large negative number — multiplying by something heading to 0 still gives 0.
+    </div>
+  </div>
+
+  <div class="notes-col">
+    <div class="col-label">Helpful points</div>
+
+    <div class="key-box">
+      <strong>When circle status is IGNORED:</strong><br>
+      Computing any limit — the curve's approach height is all that matters, regardless of open/filled/missing dots.
+    </div>
+
+    <hr class="divider">
+
+    <div class="warn-box">
+      <strong>When circle status MATTERS:</strong><br>
+      • Evaluating \( f(a) \) itself (open circle → undefined; filled circle → that's the value)<br>
+      • Deciding if \( f \) is <strong>continuous</strong> at \( a \) — needs limit <em>and</em> \( f(a) \) to exist <em>and</em> be equal<br>
+      • Deciding if a discontinuity is <em>removable</em> (open circle where limit exists) vs a genuine jump/undefined point
+    </div>
+
+    <hr class="divider">
+
+    <table class="limit-table">
+      <tr><th>Sign combo</th><th>Result</th></tr>
+      <tr><td>\( \dfrac{+}{0^+} \)</td><td>\( +\infty \)</td></tr>
+      <tr><td>\( \dfrac{+}{0^-} \)</td><td>\( -\infty \)</td></tr>
+      <tr><td>\( \dfrac{0}{0} \)</td><td>indeterminate — need more info</td></tr>
+    </table>
+
+    <hr class="divider">
+
+    <p>If one of \( f \) or \( g \) has no limit at \( a \) (e.g. a jump), the combined two-sided limit fails too — but the one-sided combined limits may still exist and be computable separately.</p>
+  </div>
+
+</div>
+
+</div>
+
+</div>
+
+<footer>Maths Study Hub</footer>
+
+</body>
+</html>

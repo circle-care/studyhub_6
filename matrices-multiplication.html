@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Matrix Multiplication · Maths Study Hub</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="../pdf-download.js" defer></script>
+<style>
+.notes-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+  border: 3px solid #4F46E5;
+  border-radius: 12px 12px 0 0;
+  overflow: hidden;
+  margin-bottom: 0;
+  font-size: 14px;
+}
+.notes-header-cell {
+  padding: 10px 16px;
+  background: #4F46E5;
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  border-right: 2px solid rgba(255,255,255,0.3);
+}
+.notes-header-cell:last-child { border-right: none; }
+.notes-header-cell span { display: block; font-size: 11px; opacity: 0.75; font-weight: 400; margin-bottom: 2px; }
+
+.notes-title-bar {
+  background: #EEF2FF;
+  border: 3px solid #4F46E5;
+  border-top: none;
+  padding: 12px 20px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #3730A3;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.page-num {
+  background: #4F46E5;
+  color: #fff;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.notes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr 1fr;
+  border: 3px solid #4F46E5;
+  border-top: none;
+  border-radius: 0 0 12px 12px;
+  overflow: hidden;
+  margin-bottom: 2.5rem;
+}
+
+.notes-col {
+  padding: 20px;
+  border-right: 2px solid #e5e7eb;
+}
+.notes-col:last-child { border-right: none; }
+
+.col-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #4F46E5;
+  margin-bottom: 14px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid #EEF2FF;
+}
+
+.notes-col p { margin-bottom: 12px; font-size: 16px; line-height: 1.8; }
+.notes-col p:last-child { margin-bottom: 0; }
+
+.highlight {
+  background: #FEF9C3;
+  border-left: 4px solid #EAB308;
+  padding: 10px 14px;
+  border-radius: 0 8px 8px 0;
+  margin: 12px 0;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.key-box {
+  background: #EEF2FF;
+  border: 2px solid #4F46E5;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin: 12px 0;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.example-box {
+  background: #F0FDF4;
+  border: 2px solid #16A34A;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin: 12px 0;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.warn-box {
+  background: #FEF2F2;
+  border: 2px solid #DC2626;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin: 12px 0;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.divider { border: none; border-top: 2px solid #e5e7eb; margin: 16px 0; }
+
+table.limit-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  margin: 10px 0;
+}
+table.limit-table th {
+  background: #4F46E5;
+  color: #fff;
+  padding: 8px 12px;
+  text-align: center;
+  font-size: 13px;
+}
+table.limit-table td {
+  padding: 7px 12px;
+  border: 1px solid #e5e7eb;
+  text-align: center;
+}
+table.limit-table tr:nth-child(even) td { background: #f9fafb; }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-brand">📚 Maths Study Hub</span>
+  <a href="../index.html" class="nav-link nav-home">Home</a>
+  <a href="../calendar.html" class="nav-link nav-cal">📅 Calendar</a>
+  <a href="../algebra.html" class="nav-link nav-alg active">Algebra</a>
+  <a href="../geometry.html" class="nav-link nav-geo">Geometry</a>
+  <a href="../calculus.html" class="nav-link nav-calc">Calculus</a>
+  <a href="../assignments.html" class="nav-link nav-assign">Assignments</a>
+  <a href="../exam-prep.html" class="nav-link nav-exam">Exam prep</a>
+  <a href="../study-resources.html" class="nav-link nav-res">Resources</a>
+</nav>
+
+<div class="page-hero" style="background:#EEF2FF; border-bottom:2px solid #4F46E5;">
+  <h1 style="color:#3730A3;">▦ Algebra — Matrices</h1>
+  <p style="color:#4F46E5;">Matrix multiplication</p>
+</div>
+
+<div class="content">
+
+<div class="notes-header">
+  <div class="notes-header-cell"><span>Subject</span>Algebra</div>
+  <div class="notes-header-cell"><span>Subtopic</span>Matrices</div>
+  <div class="notes-header-cell"><span>Sheet</span>2 of 4</div>
+</div>
+<div class="notes-title-bar">
+  <div class="page-num">2</div>
+  Matrix multiplication (critical skill)
+</div>
+<div class="notes-grid">
+
+  <div class="notes-col">
+    <div class="col-label">Main points</div>
+
+    <div class="key-box">
+      <strong>Compatibility rule:</strong> \(AB\) is only defined when the number of <strong>columns of \(A\)</strong> equals the number of <strong>rows of \(B\)</strong>.
+    </div>
+
+    <p>If \(A\) is \(m\times n\) and \(B\) is \(n\times p\), then \(AB\) is defined and has size \(m\times p\) — "outer numbers" give the result's size.</p>
+
+    <hr class="divider">
+
+    <p><strong>How to compute an entry:</strong> \((AB)_{ij}\) = (row \(i\) of \(A\)) \(\cdot\) (column \(j\) of \(B\)) — multiply corresponding entries and add them up.</p>
+
+    <hr class="divider">
+
+    <div class="warn-box">
+      <strong>Matrix multiplication is NOT commutative:</strong> \(AB \neq BA\) in general. Even if both products are defined, they can give completely different (or differently-sized) results.
+    </div>
+  </div>
+
+  <div class="notes-col">
+    <div class="col-label">Examples / explanation</div>
+
+    <p><strong>Checking compatibility:</strong></p>
+    <div class="example-box">
+      \(A\) is \(2\times3\), \(B\) is \(3\times2\). Columns of \(A\) (3) = rows of \(B\) (3) ✓ — so \(AB\) is defined, and has size \(2\times2\) (outer numbers: 2 and 2).<br><br>
+      What about \(BA\)? Columns of \(B\) (2) = rows of \(A\) (2) ✓ — also defined, but gives size \(3\times3\). Same matrices, totally different shaped results!
+    </div>
+
+    <p><strong>Worked multiplication:</strong></p>
+    <div class="example-box">
+      \[ A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}, \quad B = \begin{pmatrix} 5 & 6 \\ 7 & 8 \end{pmatrix} \]
+      \[ AB = \begin{pmatrix} (1)(5)+(2)(7) & (1)(6)+(2)(8) \\ (3)(5)+(4)(7) & (3)(6)+(4)(8) \end{pmatrix} = \begin{pmatrix} 19 & 22 \\ 43 & 50 \end{pmatrix} \]
+      Row 1 of \(A\) times column 1 of \(B\): \(1\times5 + 2\times7 = 19\). Row 1 times column 2: \(1\times6+2\times8=22\). Continue for row 2.
+    </div>
+
+    <p><strong>Showing \(AB \neq BA\):</strong></p>
+    <div class="example-box">
+      \[ BA = \begin{pmatrix} (5)(1)+(6)(3) & (5)(2)+(6)(4) \\ (7)(1)+(8)(3) & (7)(2)+(8)(4) \end{pmatrix} = \begin{pmatrix} 23 & 34 \\ 31 & 46 \end{pmatrix} \]
+      Compare to \(AB = \begin{pmatrix}19&22\\43&50\end{pmatrix}\) — completely different matrix. Order matters.
+    </div>
+  </div>
+
+  <div class="notes-col">
+    <div class="col-label">Helpful points</div>
+
+    <div class="key-box">
+      Say the sizes out loud: "\(A\) is \(m\times n\), \(B\) is \(n\times p\)" — the <strong>middle two numbers must match</strong>, and the <strong>outer two numbers</strong> give you the answer's size.
+    </div>
+
+    <hr class="divider">
+
+    <div class="highlight">
+      Multiply <strong>row by column</strong>, never row by row or column by column. Each entry of the answer comes from one row of \(A\) and one column of \(B\).
+    </div>
+
+    <hr class="divider">
+
+    <div class="warn-box">
+      Just because \(AB\) is defined does NOT mean \(BA\) is defined too — check both separately. And even when both are defined and the same size, they're usually still not equal.
+    </div>
+
+    <hr class="divider">
+
+    <table class="limit-table">
+      <tr><th>\(A\) size</th><th>\(B\) size</th><th>\(AB\) defined?</th></tr>
+      <tr><td>\(2\times3\)</td><td>\(3\times4\)</td><td>Yes, → \(2\times4\)</td></tr>
+      <tr><td>\(2\times3\)</td><td>\(2\times3\)</td><td>No (3 ≠ 2)</td></tr>
+    </table>
+  </div>
+
+</div>
+
+</div>
+
+<footer>Maths Study Hub</footer>
+
+</body>
+</html>

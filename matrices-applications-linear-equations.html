@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Matrix Applications & Linear Equations · Maths Study Hub</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="../pdf-download.js" defer></script>
+<style>
+.notes-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+  border: 3px solid #4F46E5;
+  border-radius: 12px 12px 0 0;
+  overflow: hidden;
+  margin-bottom: 0;
+  font-size: 14px;
+}
+.notes-header-cell {
+  padding: 10px 16px;
+  background: #4F46E5;
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  border-right: 2px solid rgba(255,255,255,0.3);
+}
+.notes-header-cell:last-child { border-right: none; }
+.notes-header-cell span { display: block; font-size: 11px; opacity: 0.75; font-weight: 400; margin-bottom: 2px; }
+
+.notes-title-bar {
+  background: #EEF2FF;
+  border: 3px solid #4F46E5;
+  border-top: none;
+  padding: 12px 20px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #3730A3;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.page-num {
+  background: #4F46E5;
+  color: #fff;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.notes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr 1fr;
+  border: 3px solid #4F46E5;
+  border-top: none;
+  border-radius: 0 0 12px 12px;
+  overflow: hidden;
+  margin-bottom: 2.5rem;
+}
+
+.notes-col {
+  padding: 20px;
+  border-right: 2px solid #e5e7eb;
+}
+.notes-col:last-child { border-right: none; }
+
+.col-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #4F46E5;
+  margin-bottom: 14px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid #EEF2FF;
+}
+
+.notes-col p { margin-bottom: 12px; font-size: 16px; line-height: 1.8; }
+.notes-col p:last-child { margin-bottom: 0; }
+
+.highlight {
+  background: #FEF9C3;
+  border-left: 4px solid #EAB308;
+  padding: 10px 14px;
+  border-radius: 0 8px 8px 0;
+  margin: 12px 0;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.key-box {
+  background: #EEF2FF;
+  border: 2px solid #4F46E5;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin: 12px 0;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.example-box {
+  background: #F0FDF4;
+  border: 2px solid #16A34A;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin: 12px 0;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.warn-box {
+  background: #FEF2F2;
+  border: 2px solid #DC2626;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin: 12px 0;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.divider { border: none; border-top: 2px solid #e5e7eb; margin: 16px 0; }
+
+table.limit-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  margin: 10px 0;
+}
+table.limit-table th {
+  background: #4F46E5;
+  color: #fff;
+  padding: 8px 12px;
+  text-align: center;
+  font-size: 13px;
+}
+table.limit-table td {
+  padding: 7px 12px;
+  border: 1px solid #e5e7eb;
+  text-align: center;
+}
+table.limit-table tr:nth-child(even) td { background: #f9fafb; }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-brand">📚 Maths Study Hub</span>
+  <a href="../index.html" class="nav-link nav-home">Home</a>
+  <a href="../calendar.html" class="nav-link nav-cal">📅 Calendar</a>
+  <a href="../algebra.html" class="nav-link nav-alg active">Algebra</a>
+  <a href="../geometry.html" class="nav-link nav-geo">Geometry</a>
+  <a href="../calculus.html" class="nav-link nav-calc">Calculus</a>
+  <a href="../assignments.html" class="nav-link nav-assign">Assignments</a>
+  <a href="../exam-prep.html" class="nav-link nav-exam">Exam prep</a>
+  <a href="../study-resources.html" class="nav-link nav-res">Resources</a>
+</nav>
+
+<div class="page-hero" style="background:#EEF2FF; border-bottom:2px solid #4F46E5;">
+  <h1 style="color:#3730A3;">▦ Algebra — Matrices</h1>
+  <p style="color:#4F46E5;">Applications and linear equations</p>
+</div>
+
+<div class="content">
+
+<div class="notes-header">
+  <div class="notes-header-cell"><span>Subject</span>Algebra</div>
+  <div class="notes-header-cell"><span>Subtopic</span>Matrices</div>
+  <div class="notes-header-cell"><span>Sheet</span>4 of 4</div>
+</div>
+<div class="notes-title-bar">
+  <div class="page-num">4</div>
+  Networks, and solving linear equations with matrices
+</div>
+<div class="notes-grid">
+
+  <div class="notes-col">
+    <div class="col-label">Main points</div>
+
+    <p><strong>Networks:</strong> a matrix can represent connections/outputs between stages (e.g. factories → products, or routes between towns). Multiplying two such matrices gives the <strong>combined</strong> effect through both stages.</p>
+
+    <hr class="divider">
+
+    <div class="key-box">
+      <strong>Linear equations in matrix form:</strong>
+      \[ A\mathbf{x} = \mathbf{b} \]
+      where \(A\) holds the coefficients, \(\mathbf{x}\) is the column of unknowns, \(\mathbf{b}\) is the column of results.
+    </div>
+
+    <hr class="divider">
+
+    <div class="key-box">
+      <strong>Solving:</strong> if \(A^{-1}\) exists,
+      \[ \mathbf{x} = A^{-1}\mathbf{b} \]
+    </div>
+  </div>
+
+  <div class="notes-col">
+    <div class="col-label">Examples / explanation</div>
+
+    <p><strong>Network example:</strong></p>
+    <div class="example-box">
+      Matrix \(P\) (2×2) gives units of raw material each of 2 factories needs per product; matrix \(Q\) (2×1) gives cost per unit of each raw material. Then \(PQ\) (2×1) gives the <strong>total material cost per factory</strong> — combining "factories → materials" with "materials → cost" into one "factories → cost" result via multiplication.
+    </div>
+
+    <p><strong>Writing simultaneous equations in matrix form:</strong></p>
+    <div class="example-box">
+      \[ \begin{aligned} 2x + 3y &= 8 \\ x - y &= 1 \end{aligned} \]
+      becomes
+      \[ \begin{pmatrix} 2 & 3 \\ 1 & -1 \end{pmatrix}\begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 8 \\ 1 \end{pmatrix} \]
+      i.e. \(A\mathbf{x}=\mathbf{b}\) with \(A=\begin{pmatrix}2&3\\1&-1\end{pmatrix}\), \(\mathbf{b}=\begin{pmatrix}8\\1\end{pmatrix}\).
+    </div>
+
+    <p><strong>Solving using the inverse:</strong></p>
+    <div class="example-box">
+      \[ \det A = (2)(-1)-(3)(1) = -5 \]
+      \[ A^{-1} = \frac{1}{-5}\begin{pmatrix} -1 & -3 \\ -1 & 2 \end{pmatrix} = \begin{pmatrix} 0.2 & 0.6 \\ 0.2 & -0.4 \end{pmatrix} \]
+      \[ \mathbf{x} = A^{-1}\mathbf{b} = \begin{pmatrix} 0.2 & 0.6 \\ 0.2 & -0.4 \end{pmatrix}\begin{pmatrix} 8 \\ 1 \end{pmatrix} = \begin{pmatrix} 1.6+0.6 \\ 1.6-0.4 \end{pmatrix} = \begin{pmatrix} 2.2 \\ 1.2 \end{pmatrix} \]
+      So \(x = 2.2\), \(y = 1.2\). (Check: \(2(2.2)+3(1.2) = 4.4+3.6=8\) ✓, \(2.2-1.2=1\) ✓.)
+    </div>
+  </div>
+
+  <div class="notes-col">
+    <div class="col-label">Helpful points</div>
+
+    <div class="warn-box">
+      This method only works if \(A^{-1}\) exists — if \(\det A = 0\), the system either has <strong>no solution</strong> or <strong>infinitely many</strong>, and this matrix method can't be used directly.
+    </div>
+
+    <hr class="divider">
+
+    <div class="key-box">
+      Order matters when solving: it's \(\mathbf{x}=A^{-1}\mathbf{b}\), NOT \(\mathbf{b}A^{-1}\) — matrix multiplication isn't commutative, so the inverse must multiply \(\mathbf{b}\) on the correct side.
+    </div>
+
+    <hr class="divider">
+
+    <div class="highlight">
+      Always double-check your final answer by substituting back into the <strong>original</strong> equations — a fast way to catch a sign slip in the inverse.
+    </div>
+
+    <hr class="divider">
+
+    <p>This is essentially the matrix version of solving \(ax=b\) by dividing: here "dividing by \(A\)" means multiplying by \(A^{-1}\), since matrices don't have division.</p>
+  </div>
+
+</div>
+
+</div>
+
+<footer>Maths Study Hub</footer>
+
+</body>
+</html>
