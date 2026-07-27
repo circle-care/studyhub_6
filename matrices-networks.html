@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Matrix Powers, LaTeX & Equation Form Notes · Maths Study Hub</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="../pdf-download.js" defer></script>
+<style>
+.notes-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+  border: 3px solid #4F46E5;
+  border-radius: 12px 12px 0 0;
+  overflow: hidden;
+  margin-bottom: 0;
+  font-size: 14px;
+}
+.notes-header-cell {
+  padding: 10px 16px;
+  background: #4F46E5;
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  border-right: 2px solid rgba(255,255,255,0.3);
+}
+.notes-header-cell:last-child { border-right: none; }
+.notes-header-cell span { display: block; font-size: 11px; opacity: 0.75; font-weight: 400; margin-bottom: 2px; }
+
+.notes-title-bar {
+  background: #EEF2FF;
+  border: 3px solid #4F46E5;
+  border-top: none;
+  padding: 12px 20px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #3730A3;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.page-num {
+  background: #4F46E5;
+  color: #fff;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.notes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr 1fr;
+  border: 3px solid #4F46E5;
+  border-top: none;
+  border-radius: 0 0 12px 12px;
+  overflow: hidden;
+  margin-bottom: 2.5rem;
+}
+
+.notes-col {
+  padding: 20px;
+  border-right: 2px solid #e5e7eb;
+}
+.notes-col:last-child { border-right: none; }
+
+.col-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #4F46E5;
+  margin-bottom: 14px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid #EEF2FF;
+}
+
+.notes-col p { margin-bottom: 12px; font-size: 16px; line-height: 1.8; }
+.notes-col p:last-child { margin-bottom: 0; }
+
+.highlight {
+  background: #FEF9C3;
+  border-left: 4px solid #EAB308;
+  padding: 10px 14px;
+  border-radius: 0 8px 8px 0;
+  margin: 12px 0;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.key-box {
+  background: #EEF2FF;
+  border: 2px solid #4F46E5;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin: 12px 0;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.example-box {
+  background: #F0FDF4;
+  border: 2px solid #16A34A;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin: 12px 0;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.warn-box {
+  background: #FEF2F2;
+  border: 2px solid #DC2626;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin: 12px 0;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.divider { border: none; border-top: 2px solid #e5e7eb; margin: 16px 0; }
+
+table.limit-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  margin: 10px 0;
+}
+table.limit-table th {
+  background: #4F46E5;
+  color: #fff;
+  padding: 8px 12px;
+  text-align: center;
+  font-size: 13px;
+}
+table.limit-table td {
+  padding: 7px 12px;
+  border: 1px solid #e5e7eb;
+  text-align: center;
+}
+table.limit-table tr:nth-child(even) td { background: #f9fafb; }
+code {
+  background: #f3f4f6;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'Courier New', monospace;
+  color: #3730A3;
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-brand">📚 Maths Study Hub</span>
+  <a href="../index.html" class="nav-link nav-home">Home</a>
+  <a href="../calendar.html" class="nav-link nav-cal">📅 Calendar</a>
+  <a href="../algebra.html" class="nav-link nav-alg active">Algebra</a>
+  <a href="../geometry.html" class="nav-link nav-geo">Geometry</a>
+  <a href="../calculus.html" class="nav-link nav-calc">Calculus</a>
+  <a href="../assignments.html" class="nav-link nav-assign">Assignments</a>
+  <a href="../exam-prep.html" class="nav-link nav-exam">Exam prep</a>
+  <a href="../study-resources.html" class="nav-link nav-res">Resources</a>
+</nav>
+
+<div class="page-hero" style="background:#EEF2FF; border-bottom:2px solid #4F46E5;">
+  <h1 style="color:#3730A3;">▦ Algebra — Matrices</h1>
+  <p style="color:#4F46E5;">Extra topics: powers, LaTeX notation & equation-form nuances</p>
+</div>
+
+<div class="content">
+
+<div class="notes-header">
+  <div class="notes-header-cell"><span>Subject</span>Algebra</div>
+  <div class="notes-header-cell"><span>Subtopic</span>Matrices</div>
+  <div class="notes-header-cell"><span>Sheet</span>6 of 6</div>
+</div>
+<div class="notes-title-bar">
+  <div class="page-num">6</div>
+  Matrix powers, LaTeX notation, and equation-form nuances
+</div>
+<div class="notes-grid">
+
+  <div class="notes-col">
+    <div class="col-label">Main points</div>
+
+    <p><strong>Matrix powers:</strong> \(A^2 = A \times A\) — only defined if \(A\) is <strong>square</strong>. Uses full matrix multiplication, never entry-by-entry squaring.</p>
+
+    <hr class="divider">
+
+    <div class="key-box">
+      <strong>LaTeX matrix environments:</strong><br>
+      <code>pmatrix</code> → \((\ )\) round brackets<br>
+      <code>bmatrix</code> → \([\ ]\) square brackets<br>
+      <code>vmatrix</code> → \(|\ |\) determinant bars
+    </div>
+
+    <hr class="divider">
+
+    <p><strong>Equations → matrix form:</strong> every term has a coefficient, even invisible ones. \(x\) means \(1x\); \(-y\) means \(-1y\). Rows of \(A\) and entries of \(\mathbf{b}\) must stay matched to the <em>same</em> equation, in whatever order you choose.</p>
+  </div>
+
+  <div class="notes-col">
+    <div class="col-label">Examples / explanation</div>
+
+    <p><strong>Matrix power, worked:</strong></p>
+    <div class="example-box">
+      \[ A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix} \]
+      \[ A^2 = AA = \begin{pmatrix} (1)(1)+(2)(3) & (1)(2)+(2)(4) \\ (3)(1)+(4)(3) & (3)(2)+(4)(4) \end{pmatrix} = \begin{pmatrix} 7 & 10 \\ 15 & 22 \end{pmatrix} \]
+    </div>
+
+    <p><strong>LaTeX code for a matrix:</strong></p>
+    <div class="example-box">
+      <code>\begin{pmatrix} a &amp; b \\ c &amp; d \end{pmatrix}</code><br><br>
+      \[ \begin{pmatrix} a & b \\ c & d \end{pmatrix} \]
+      <code>&amp;</code> separates columns, <code>\\</code> starts a new row. Fractions inside a matrix use ordinary <code>\frac{}{}</code>, e.g. <code>\frac{1}{2}</code> in any cell.
+    </div>
+
+    <p><strong>Choosing equation order:</strong></p>
+    <div class="example-box">
+      \[ \begin{aligned} x - y &= 1 \\ 2x + 3y &= 8 \end{aligned} \quad\Longrightarrow\quad \begin{pmatrix} 1 & -1 \\ 2 & 3 \end{pmatrix}\begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 1 \\ 8 \end{pmatrix} \]
+      Listing \(x-y=1\) first instead of \(2x+3y=8\) is equally valid — just requires the \(\mathbf{b}\) vector to follow the same order (1, then 8).
+    </div>
+  </div>
+
+  <div class="notes-col">
+    <div class="col-label">Helpful points</div>
+
+    <div class="warn-box">
+      <strong>Common mistake:</strong> \(A^2 \neq \begin{pmatrix}a_{11}^2 & a_{12}^2\\a_{21}^2&a_{22}^2\end{pmatrix}\). Squaring each entry individually is a different (wrong) operation — always do the full row-by-column multiplication.
+    </div>
+
+    <hr class="divider">
+
+    <div class="key-box">
+      Common LaTeX slip: <code>\frac1{3}</code> or <code>\frac{1}3</code> — both wrong. <code>\frac</code> needs <strong>both</strong> arguments in their own braces: <code>\frac{1}{3}</code>.
+    </div>
+
+    <hr class="divider">
+
+    <div class="highlight">
+      A matrix must be <strong>square</strong> before you can even ask about \(A^2\), \(A^3\), or \(A^{-1}\) — non-square matrices don't have powers or inverses, full stop.
+    </div>
+
+    <hr class="divider">
+
+    <table class="limit-table">
+      <tr><th>Bracket style</th><th>Environment</th></tr>
+      <tr><td>\((\ )\)</td><td>pmatrix</td></tr>
+      <tr><td>\([\ ]\)</td><td>bmatrix</td></tr>
+      <tr><td>\(|\ |\)</td><td>vmatrix</td></tr>
+    </table>
+  </div>
+
+</div>
+
+</div>
+
+<footer>Maths Study Hub</footer>
+
+</body>
+</html>
