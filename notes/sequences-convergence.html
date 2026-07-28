@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sequences: Convergence · Maths Study Hub</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="../pdf-download.js" defer></script>
+<style>
+.notes-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+  border: 3px solid #4F46E5;
+  border-radius: 12px 12px 0 0;
+  overflow: hidden;
+  margin-bottom: 0;
+  font-size: 14px;
+}
+.notes-header-cell {
+  padding: 10px 16px;
+  background: #4F46E5;
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  border-right: 2px solid rgba(255,255,255,0.3);
+}
+.notes-header-cell:last-child { border-right: none; }
+.notes-header-cell span { display: block; font-size: 11px; opacity: 0.75; font-weight: 400; margin-bottom: 2px; }
+
+.notes-title-bar {
+  background: #EEF2FF;
+  border: 3px solid #4F46E5;
+  border-top: none;
+  padding: 12px 20px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #3730A3;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.page-num {
+  background: #4F46E5;
+  color: #fff;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.notes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr 1fr;
+  border: 3px solid #4F46E5;
+  border-top: none;
+  border-radius: 0 0 12px 12px;
+  overflow: hidden;
+  margin-bottom: 2.5rem;
+}
+
+.notes-col {
+  padding: 20px;
+  border-right: 2px solid #e5e7eb;
+}
+.notes-col:last-child { border-right: none; }
+
+.col-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #4F46E5;
+  margin-bottom: 14px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid #EEF2FF;
+}
+
+.notes-col p { margin-bottom: 12px; font-size: 16px; line-height: 1.8; }
+.notes-col p:last-child { margin-bottom: 0; }
+
+.highlight {
+  background: #FEF9C3;
+  border-left: 4px solid #EAB308;
+  padding: 10px 14px;
+  border-radius: 0 8px 8px 0;
+  margin: 12px 0;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.key-box {
+  background: #EEF2FF;
+  border: 2px solid #4F46E5;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin: 12px 0;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.example-box {
+  background: #F0FDF4;
+  border: 2px solid #16A34A;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin: 12px 0;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.warn-box {
+  background: #FEF2F2;
+  border: 2px solid #DC2626;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin: 12px 0;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.divider { border: none; border-top: 2px solid #e5e7eb; margin: 16px 0; }
+
+table.limit-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  margin: 10px 0;
+}
+table.limit-table th {
+  background: #4F46E5;
+  color: #fff;
+  padding: 8px 12px;
+  text-align: center;
+  font-size: 13px;
+}
+table.limit-table td {
+  padding: 7px 12px;
+  border: 1px solid #e5e7eb;
+  text-align: center;
+}
+table.limit-table tr:nth-child(even) td { background: #f9fafb; }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-brand">📚 Maths Study Hub</span>
+  <a href="../index.html" class="nav-link nav-home">Home</a>
+  <a href="../calendar.html" class="nav-link nav-cal">📅 Calendar</a>
+  <a href="../algebra.html" class="nav-link nav-alg active">Algebra</a>
+  <a href="../geometry.html" class="nav-link nav-geo">Geometry</a>
+  <a href="../calculus.html" class="nav-link nav-calc">Calculus</a>
+  <a href="../assignments.html" class="nav-link nav-assign">Assignments</a>
+  <a href="../exam-prep.html" class="nav-link nav-exam">Exam prep</a>
+  <a href="../study-resources.html" class="nav-link nav-res">Resources</a>
+</nav>
+
+<div class="page-hero" style="background:#EEF2FF; border-bottom:2px solid #4F46E5;">
+  <h1 style="color:#3730A3;">🔢 Algebra — Sequences and Series</h1>
+  <p style="color:#4F46E5;">Long-term behaviour and convergence</p>
+</div>
+
+<div class="content">
+
+<div class="notes-header">
+  <div class="notes-header-cell"><span>Subject</span>Algebra</div>
+  <div class="notes-header-cell"><span>Subtopic</span>Sequences</div>
+  <div class="notes-header-cell"><span>Sheet</span>2 of 4</div>
+</div>
+<div class="notes-title-bar">
+  <div class="page-num">2</div>
+  Long-term behaviour and convergence
+</div>
+<div class="notes-grid">
+
+  <div class="notes-col">
+    <div class="col-label">Main points</div>
+
+    <p>A sequence is <strong>increasing</strong> if each term is bigger than the last, <strong>decreasing</strong> if each is smaller. <strong>Bounded</strong> means it never goes beyond some fixed value in either direction; <strong>unbounded</strong> means it does.</p>
+
+    <hr class="divider">
+
+    <div class="key-box">
+      A sequence <strong>converges</strong> to a limit \(L\) if \(a_n \to L\) as \(n\to\infty\) — the terms get arbitrarily close to \(L\) and stay close.
+    </div>
+
+    <hr class="divider">
+
+    <div class="key-box">
+      <strong>Arithmetic:</strong> always tends to \(+\infty\) or \(-\infty\) unless \(d=0\) (constant sequence).<br><br>
+      <strong>Geometric:</strong> converges to 0 only if \(|r|<1\). If \(|r|>1\), unbounded.
+    </div>
+  </div>
+
+  <div class="notes-col">
+    <div class="col-label">Examples / explanation</div>
+
+    <p><strong>Arithmetic, always diverges (unless \(d=0\)):</strong></p>
+    <div class="example-box">
+      \(a_n = 5+3(n-1)\): as \(n\to\infty\), terms grow without bound → \(a_n\to+\infty\). If \(d\) were negative, e.g. \(a_n=20-2(n-1)\), it heads to \(-\infty\) instead. Either way, it never settles on a finite limit unless \(d=0\).
+    </div>
+
+    <p><strong>Geometric, \(|r|<1\) — converges to 0:</strong></p>
+    <div class="example-box">
+      \(a_n = 100(0.5)^{n-1}\): \(100, 50, 25, 12.5, \ldots \to 0\). Each term is smaller in magnitude, since multiplying repeatedly by a number between \(-1\) and \(1\) shrinks it toward zero.
+    </div>
+
+    <p><strong>Geometric, \(|r|>1\) — unbounded:</strong></p>
+    <div class="example-box">
+      \(a_n = 3(2)^{n-1}\): \(3,6,12,24,48,\ldots\to\infty\). Multiplying repeatedly by something bigger than 1 (in magnitude) makes it grow forever.
+    </div>
+
+    <p><strong>Geometric with negative ratio, \(-1<r<0\):</strong></p>
+    <div class="example-box">
+      \(a_n = 8(-0.5)^{n-1}\): \(8, -4, 2, -1, 0.5, -0.25,\ldots\) — oscillates in sign, but the magnitude still shrinks toward 0 since \(|r|=0.5<1\). Still converges — to 0.
+    </div>
+  </div>
+
+  <div class="notes-col">
+    <div class="col-label">Helpful points</div>
+
+    <div class="warn-box">
+      \(r=1\) is a trap: \(|r|<1\) is <strong>false</strong> when \(r=1\) (since \(|1|=1\), not less than 1) — a geometric sequence with \(r=1\) is actually just a constant sequence, and one with \(r=-1\) oscillates between two values forever, converging to neither.
+    </div>
+
+    <hr class="divider">
+
+    <div class="key-box">
+      Quick check for geometric convergence: just look at \(|r|\). \(|r|<1\) → converges to 0. \(|r|\geq1\) → does not converge (diverges or oscillates).
+    </div>
+
+    <hr class="divider">
+
+    <div class="highlight">
+      Arithmetic sequences <strong>never</strong> converge to a finite limit (except the trivial \(d=0\) case) — this is a completely different long-term behaviour from geometric sequences, which frequently do converge.
+    </div>
+
+    <hr class="divider">
+
+    <table class="limit-table">
+      <tr><th>\(|r|\)</th><th>Behaviour</th></tr>
+      <tr><td>\(|r|<1\)</td><td>Converges to 0</td></tr>
+      <tr><td>\(|r|=1\)</td><td>Constant or oscillates</td></tr>
+      <tr><td>\(|r|>1\)</td><td>Unbounded</td></tr>
+    </table>
+  </div>
+
+</div>
+
+</div>
+
+<footer>Maths Study Hub</footer>
+
+</body>
+</html>
