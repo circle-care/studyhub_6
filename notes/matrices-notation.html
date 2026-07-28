@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Matrix Notation & Basic Operations · Maths Study Hub</title>
+<title>Sequences: Notation, Arithmetic & Geometric · Maths Study Hub</title>
 <link rel="stylesheet" href="../style.css">
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <script src="../pdf-download.js" defer></script>
@@ -164,74 +164,91 @@ table.limit-table tr:nth-child(even) td { background: #f9fafb; }
 </nav>
 
 <div class="page-hero" style="background:#EEF2FF; border-bottom:2px solid #4F46E5;">
-  <h1 style="color:#3730A3;">▦ Algebra — Matrices</h1>
-  <p style="color:#4F46E5;">Notation, terminology & basic operations</p>
+  <h1 style="color:#3730A3;">🔢 Algebra — Sequences and Series</h1>
+  <p style="color:#4F46E5;">Specifying sequences · arithmetic & geometric patterns</p>
 </div>
 
 <div class="content">
 
 <div class="notes-header">
   <div class="notes-header-cell"><span>Subject</span>Algebra</div>
-  <div class="notes-header-cell"><span>Subtopic</span>Matrices</div>
+  <div class="notes-header-cell"><span>Subtopic</span>Sequences</div>
   <div class="notes-header-cell"><span>Sheet</span>1 of 4</div>
 </div>
 <div class="notes-title-bar">
   <div class="page-num">1</div>
-  Notation, terminology and basic operations
+  Specifying sequences, arithmetic & geometric patterns
 </div>
 <div class="notes-grid">
 
   <div class="notes-col">
     <div class="col-label">Main points</div>
 
-    <p>A matrix is a rectangular array of numbers. Its <strong>size</strong> (or <strong>order</strong>) is written \( m \times n \): \( m \) rows, \( n \) columns — always rows first.</p>
+    <p>A sequence is a list of terms \(a_n\), one for each integer index \(n\). Three ways to define one:</p>
 
     <div class="key-box">
-      A matrix with 3 rows and 2 columns is \(3\times2\). A matrix with the same number of rows and columns (\( n\times n \)) is called a <strong>square matrix</strong>.
+      <strong>1. Listing terms:</strong> give the first few, assume the pattern continues.<br>
+      <strong>2. Closed form:</strong> a formula for \(a_n\) directly in terms of \(n\).<br>
+      <strong>3. Recurrence:</strong> \(a_n\) defined using \(a_{n-1}\), plus a starting term.
     </div>
 
     <hr class="divider">
 
-    <p><strong>Element notation:</strong> \( a_{ij} \) means the entry in row \(i\), column \(j\) — row number always comes first, then column.</p>
+    <div class="key-box">
+      <strong>Arithmetic:</strong> add a fixed common difference \(d\) each time.
+      \[ x_n = a + (n-1)d \]
+    </div>
 
-    <hr class="divider">
-
-    <p><strong>Addition / subtraction:</strong> only defined when both matrices are exactly the <strong>same size</strong>. Add or subtract corresponding entries.</p>
-
-    <p><strong>Scalar multiplication:</strong> multiply every single entry by the scalar.</p>
+    <div class="key-box">
+      <strong>Geometric:</strong> multiply by a fixed common ratio \(r\) each time.
+      \[ x_n = ar^{n-1} \]
+    </div>
   </div>
 
   <div class="notes-col">
     <div class="col-label">Examples / explanation</div>
 
-    <p><strong>Size and elements:</strong></p>
+    <p><strong>Listing terms:</strong></p>
     <div class="example-box">
-      \[ A = \begin{pmatrix} 2 & 5 & -1 \\ 0 & 3 & 4 \end{pmatrix} \]
-      \(A\) is a \(2\times3\) matrix (2 rows, 3 columns).<br>
-      \( a_{12} = 5 \) (row 1, column 2). \( a_{23} = 4 \) (row 2, column 3). \( a_{21} = 0 \).
+      \(2, 4, 6, 8, \ldots\) — assumed pattern: add 2 each time. Risky if the pattern isn't actually obvious or unique from just a few terms!
     </div>
 
-    <p><strong>Square matrix example:</strong></p>
+    <p><strong>Closed form:</strong></p>
     <div class="example-box">
-      \[ B = \begin{pmatrix} 1 & 4 \\ 2 & 6 \end{pmatrix} \]
-      \(B\) is \(2\times2\) — square, since rows = columns.
+      \(a_n = 3n+1\) → instantly gives \(a_1=4\), \(a_{10}=31\), \(a_{100}=301\) — no need to know earlier terms at all.
     </div>
 
-    <p><strong>Addition (same size only):</strong></p>
+    <p><strong>Recurrence:</strong></p>
     <div class="example-box">
-      \[ \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix} + \begin{pmatrix} 5 & -1 \\ 0 & 2 \end{pmatrix} = \begin{pmatrix} 6 & 1 \\ 3 & 6 \end{pmatrix} \]
-      Add each pair of corresponding entries.
+      \(a_1 = 5\), \(a_n = a_{n-1}+3\) → each term needs the previous one computed first: \(a_2=8\), \(a_3=11\), \(a_4=14\), etc.
     </div>
 
-    <p><strong>Subtraction:</strong></p>
+    <p><strong>Arithmetic sequence example:</strong></p>
     <div class="example-box">
-      \[ \begin{pmatrix} 6 & 1 \\ 3 & 6 \end{pmatrix} - \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix} = \begin{pmatrix} 5 & -1 \\ 0 & 2 \end{pmatrix} \]
+      \(a=5\), \(d=3\): \(5,8,11,14,17,\ldots\)
+      \[ x_n = 5+(n-1)(3) \]
+      \(x_{10} = 5+(9)(3) = 32\)
     </div>
 
-    <p><strong>Scalar multiplication:</strong></p>
+    <p><strong>Geometric sequence example:</strong></p>
     <div class="example-box">
-      \[ 3\begin{pmatrix} 1 & -2 \\ 0 & 4 \end{pmatrix} = \begin{pmatrix} 3 & -6 \\ 0 & 12 \end{pmatrix} \]
-      Every entry gets multiplied by 3, including the zero.
+      \(a=3\), \(r=2\): \(3,6,12,24,48,\ldots\)
+      \[ x_n = 3(2)^{n-1} \]
+      \(x_6 = 3(2)^5 = 3(32) = 96\)
+    </div>
+
+    <p><strong>From listed terms to a recurrence system, then closed form:</strong></p>
+    <div class="example-box">
+      Given the first four terms \(5, 15, 45, 135, \ldots\), find \(a\), \(r\), the recurrence, and the closed form.<br><br>
+      \(a = x_1 = 5\) (just the first term).<br><br>
+      \(r\) = any term ÷ the one before it:
+      \[ r = \frac{15}{5} = 3 \]
+      Check with another pair: \(\dfrac{45}{15}=3\), \(\dfrac{135}{45}=3\) ✓ — confirms it really is geometric.<br><br>
+      Recurrence system:
+      \[ x_1 = 5, \qquad x_n = 3x_{n-1} \quad (n\geq2) \]
+      Closed form — plug \(a=5\), \(r=3\) straight into \(x_n=ar^{n-1}\):
+      \[ x_n = 5(3)^{n-1} \]
+      Check \(x_4\): \(5(3)^3 = 5(27) = 135\) ✓
     </div>
   </div>
 
@@ -239,28 +256,39 @@ table.limit-table tr:nth-child(even) td { background: #f9fafb; }
     <div class="col-label">Helpful points</div>
 
     <div class="warn-box">
-      Addition/subtraction of matrices with <strong>different sizes is undefined</strong> — not zero, not an error you can force through, it simply doesn't exist. Always check sizes match first.
+      Listing terms alone is <strong>ambiguous</strong> — \(2,4,6,8\) could continue \(10,12,\ldots\) (arithmetic) or could be something else entirely. Always prefer a closed form or recurrence when precision matters.
     </div>
 
     <hr class="divider">
 
     <div class="key-box">
-      \( a_{ij} \): think "row, then column" — like reading coordinates on a grid, row first (like a street number), then column (like an avenue number).
+      Spot which type quickly: <strong>constant difference</strong> between consecutive terms → arithmetic. <strong>Constant ratio</strong> between consecutive terms → geometric.
     </div>
 
     <hr class="divider">
 
     <div class="highlight">
-      A \(1\times n\) matrix is a <strong>row vector</strong>. An \(m\times1\) matrix is a <strong>column vector</strong>. Both are still "matrices" technically.
+      \(x_n = a+(n-1)d\) uses \((n-1)\), not \(n\) — because the first term \(x_1\) shouldn't have \(d\) added at all: \(x_1 = a+(0)d = a\). Same reasoning for \(r^{n-1}\) in geometric.
+    </div>
+
+    <hr class="divider">
+
+    <div class="warn-box">
+      When finding \(r\) from listed terms, always check it with <strong>more than one pair</strong> of consecutive terms. If the ratios don't match, either it isn't truly geometric, or there's an error somewhere in the given terms.
+    </div>
+
+    <hr class="divider">
+
+    <div class="key-box">
+      Once you have a recurrence system, converting to closed form is immediate: plug the \(a\) and \(r\) (or \(a\), \(d\)) you found straight into \(x_n=ar^{n-1}\) (or \(a+(n-1)d\)) — no extra work needed beyond identifying the two parameters.
     </div>
 
     <hr class="divider">
 
     <table class="limit-table">
-      <tr><th>Size</th><th>Rows × Cols</th></tr>
-      <tr><td>Row vector</td><td>\(1\times n\)</td></tr>
-      <tr><td>Column vector</td><td>\(m\times1\)</td></tr>
-      <tr><td>Square matrix</td><td>\(n\times n\)</td></tr>
+      <tr><th>Type</th><th>General term</th></tr>
+      <tr><td>Arithmetic</td><td>\(a+(n-1)d\)</td></tr>
+      <tr><td>Geometric</td><td>\(ar^{n-1}\)</td></tr>
     </table>
   </div>
 

@@ -236,6 +236,16 @@ table.limit-table tr:nth-child(even) td { background: #f9fafb; }
       Here \(n=5\), and we want the term where \(b\) has power 2, so \(k=2\):
       \[ \binom{5}{2}a^{5-2}b^2 = \binom{5}{2}a^3b^2 = 10a^3b^2 \]
     </div>
+
+    <p><strong>Coefficient of \(x^k\) in \((a+bx)^n\), with a negative \(b\):</strong></p>
+    <div class="example-box">
+      Find the coefficient of \(x^3\) in \((2-5x)^6\).<br><br>
+      Here \(a=2\), \(b=-5\) (the whole \(-5\), sign included), \(n=6\). Want \(x^3\), so \(k=3\):
+      \[ \binom{6}{3}a^{6-3}b^3 = \binom{6}{3}(2)^3(-5)^3 \]
+      \[ \binom{6}{3}=20, \qquad (-5)^3=-125 \quad\text{(odd power — stays negative)} \]
+      \[ 20\times8\times(-125) = -20{,}000 \]
+      <strong>Coefficient of \(x^3\) is \(-20{,}000\)</strong>. Carry \(b=-5\) as one signed number the whole way through — don't split off the sign and reattach it at the end.
+    </div>
   </div>
 
   <div class="notes-col">
@@ -255,6 +265,12 @@ table.limit-table tr:nth-child(even) td { background: #f9fafb; }
 
     <div class="highlight">
       In \(\binom{n}{k}a^{n-k}b^k\), the two exponents \((n-k)\) and \(k\) always add up to \(n\) — a quick way to check you've picked the right \(k\) for a specific term.
+    </div>
+
+    <hr class="divider">
+
+    <div class="key-box">
+      Quick sign check when \(b\) is negative: if \(k\) is <strong>even</strong>, that term's coefficient is positive; if \(k\) is <strong>odd</strong>, it's negative. A fast sanity check before finishing the arithmetic.
     </div>
 
     <hr class="divider">

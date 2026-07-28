@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sequences: Convergence · Maths Study Hub</title>
+<title>Trickiest Worked Examples · Maths Study Hub</title>
 <link rel="stylesheet" href="../style.css">
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <script src="../pdf-download.js" defer></script>
@@ -165,7 +165,7 @@ table.limit-table tr:nth-child(even) td { background: #f9fafb; }
 
 <div class="page-hero" style="background:#EEF2FF; border-bottom:2px solid #4F46E5;">
   <h1 style="color:#3730A3;">🔢 Algebra — Sequences and Series</h1>
-  <p style="color:#4F46E5;">Long-term behaviour and convergence</p>
+  <p style="color:#4F46E5;">Trickiest worked examples — open exam reference</p>
 </div>
 
 <div class="content">
@@ -173,66 +173,82 @@ table.limit-table tr:nth-child(even) td { background: #f9fafb; }
 <div class="notes-header">
   <div class="notes-header-cell"><span>Subject</span>Algebra</div>
   <div class="notes-header-cell"><span>Subtopic</span>Sequences</div>
-  <div class="notes-header-cell"><span>Sheet</span>2 of 4</div>
+  <div class="notes-header-cell"><span>Sheet</span>6 of 6</div>
 </div>
 <div class="notes-title-bar">
-  <div class="page-num">2</div>
-  Long-term behaviour and convergence
+  <div class="page-num">6</div>
+  Trickiest worked examples, step by step
 </div>
 <div class="notes-grid">
 
   <div class="notes-col">
     <div class="col-label">Main points</div>
 
-    <p>A sequence is <strong>increasing</strong> if each term is bigger than the last, <strong>decreasing</strong> if each is smaller. <strong>Bounded</strong> means it never goes beyond some fixed value in either direction; <strong>unbounded</strong> means it does.</p>
-
-    <hr class="divider">
+    <p>Five techniques that catch people out most often across the whole unit:</p>
 
     <div class="key-box">
-      A sequence <strong>converges</strong> to a limit \(L\) if \(a_n \to L\) as \(n\to\infty\) — the terms get arbitrarily close to \(L\) and stay close.
+      <strong>1.</strong> Shifting a closed form to start at a different index (e.g. \(n=1\) → \(n=0\)).
     </div>
 
-    <hr class="divider">
+    <div class="key-box">
+      <strong>2.</strong> Long-term behaviour of a <em>combined</em> sequence (geometric part + constant part).
+    </div>
 
     <div class="key-box">
-      <strong>Arithmetic:</strong> always tends to \(+\infty\) or \(-\infty\) unless \(d=0\) (constant sequence).<br><br>
-      <strong>Geometric:</strong> converges to 0 only if \(|r|<1\). If \(|r|>1\), unbounded.
+      <strong>3.</strong> Recurring decimal → fraction, using the infinite geometric series formula.
+    </div>
+
+    <div class="key-box">
+      <strong>4.</strong> Coefficient of a term with <em>two</em> variable powers, like \(x^{12}y^9\).
+    </div>
+
+    <div class="key-box">
+      <strong>5.</strong> Coefficient of a single power (e.g. \(p^4\)) when both binomial terms contain variables.
     </div>
   </div>
 
   <div class="notes-col">
     <div class="col-label">Examples / explanation</div>
 
-    <p><strong>Arithmetic, always diverges (unless \(d=0\)):</strong></p>
+    <p><strong>1. Shifting the starting index:</strong></p>
     <div class="example-box">
-      \(a_n = 5+3(n-1)\): as \(n\to\infty\), terms grow without bound → \(a_n\to+\infty\). If \(d\) were negative, e.g. \(a_n=20-2(n-1)\), it heads to \(-\infty\) instead. Either way, it never settles on a finite limit unless \(d=0\).
+      A sequence has closed form \(a_n = 3n+2\) starting at \(n=1\) (so \(a_1=5, a_2=8,\ldots\)). Rewrite it to start at \(n=0\) instead, describing the <em>same</em> sequence of values.<br><br>
+      Let the new index be \(m=n-1\), so \(n=m+1\). Substitute:
+      \[ a_m = 3(m+1)+2 = 3m+5 \]
+      Check: at \(m=0\), \(a_0=5\) — matches the original \(a_1=5\) ✓. At \(m=1\), \(a_1=8\) — matches original \(a_2=8\) ✓. Same sequence, just relabelled.
     </div>
 
-    <p><strong>Geometric, \(|r|<1\) — converges to 0:</strong></p>
+    <p><strong>2. Long-term behaviour of a combined sequence:</strong></p>
     <div class="example-box">
-      \(a_n = 100(0.5)^{n-1}\): \(100, 50, 25, 12.5, \ldots \to 0\). Each term is smaller in magnitude, since multiplying repeatedly by a number between \(-1\) and \(1\) shrinks it toward zero.
+      Find the long-term behaviour of \(a_n = 5 + 20(0.6)^{n-1}\) as \(n\to\infty\).<br><br>
+      Break it into pieces: the geometric part \(20(0.6)^{n-1}\) has \(|r|=0.6<1\), so it \(\to0\). The constant \(5\) never changes.
+      \[ a_n \to 5+0 = 5 \]
+      So \(a_n\to5\) — the sequence converges to 5, even though it's not a "pure" geometric sequence on its own.
     </div>
 
-    <p><strong>Geometric, \(|r|>1\) — unbounded:</strong></p>
+    <p><strong>3. Recurring decimal via geometric series:</strong></p>
     <div class="example-box">
-      \(a_n = 3(2)^{n-1}\): \(3,6,12,24,48,\ldots\to\infty\). Multiplying repeatedly by something bigger than 1 (in magnitude) makes it grow forever.
+      Convert \(0.\overline{27}=0.272727\ldots\) to a fraction using series, not the algebra-subtraction method.<br><br>
+      Write it as an infinite geometric series: \(0.27+0.0027+0.000027+\cdots\), so \(a=0.27\), \(r=0.01\) (each term is \(\frac1{100}\) of the last).
+      \[ S_\infty = \frac{a}{1-r} = \frac{0.27}{1-0.01} = \frac{0.27}{0.99} = \frac{27}{99} = \frac{3}{11} \]
     </div>
 
-    <p><strong>Geometric with negative ratio, \(-1<r<0\):</strong></p>
+    <p><strong>4. Term with two variable powers:</strong></p>
     <div class="example-box">
-      \(a_n = 8(-0.5)^{n-1}\): \(8, -4, 2, -1, 0.5, -0.25,\ldots\) — oscillates in sign, but the magnitude still shrinks toward 0 since \(|r|=0.5<1\). Still converges — to 0.
+      Find the coefficient of \(x^{5}y^{3}\) in \((x+y)^8\).<br><br>
+      Since \(n=8\) and the two powers must add to \(n\) (\(5+3=8\) ✓), set \(k=3\) (matching \(y\)'s power):
+      \[ \binom{8}{3}x^{8-3}y^3 = \binom{8}{3}x^5y^3 \]
+      \[ \binom{8}{3} = \frac{8!}{3!\,5!} = 56 \]
+      <strong>Coefficient is 56.</strong>
     </div>
 
-    <p><strong>Finding the smallest \(N\) where a term drops below a threshold:</strong></p>
+    <p><strong>5. Specific power when both terms have variables:</strong></p>
     <div class="example-box">
-      Find the smallest \(N\) such that \(x_N<1\), given \(x_n = 200\left(\frac14\right)^{n-1}\).
-      \[ 200\left(\frac14\right)^{n-1} < 1 \;\Rightarrow\; \left(\frac14\right)^{n-1} < \frac{1}{200} \]
-      Take logs of both sides:
-      \[ (n-1)\ln\left(\frac14\right) < \ln\left(\frac{1}{200}\right) \]
-      \[ (n-1)(-1.3863) < -5.2983 \]
-      Dividing by a <strong>negative</strong> number flips the inequality:
-      \[ n-1 > 3.822 \;\Rightarrow\; n > 4.822 \;\Rightarrow\; N=5 \]
-      Check: \(x_5\approx0.781<1\) ✓, \(x_4=3.125\) (not yet under 1) ✓.
+      Find the coefficient of \(p^4\) in \((2p-q)^7\), leaving \(q\) as a symbol in the answer.<br><br>
+      Here \(a=2p\), \(b=-q\), \(n=7\). We want \(p\) to have power 4 — since \(p\) only comes from the \(a^{n-k}=(2p)^{n-k}\) part, set \(n-k=4 \Rightarrow k=3\):
+      \[ \binom{7}{3}(2p)^{4}(-q)^{3} = \binom{7}{3}(16p^4)(-q^3) \]
+      \[ \binom{7}{3}=35, \qquad 35\times16\times(-1) = -560 \]
+      <strong>Term is \(-560\,p^4q^3\)</strong> — coefficient \(-560\), and \(q^3\) stays attached since the question only fixed the power of \(p\).
     </div>
   </div>
 
@@ -240,35 +256,32 @@ table.limit-table tr:nth-child(even) td { background: #f9fafb; }
     <div class="col-label">Helpful points</div>
 
     <div class="warn-box">
-      \(r=1\) is a trap: \(|r|<1\) is <strong>false</strong> when \(r=1\) (since \(|1|=1\), not less than 1) — a geometric sequence with \(r=1\) is actually just a constant sequence, and one with \(r=-1\) oscillates between two values forever, converging to neither.
-    </div>
-
-    <hr class="divider">
-
-    <div class="key-box">
-      Quick check for geometric convergence: just look at \(|r|\). \(|r|<1\) → converges to 0. \(|r|\geq1\) → does not converge (diverges or oscillates).
+      <strong>Index shifting (Ex 1):</strong> always substitute and then <strong>check two values</strong> against the original — a single check can hide a sign error.
     </div>
 
     <hr class="divider">
 
     <div class="warn-box">
-      Solving for a smallest \(N\): whenever you divide an inequality by \(\ln r\) (negative when \(0<r<1\)), you <strong>must flip the inequality sign</strong> — the single most common mistake in this type of question. Always round the final answer <strong>up</strong> to the next whole number, since you need the smallest integer satisfying "greater than."
+      <strong>Combined sequences (Ex 2):</strong> only the non-constant (geometric or arithmetic) part determines convergence — a plain added constant just becomes part of the final limit, never changes whether it converges.
     </div>
 
     <hr class="divider">
 
-    <div class="highlight">
-      Arithmetic sequences <strong>never</strong> converge to a finite limit (except the trivial \(d=0\) case) — this is a completely different long-term behaviour from geometric sequences, which frequently do converge.
+    <div class="warn-box">
+      <strong>Recurring decimals (Ex 3):</strong> \(r\) is a power of \(\frac1{10}\) matching how many digits repeat (\(r=0.1\) for 1 digit, \(r=0.01\) for 2 digits, etc.) — not the decimal value itself.
     </div>
 
     <hr class="divider">
 
-    <table class="limit-table">
-      <tr><th>\(|r|\)</th><th>Behaviour</th></tr>
-      <tr><td>\(|r|<1\)</td><td>Converges to 0</td></tr>
-      <tr><td>\(|r|=1\)</td><td>Constant or oscillates</td></tr>
-      <tr><td>\(|r|>1\)</td><td>Unbounded</td></tr>
-    </table>
+    <div class="warn-box">
+      <strong>Two-variable terms (Ex 4):</strong> always check the two powers add to \(n\) first — free confirmation you've set up \(k\) correctly before computing anything.
+    </div>
+
+    <hr class="divider">
+
+    <div class="warn-box">
+      <strong>Variables in both terms (Ex 5):</strong> figure out which variable the question is asking about, then use <em>that</em> variable's exponent to pin down \(k\) — don't default to matching \(b\)'s power out of habit.
+    </div>
   </div>
 
 </div>

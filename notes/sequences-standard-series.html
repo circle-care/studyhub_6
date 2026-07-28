@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sequences: Convergence · Maths Study Hub</title>
+<title>Standard Finite Series & Manipulation Rules · Maths Study Hub</title>
 <link rel="stylesheet" href="../style.css">
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <script src="../pdf-download.js" defer></script>
@@ -165,7 +165,7 @@ table.limit-table tr:nth-child(even) td { background: #f9fafb; }
 
 <div class="page-hero" style="background:#EEF2FF; border-bottom:2px solid #4F46E5;">
   <h1 style="color:#3730A3;">🔢 Algebra — Sequences and Series</h1>
-  <p style="color:#4F46E5;">Long-term behaviour and convergence</p>
+  <p style="color:#4F46E5;">Standard finite series formulas & manipulation rules</p>
 </div>
 
 <div class="content">
@@ -173,66 +173,67 @@ table.limit-table tr:nth-child(even) td { background: #f9fafb; }
 <div class="notes-header">
   <div class="notes-header-cell"><span>Subject</span>Algebra</div>
   <div class="notes-header-cell"><span>Subtopic</span>Sequences</div>
-  <div class="notes-header-cell"><span>Sheet</span>2 of 4</div>
+  <div class="notes-header-cell"><span>Sheet</span>5 of 5</div>
 </div>
 <div class="notes-title-bar">
-  <div class="page-num">2</div>
-  Long-term behaviour and convergence
+  <div class="page-num">5</div>
+  Standard finite series formulas & manipulation rules
 </div>
 <div class="notes-grid">
 
   <div class="notes-col">
     <div class="col-label">Main points</div>
 
-    <p>A sequence is <strong>increasing</strong> if each term is bigger than the last, <strong>decreasing</strong> if each is smaller. <strong>Bounded</strong> means it never goes beyond some fixed value in either direction; <strong>unbounded</strong> means it does.</p>
-
-    <hr class="divider">
-
     <div class="key-box">
-      A sequence <strong>converges</strong> to a limit \(L\) if \(a_n \to L\) as \(n\to\infty\) — the terms get arbitrarily close to \(L\) and stay close.
+      <strong>Four standard finite series:</strong>
+      \[ \sum_{k=1}^{n} 1 = n \]
+      \[ \sum_{k=1}^{n} k = \frac{1}{2}n(n+1) \]
+      \[ \sum_{k=1}^{n} k^2 = \frac{1}{6}n(n+1)(2n+1) \]
+      \[ \sum_{k=1}^{n} k^3 = \frac{1}{4}n^2(n+1)^2 \]
     </div>
 
     <hr class="divider">
 
     <div class="key-box">
-      <strong>Arithmetic:</strong> always tends to \(+\infty\) or \(-\infty\) unless \(d=0\) (constant sequence).<br><br>
-      <strong>Geometric:</strong> converges to 0 only if \(|r|<1\). If \(|r|>1\), unbounded.
+      <strong>Manipulation rules:</strong><br>
+      Constant multiple: \(\sum ck = c\sum k\)<br>
+      Sum/difference: \(\sum(x_k\pm y_k) = \sum x_k \pm \sum y_k\)<br>
+      Splitting: \(\displaystyle\sum_{k=p}^{q}x_k = \sum_{k=1}^{q}x_k - \sum_{k=1}^{p-1}x_k\)
     </div>
   </div>
 
   <div class="notes-col">
     <div class="col-label">Examples / explanation</div>
 
-    <p><strong>Arithmetic, always diverges (unless \(d=0\)):</strong></p>
+    <p><strong>Why \(\sum k = \frac12 n(n+1)\) — the geometric reasoning:</strong></p>
     <div class="example-box">
-      \(a_n = 5+3(n-1)\): as \(n\to\infty\), terms grow without bound → \(a_n\to+\infty\). If \(d\) were negative, e.g. \(a_n=20-2(n-1)\), it heads to \(-\infty\) instead. Either way, it never settles on a finite limit unless \(d=0\).
+      Picture an \(n\times(n+1)\) grid of dots. Splitting it diagonally gives two identical triangular halves, each containing \(1+2+3+\cdots+n\) dots. So the full sum equals <em>half</em> the total grid: \(\frac{1}{2}n(n+1)\). This is the classic "pair up first and last" trick (e.g. Gauss's method: \(1+n\), \(2+(n-1)\), etc., each pair summing to \(n+1\)) shown visually.
     </div>
 
-    <p><strong>Geometric, \(|r|<1\) — converges to 0:</strong></p>
+    <p><strong>Direct application — sum of squares:</strong></p>
     <div class="example-box">
-      \(a_n = 100(0.5)^{n-1}\): \(100, 50, 25, 12.5, \ldots \to 0\). Each term is smaller in magnitude, since multiplying repeatedly by a number between \(-1\) and \(1\) shrinks it toward zero.
+      Find \(1^2+2^2+\cdots+10^2\):
+      \[ \sum_{k=1}^{10}k^2 = \frac{1}{6}(10)(11)(21) = \frac{2310}{6} = 385 \]
     </div>
 
-    <p><strong>Geometric, \(|r|>1\) — unbounded:</strong></p>
+    <p><strong>Constant multiple rule in action:</strong></p>
     <div class="example-box">
-      \(a_n = 3(2)^{n-1}\): \(3,6,12,24,48,\ldots\to\infty\). Multiplying repeatedly by something bigger than 1 (in magnitude) makes it grow forever.
+      Find \(\displaystyle\sum_{k=1}^{5}3k\):
+      \[ \sum_{k=1}^{5}3k = 3\sum_{k=1}^{5}k = 3\left(\frac{1}{2}(5)(6)\right) = 3(15) = 45 \]
     </div>
 
-    <p><strong>Geometric with negative ratio, \(-1<r<0\):</strong></p>
+    <p><strong>Sum/difference rule — combining standard series:</strong></p>
     <div class="example-box">
-      \(a_n = 8(-0.5)^{n-1}\): \(8, -4, 2, -1, 0.5, -0.25,\ldots\) — oscillates in sign, but the magnitude still shrinks toward 0 since \(|r|=0.5<1\). Still converges — to 0.
+      Find \(\displaystyle\sum_{k=1}^{4}(k^2+2k)\):
+      \[ \sum_{k=1}^{4}k^2 + 2\sum_{k=1}^{4}k = \frac{1}{6}(4)(5)(9) + 2\left(\frac{1}{2}(4)(5)\right) \]
+      \[ = 30 + 20 = 50 \]
     </div>
 
-    <p><strong>Finding the smallest \(N\) where a term drops below a threshold:</strong></p>
+    <p><strong>Splitting rule — lower limit isn't 1:</strong></p>
     <div class="example-box">
-      Find the smallest \(N\) such that \(x_N<1\), given \(x_n = 200\left(\frac14\right)^{n-1}\).
-      \[ 200\left(\frac14\right)^{n-1} < 1 \;\Rightarrow\; \left(\frac14\right)^{n-1} < \frac{1}{200} \]
-      Take logs of both sides:
-      \[ (n-1)\ln\left(\frac14\right) < \ln\left(\frac{1}{200}\right) \]
-      \[ (n-1)(-1.3863) < -5.2983 \]
-      Dividing by a <strong>negative</strong> number flips the inequality:
-      \[ n-1 > 3.822 \;\Rightarrow\; n > 4.822 \;\Rightarrow\; N=5 \]
-      Check: \(x_5\approx0.781<1\) ✓, \(x_4=3.125\) (not yet under 1) ✓.
+      Find \(\displaystyle\sum_{k=4}^{8}k^2\) — starts at \(k=4\), not \(k=1\).
+      \[ \sum_{k=4}^{8}k^2 = \sum_{k=1}^{8}k^2 - \sum_{k=1}^{3}k^2 \]
+      \[ = \frac{1}{6}(8)(9)(17) - \frac{1}{6}(3)(4)(7) = 204 - 14 = 190 \]
     </div>
   </div>
 
@@ -240,34 +241,29 @@ table.limit-table tr:nth-child(even) td { background: #f9fafb; }
     <div class="col-label">Helpful points</div>
 
     <div class="warn-box">
-      \(r=1\) is a trap: \(|r|<1\) is <strong>false</strong> when \(r=1\) (since \(|1|=1\), not less than 1) — a geometric sequence with \(r=1\) is actually just a constant sequence, and one with \(r=-1\) oscillates between two values forever, converging to neither.
+      For the splitting rule, subtract up to \(p-1\), <strong>not</strong> \(p\) — if you started summing at \(k=4\), you need everything from \(k=1\) to \(k=3\) removed (i.e. up to \(p-1=3\)), not up to \(k=4\), or you'll accidentally remove the \(k=4\) term you actually wanted to keep.
     </div>
 
     <hr class="divider">
 
     <div class="key-box">
-      Quick check for geometric convergence: just look at \(|r|\). \(|r|<1\) → converges to 0. \(|r|\geq1\) → does not converge (diverges or oscillates).
-    </div>
-
-    <hr class="divider">
-
-    <div class="warn-box">
-      Solving for a smallest \(N\): whenever you divide an inequality by \(\ln r\) (negative when \(0<r<1\)), you <strong>must flip the inequality sign</strong> — the single most common mistake in this type of question. Always round the final answer <strong>up</strong> to the next whole number, since you need the smallest integer satisfying "greater than."
+      Strategy for any "complicated" series: <strong>split it into standard pieces first</strong> (using sum/difference and constant multiple), then apply the standard formulas to each piece separately, then combine.
     </div>
 
     <hr class="divider">
 
     <div class="highlight">
-      Arithmetic sequences <strong>never</strong> converge to a finite limit (except the trivial \(d=0\) case) — this is a completely different long-term behaviour from geometric sequences, which frequently do converge.
+      \(\sum_{k=1}^n 1 = n\) looks almost too simple to be useful, but shows up constantly when a series has a plain constant term mixed in — e.g. \(\sum(k^2+5)\) needs this formula for the "+5" part.
     </div>
 
     <hr class="divider">
 
     <table class="limit-table">
-      <tr><th>\(|r|\)</th><th>Behaviour</th></tr>
-      <tr><td>\(|r|<1\)</td><td>Converges to 0</td></tr>
-      <tr><td>\(|r|=1\)</td><td>Constant or oscillates</td></tr>
-      <tr><td>\(|r|>1\)</td><td>Unbounded</td></tr>
+      <tr><th>Series</th><th>Formula</th></tr>
+      <tr><td>\(\sum 1\)</td><td>\(n\)</td></tr>
+      <tr><td>\(\sum k\)</td><td>\(\frac12n(n+1)\)</td></tr>
+      <tr><td>\(\sum k^2\)</td><td>\(\frac16n(n+1)(2n+1)\)</td></tr>
+      <tr><td>\(\sum k^3\)</td><td>\(\frac14n^2(n+1)^2\)</td></tr>
     </table>
   </div>
 

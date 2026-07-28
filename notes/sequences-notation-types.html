@@ -236,6 +236,17 @@ table.limit-table tr:nth-child(even) td { background: #f9fafb; }
       \[ x_n = 3(2)^{n-1} \]
       \(x_6 = 3(2)^5 = 3(32) = 96\)
     </div>
+
+    <p><strong>From listed terms to a recurrence system:</strong></p>
+    <div class="example-box">
+      Given the first four terms \(5, 15, 45, 135, \ldots\), find \(a\), \(r\), and write the recurrence.<br><br>
+      \(a = x_1 = 5\) (just the first term).<br><br>
+      \(r\) = any term ÷ the one before it:
+      \[ r = \frac{15}{5} = 3 \]
+      Check with another pair: \(\dfrac{45}{15}=3\), \(\dfrac{135}{45}=3\) ✓ — confirms it really is geometric.<br><br>
+      Recurrence system:
+      \[ x_1 = 5, \qquad x_n = 3x_{n-1} \quad (n\geq2) \]
+    </div>
   </div>
 
   <div class="notes-col">
@@ -255,6 +266,12 @@ table.limit-table tr:nth-child(even) td { background: #f9fafb; }
 
     <div class="highlight">
       \(x_n = a+(n-1)d\) uses \((n-1)\), not \(n\) — because the first term \(x_1\) shouldn't have \(d\) added at all: \(x_1 = a+(0)d = a\). Same reasoning for \(r^{n-1}\) in geometric.
+    </div>
+
+    <hr class="divider">
+
+    <div class="warn-box">
+      When finding \(r\) from listed terms, always check it with <strong>more than one pair</strong> of consecutive terms. If the ratios don't match, either it isn't truly geometric, or there's an error somewhere in the given terms.
     </div>
 
     <hr class="divider">
