@@ -30,10 +30,27 @@
     .pdf-download-btn:hover { opacity: 0.85; }
 
     @media print {
+      /* real page margins — this was missing entirely, which is
+         why text was running to the edge of the paper */
+      @page {
+        margin: 1.6cm 1.4cm;
+      }
+
       nav, .pdf-download-btn, footer { display: none !important; }
-      .page-hero { border: none !important; }
-      body { background: #fff !important; }
+      body { background: #fff !important; margin: 0 !important; }
       .content { max-width: 100% !important; margin: 0 !important; }
+
+      /* shrink the hero right down for print instead of leaving
+         it full-size — a full-height coloured banner was eating
+         most of page 1 before any notes content started */
+      .page-hero {
+        border: none !important;
+        background: none !important;
+        padding: 0 0 8px 0 !important;
+        margin: 0 0 12px 0 !important;
+      }
+      .page-hero h1 { font-size: 18px !important; margin: 0 !important; }
+      .page-hero p { font-size: 12px !important; margin: 2px 0 0 0 !important; }
 
       .notes-grid {
         display: block !important;
@@ -58,9 +75,13 @@
       .graph-box, table.limit-table {
         break-inside: avoid-page;
       }
-      .notes-header, .notes-title-bar {
-        break-inside: avoid-page;
-      }
+
+      /* header/title-bar: keep each one from splitting internally,
+         but don't chain them together as one forced unit — that
+         was what pushed both to page 2 and left page 1 blank
+         underneath the hero */
+      .notes-header { break-inside: avoid-page; break-after: avoid-page; }
+      .notes-title-bar { break-inside: avoid-page; break-before: avoid-page; }
 
       /* graphs were sized for a narrow column — cap them so they
          don't stretch to fill the full print width */
