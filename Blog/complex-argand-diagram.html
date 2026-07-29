@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Complex Numbers: The Argand Diagram — Blog · Maths Study Hub</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.blog-wrap { max-width: 780px; margin: 0 auto; padding: 0 1rem 4rem; }
+.blog-tag { display: inline-block; background: #EEF2FF; color: #4F46E5; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 4px 12px; border-radius: 20px; margin-bottom: 14px; }
+.blog-h1 { font-size: 30px; font-weight: 700; color: #3730A3; margin-bottom: 8px; line-height: 1.25; }
+.blog-sub { font-size: 16px; color: #4B5563; margin-bottom: 8px; }
+.notes-link-back { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; color: #4F46E5; font-weight: 700; margin-bottom: 2rem; }
+.notes-link-back:hover { text-decoration: underline; }
+
+.blog-section { margin: 2.2rem 0; }
+.blog-section h2 { font-size: 22px; font-weight: 700; color: #3730A3; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 3px solid #EEF2FF; }
+.blog-section p { font-size: 16px; line-height: 1.85; margin-bottom: 14px; color: #1F2430; }
+.blog-section ul { margin: 0 0 14px 22px; font-size: 16px; line-height: 1.85; }
+
+.worked-example {
+  background: #F0FDF4;
+  border: 2px solid #16A34A;
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin: 18px 0;
+}
+.worked-example .we-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #16A34A; margin-bottom: 8px; }
+
+.key-idea {
+  background: #EEF2FF;
+  border-left: 5px solid #4F46E5;
+  border-radius: 0 10px 10px 0;
+  padding: 14px 18px;
+  margin: 18px 0;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.diagram-box {
+  background: #F9FAFB;
+  border: 2px dashed #D1D5DB;
+  border-radius: 12px;
+  padding: 16px;
+  margin: 18px 0;
+  text-align: center;
+}
+
+.try-block {
+  background: #FFFBEB;
+  border: 2px solid #F59E0B;
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin: 16px 0;
+}
+.try-q { font-size: 16px; font-weight: 700; color: #92400E; margin-bottom: 10px; }
+details.answer-reveal { margin-top: 10px; }
+details.answer-reveal summary {
+  cursor: pointer;
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #4F46E5;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 8px;
+  width: fit-content;
+}
+details.answer-reveal summary::-webkit-details-marker { display: none; }
+details.answer-reveal summary:hover { opacity: 0.88; }
+details.answer-reveal[open] summary { border-radius: 8px 8px 0 0; }
+.answer-body {
+  background: #fff;
+  border: 2px solid #4F46E5;
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+  padding: 14px 18px;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.section-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid #E5E7EB;
+  font-size: 14px;
+}
+.section-nav a { color: #4F46E5; font-weight: 700; }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-brand">📚 Maths Study Hub</span>
+  <a href="../index.html" class="nav-link nav-home">Home</a>
+  <a href="../calendar.html" class="nav-link nav-cal">📅 Calendar</a>
+  <a href="../algebra.html" class="nav-link nav-alg active">Algebra</a>
+  <a href="../geometry.html" class="nav-link nav-geo">Geometry</a>
+  <a href="../calculus.html" class="nav-link nav-calc">Calculus</a>
+  <a href="../assignments.html" class="nav-link nav-assign">Assignments</a>
+  <a href="../exam-prep.html" class="nav-link nav-exam">Exam prep</a>
+  <a href="../study-resources.html" class="nav-link nav-res">Resources</a>
+</nav>
+
+<div class="page-hero" style="background:#EEF2FF; border-bottom:2px solid #4F46E5;">
+  <h1 style="color:#3730A3;">📖 Blog — Complex Numbers</h1>
+  <p style="color:#4F46E5;">Part 2 of 6: The Argand Diagram</p>
+</div>
+
+<div class="content">
+<div class="blog-wrap">
+
+  <span class="blog-tag">Complex Numbers · Part 2</span>
+  <h1 class="blog-h1">Giving complex numbers a home: the Argand diagram</h1>
+  <p class="blog-sub">Why complex numbers can be drawn as points, and what that picture tells you.</p>
+  <a href="../notes/complex-argand-diagram.html" class="notes-link-back">📝 View the quick-reference notes sheet for this topic →</a>
+
+  <div class="blog-section">
+    <h2>One number, two coordinates</h2>
+    <p>A real number lives on a single line — the number line. But a complex number \(z=a+bi\) is built from <em>two</em> independent pieces of information, \(a\) and \(b\). Two independent numbers naturally suggest two dimensions, not one. That's the whole idea behind the <strong>Argand diagram</strong> (also just called the complex plane): plot \(z=a+bi\) as the ordinary point \((a,b)\) on a 2D grid.</p>
+    <div class="key-idea">
+      The horizontal axis is the <strong>real axis</strong> (values of \(a\)). The vertical axis is the <strong>imaginary axis</strong> (values of \(b\)). Every complex number corresponds to exactly one point, and every point corresponds to exactly one complex number.
+    </div>
+  </div>
+
+  <div class="blog-section">
+    <h2>Adding complex numbers geometrically</h2>
+    <p>Here's where the picture starts paying for itself. If you plot \(z_1=a+bi\) and \(z_2=c+di\), their sum \(z_1+z_2=(a+c)+(b+d)i\) can be found geometrically using exactly the same <strong>parallelogram rule</strong> you'd use to add two vectors: draw both points from the origin, complete the parallelogram they form, and the fourth corner is the sum.</p>
+
+    <div class="diagram-box">
+      <svg viewBox="0 0 260 200" width="100%" height="190">
+        <defs>
+          <marker id="arH" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 z" fill="#4F46E5"/>
+          </marker>
+        </defs>
+        <line x1="20" y1="170" x2="240" y2="170" stroke="#9CA3AF" stroke-width="1" marker-end="url(#arH)"/>
+        <line x1="30" y1="190" x2="30" y2="10" stroke="#9CA3AF" stroke-width="1" marker-end="url(#arH)"/>
+        <line x1="30" y1="170" x2="110" y2="120" stroke="#4F46E5" stroke-width="2" marker-end="url(#arH)"/>
+        <text x="112" y="118" font-size="11" fill="#4F46E5">1+2i</text>
+        <line x1="30" y1="170" x2="180" y2="140" stroke="#16A34A" stroke-width="2" marker-end="url(#arH)"/>
+        <text x="182" y="138" font-size="11" fill="#16A34A">3+i</text>
+        <line x1="30" y1="170" x2="200" y2="90" stroke="#DC2626" stroke-width="2" marker-end="url(#arH)"/>
+        <text x="202" y="88" font-size="11" fill="#DC2626">sum = 4+3i</text>
+        <line x1="110" y1="120" x2="200" y2="90" stroke="#9CA3AF" stroke-width="1" stroke-dasharray="3,2"/>
+        <line x1="180" y1="140" x2="200" y2="90" stroke="#9CA3AF" stroke-width="1" stroke-dasharray="3,2"/>
+      </svg>
+    </div>
+
+    <div class="try-block">
+      <div class="try-q">Try it: Plot \(2+i\) and \(1+3i\) mentally (or on paper) and use the parallelogram rule to find their sum. Then check it algebraically.</div>
+      <details class="answer-reveal">
+        <summary>Show answer</summary>
+        <div class="answer-body">
+          Algebraically: \((2+i)+(1+3i) = 3+4i\). The parallelogram's fourth corner should land exactly on the point \((3,4)\) — matching the algebra.
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <div class="blog-section">
+    <h2>Conjugation as a reflection</h2>
+    <p>Recall the conjugate \(\bar z = a-bi\) just flips the sign of the imaginary part. On the Argand diagram, that's precisely a <strong>reflection in the real axis</strong> — the point \((a,b)\) flips to \((a,-b)\), exactly like folding the page along the horizontal axis.</p>
+
+    <div class="worked-example">
+      <div class="we-label">Worked example</div>
+      \(z = 5+4i\) sits above the real axis. Its conjugate \(\bar z = 5-4i\) sits the same distance below it, directly mirrored.
+    </div>
+
+    <div class="key-idea">
+      Negation, \(z \to -z\), is a different transformation: it's a \(180°\) rotation about the origin (reflecting through the origin, not just the axis), because both the sign of \(a\) and the sign of \(b\) flip.
+    </div>
+  </div>
+
+  <div class="blog-section">
+    <h2>Why the picture matters</h2>
+    <p>The Argand diagram isn't just decoration — it becomes essential in the next few topics. Modulus and argument (distance and angle) only make intuitive sense once you're thinking of complex numbers as points. De Moivre's roots being "evenly spaced around a circle" is a picture, not just an equation. Keeping this geometric picture in your head from the start makes everything that follows click into place faster.</p>
+
+    <div class="try-block">
+      <div class="try-q">Try it: Without drawing, describe where \(-3-2i\) would sit relative to the origin (which quadrant?).</div>
+      <details class="answer-reveal">
+        <summary>Show answer</summary>
+        <div class="answer-body">
+          Both the real part (\(-3\)) and imaginary part (\(-2\)) are negative, so the point sits in the <strong>third quadrant</strong> — left of and below the origin.
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <div class="section-nav">
+    <a href="complex-arithmetic.html">← Part 1: Arithmetic</a>
+    <a href="complex-modulus-argument.html">Part 3: Modulus & Argument →</a>
+  </div>
+
+</div>
+</div>
+
+<footer>Maths Study Hub</footer>
+
+</body>
+</html>

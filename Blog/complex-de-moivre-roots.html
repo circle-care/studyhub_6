@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Complex Numbers: De Moivre's Formula & Roots — Blog · Maths Study Hub</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.blog-wrap { max-width: 780px; margin: 0 auto; padding: 0 1rem 4rem; }
+.blog-tag { display: inline-block; background: #EEF2FF; color: #4F46E5; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 4px 12px; border-radius: 20px; margin-bottom: 14px; }
+.blog-h1 { font-size: 30px; font-weight: 700; color: #3730A3; margin-bottom: 8px; line-height: 1.25; }
+.blog-sub { font-size: 16px; color: #4B5563; margin-bottom: 8px; }
+.notes-link-back { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; color: #4F46E5; font-weight: 700; margin-bottom: 2rem; }
+.notes-link-back:hover { text-decoration: underline; }
+
+.blog-section { margin: 2.2rem 0; }
+.blog-section h2 { font-size: 22px; font-weight: 700; color: #3730A3; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 3px solid #EEF2FF; }
+.blog-section p { font-size: 16px; line-height: 1.85; margin-bottom: 14px; color: #1F2430; }
+
+.worked-example {
+  background: #F0FDF4;
+  border: 2px solid #16A34A;
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin: 18px 0;
+}
+.worked-example .we-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #16A34A; margin-bottom: 8px; }
+
+.key-idea {
+  background: #EEF2FF;
+  border-left: 5px solid #4F46E5;
+  border-radius: 0 10px 10px 0;
+  padding: 14px 18px;
+  margin: 18px 0;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.warn-note {
+  background: #FEF2F2;
+  border: 2px solid #DC2626;
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 18px 0;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.diagram-box {
+  background: #F9FAFB;
+  border: 2px dashed #D1D5DB;
+  border-radius: 12px;
+  padding: 16px;
+  margin: 18px 0;
+  text-align: center;
+}
+
+.try-block {
+  background: #FFFBEB;
+  border: 2px solid #F59E0B;
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin: 16px 0;
+}
+.try-q { font-size: 16px; font-weight: 700; color: #92400E; margin-bottom: 10px; }
+details.answer-reveal { margin-top: 10px; }
+details.answer-reveal summary {
+  cursor: pointer;
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #4F46E5;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 8px;
+  width: fit-content;
+}
+details.answer-reveal summary::-webkit-details-marker { display: none; }
+details.answer-reveal summary:hover { opacity: 0.88; }
+details.answer-reveal[open] summary { border-radius: 8px 8px 0 0; }
+.answer-body {
+  background: #fff;
+  border: 2px solid #4F46E5;
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+  padding: 14px 18px;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.section-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid #E5E7EB;
+  font-size: 14px;
+}
+.section-nav a { color: #4F46E5; font-weight: 700; }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-brand">📚 Maths Study Hub</span>
+  <a href="../index.html" class="nav-link nav-home">Home</a>
+  <a href="../calendar.html" class="nav-link nav-cal">📅 Calendar</a>
+  <a href="../algebra.html" class="nav-link nav-alg active">Algebra</a>
+  <a href="../geometry.html" class="nav-link nav-geo">Geometry</a>
+  <a href="../calculus.html" class="nav-link nav-calc">Calculus</a>
+  <a href="../assignments.html" class="nav-link nav-assign">Assignments</a>
+  <a href="../exam-prep.html" class="nav-link nav-exam">Exam prep</a>
+  <a href="../study-resources.html" class="nav-link nav-res">Resources</a>
+</nav>
+
+<div class="page-hero" style="background:#EEF2FF; border-bottom:2px solid #4F46E5;">
+  <h1 style="color:#3730A3;">📖 Blog — Complex Numbers</h1>
+  <p style="color:#4F46E5;">Part 5 of 6: De Moivre's formula & roots</p>
+</div>
+
+<div class="content">
+<div class="blog-wrap">
+
+  <span class="blog-tag">Complex Numbers · Part 5</span>
+  <h1 class="blog-h1">Powers made easy, and the secret to finding roots</h1>
+  <p class="blog-sub">One formula that turns painful repeated multiplication into simple arithmetic on angles.</p>
+  <a href="../notes/complex-de-moivre-roots.html" class="notes-link-back">📝 View the quick-reference notes sheet for this topic →</a>
+
+  <div class="blog-section">
+    <h2>Raising a complex number to a power</h2>
+    <p>Imagine trying to compute \((1+i)^{10}\) by expanding brackets directly — ten repeated multiplications, each one messier than the last. Exponential form rescues you from this entirely, because raising \(re^{i\theta}\) to the power \(n\) is just ordinary index laws:</p>
+    <p>\[z^n = \left(re^{i\theta}\right)^n = r^n e^{in\theta}\]</p>
+    <p>Converting back to polar form (cos/sin) gives what's known as <strong>De Moivre's formula</strong>:</p>
+    <div class="key-idea">
+      \[z^n = r^n(\cos n\theta + i\sin n\theta)\]
+    </div>
+    <p>In words: raise the modulus to the power \(n\), and simply multiply the angle by \(n\). That's the entire calculation — no repeated expansion needed.</p>
+
+    <div class="worked-example">
+      <div class="we-label">Worked example</div>
+      Compute \((1+i)^4\).
+      <p>First convert to exponential form (as in Part 4): \(1+i = \sqrt2\,e^{i\pi/4}\).</p>
+      <p>Apply De Moivre's formula with \(n=4\):</p>
+      \[(1+i)^4 = (\sqrt2)^4\,e^{i\cdot4\cdot(\pi/4)} = 4\,e^{i\pi}\]
+      <p>Converting back: \(e^{i\pi}=\cos\pi+i\sin\pi=-1+0i=-1\), so \((1+i)^4 = 4(-1) = -4\).</p>
+    </div>
+  </div>
+
+  <div class="blog-section">
+    <h2>Turning the formula around: finding roots</h2>
+    <p>If De Moivre's formula tells you how to raise a number to a power, running it backwards tells you how to find roots. Suppose you want to solve \(z^n=w\) for \(z\), where \(w=s(\cos\phi+i\sin\phi)\) is already known. The formula for all \(n\) solutions is:</p>
+    <div class="key-idea">
+      \[z_k = s^{1/n}\left(\cos\frac{\phi+2\pi k}{n}+i\sin\frac{\phi+2\pi k}{n}\right), \qquad k=0,1,2,\ldots,n-1\]
+    </div>
+    <p>The \(+2\pi k\) term is the crucial part, and it's easy to forget. Since angles repeat every \(2\pi\), \(w\) can equally be described using the angle \(\phi\), or \(\phi+2\pi\), or \(\phi+4\pi\), and so on — and each of these, divided by \(n\), gives a genuinely <em>different</em> angle before the division "wraps back around". That's why an \(n\)th root equation has exactly \(n\) distinct solutions, not just one.</p>
+  </div>
+
+  <div class="blog-section">
+    <h2>Roots of unity: the cleanest example</h2>
+    <p>The simplest possible case is solving \(z^n=1\). Since \(1 = 1(\cos0+i\sin0)\), we have \(s=1\), \(\phi=0\), so the formula simplifies to:</p>
+    <p>\[z_k = \cos\frac{2\pi k}{n}+i\sin\frac{2\pi k}{n}\]</p>
+    <p>All \(n\) of these solutions have modulus 1 (they all lie exactly on the unit circle), and they're evenly spaced around it by an angle of \(\frac{2\pi}{n}\) each.</p>
+
+    <div class="diagram-box">
+      <svg viewBox="0 0 200 200" width="100%" height="170">
+        <circle cx="100" cy="100" r="70" fill="none" stroke="#4F46E5" stroke-width="1" stroke-dasharray="3,2"/>
+        <circle cx="170" cy="100" r="5" fill="#4F46E5"/>
+        <text x="176" y="104" font-size="11">1</text>
+        <circle cx="65" cy="160.6" r="5" fill="#16A34A"/>
+        <text x="35" y="178" font-size="11">-½+(√3/2)i</text>
+        <circle cx="65" cy="39.4" r="5" fill="#DC2626"/>
+        <text x="30" y="30" font-size="11">-½-(√3/2)i</text>
+      </svg>
+    </div>
+
+    <div class="worked-example">
+      <div class="we-label">Worked example</div>
+      Solve \(z^3=1\).
+      <p>With \(n=3\), \(s=1\), \(\phi=0\):</p>
+      \[z_k = \cos\frac{2\pi k}{3}+i\sin\frac{2\pi k}{3}, \quad k=0,1,2\]
+      <p>giving \(z_0=1\), \(z_1=-\frac12+\frac{\sqrt3}{2}i\), and \(z_2=-\frac12-\frac{\sqrt3}{2}i\) — three points equally spaced by \(120°\) around the unit circle.</p>
+    </div>
+
+    <div class="warn-note">
+      Always convert to polar/exponential form <strong>before</strong> applying De Moivre's formula or the root formula — neither works directly on Cartesian form.
+    </div>
+  </div>
+
+  <div class="blog-section">
+    <h2>Try it yourself</h2>
+    <div class="try-block">
+      <div class="try-q">Try it: Use De Moivre's formula to compute \((\sqrt3+i)^3\). (First find modulus and argument.)</div>
+      <details class="answer-reveal">
+        <summary>Show answer</summary>
+        <div class="answer-body">
+          \(r=\sqrt{3+1}=2\), \(\theta = \arctan(1/\sqrt3) = \pi/6\) (1st quadrant). So:
+          \[(\sqrt3+i)^3 = 2^3\left(\cos\frac{3\pi}{6}+i\sin\frac{3\pi}{6}\right)=8\left(\cos\frac{\pi}{2}+i\sin\frac{\pi}{2}\right)=8(0+i)=8i\]
+        </div>
+      </details>
+    </div>
+
+    <div class="try-block">
+      <div class="try-q">Try it: How many distinct solutions does \(z^5=32\) have, and what's their modulus?</div>
+      <details class="answer-reveal">
+        <summary>Show answer</summary>
+        <div class="answer-body">
+          There are exactly \(5\) distinct roots (since \(n=5\)), and each has modulus \(s^{1/n} = 32^{1/5}=2\) — all five roots lie on a circle of radius 2, spaced \(72°\) apart.
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <div class="section-nav">
+    <a href="complex-polar-exponential.html">← Part 4: Polar & Exponential Form</a>
+    <a href="complex-polynomials-fta.html">Part 6: Polynomials & the FTA →</a>
+  </div>
+
+</div>
+</div>
+
+<footer>Maths Study Hub</footer>
+
+</body>
+</html>

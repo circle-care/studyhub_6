@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Complex Numbers: Arithmetic & the Imaginary Unit — Blog · Maths Study Hub</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.blog-wrap { max-width: 780px; margin: 0 auto; padding: 0 1rem 4rem; }
+.blog-tag { display: inline-block; background: #EEF2FF; color: #4F46E5; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 4px 12px; border-radius: 20px; margin-bottom: 14px; }
+.blog-h1 { font-size: 30px; font-weight: 700; color: #3730A3; margin-bottom: 8px; line-height: 1.25; }
+.blog-sub { font-size: 16px; color: #4B5563; margin-bottom: 8px; }
+.notes-link-back { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; color: #4F46E5; font-weight: 700; margin-bottom: 2rem; }
+.notes-link-back:hover { text-decoration: underline; }
+
+.blog-section { margin: 2.2rem 0; }
+.blog-section h2 { font-size: 22px; font-weight: 700; color: #3730A3; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 3px solid #EEF2FF; }
+.blog-section p { font-size: 16px; line-height: 1.85; margin-bottom: 14px; color: #1F2430; }
+.blog-section ul { margin: 0 0 14px 22px; font-size: 16px; line-height: 1.85; }
+
+.worked-example {
+  background: #F0FDF4;
+  border: 2px solid #16A34A;
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin: 18px 0;
+}
+.worked-example .we-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #16A34A; margin-bottom: 8px; }
+
+.key-idea {
+  background: #EEF2FF;
+  border-left: 5px solid #4F46E5;
+  border-radius: 0 10px 10px 0;
+  padding: 14px 18px;
+  margin: 18px 0;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.try-block {
+  background: #FFFBEB;
+  border: 2px solid #F59E0B;
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin: 16px 0;
+}
+.try-q { font-size: 16px; font-weight: 700; color: #92400E; margin-bottom: 10px; }
+details.answer-reveal { margin-top: 10px; }
+details.answer-reveal summary {
+  cursor: pointer;
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #4F46E5;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 8px;
+  width: fit-content;
+}
+details.answer-reveal summary::-webkit-details-marker { display: none; }
+details.answer-reveal summary:hover { opacity: 0.88; }
+details.answer-reveal[open] summary { border-radius: 8px 8px 0 0; }
+.answer-body {
+  background: #fff;
+  border: 2px solid #4F46E5;
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+  padding: 14px 18px;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.section-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid #E5E7EB;
+  font-size: 14px;
+}
+.section-nav a { color: #4F46E5; font-weight: 700; }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-brand">📚 Maths Study Hub</span>
+  <a href="../index.html" class="nav-link nav-home">Home</a>
+  <a href="../calendar.html" class="nav-link nav-cal">📅 Calendar</a>
+  <a href="../algebra.html" class="nav-link nav-alg active">Algebra</a>
+  <a href="../geometry.html" class="nav-link nav-geo">Geometry</a>
+  <a href="../calculus.html" class="nav-link nav-calc">Calculus</a>
+  <a href="../assignments.html" class="nav-link nav-assign">Assignments</a>
+  <a href="../exam-prep.html" class="nav-link nav-exam">Exam prep</a>
+  <a href="../study-resources.html" class="nav-link nav-res">Resources</a>
+</nav>
+
+<div class="page-hero" style="background:#EEF2FF; border-bottom:2px solid #4F46E5;">
+  <h1 style="color:#3730A3;">📖 Blog — Complex Numbers</h1>
+  <p style="color:#4F46E5;">Part 1 of 6: Arithmetic & the imaginary unit</p>
+</div>
+
+<div class="content">
+<div class="blog-wrap">
+
+  <span class="blog-tag">Complex Numbers · Part 1</span>
+  <h1 class="blog-h1">What actually IS a complex number?</h1>
+  <p class="blog-sub">Starting from scratch: why \(i\) exists, and how to add, subtract, multiply and divide with it.</p>
+  <a href="../notes/complex-arithmetic.html" class="notes-link-back">📝 View the quick-reference notes sheet for this topic →</a>
+
+  <div class="blog-section">
+    <h2>The problem that started it all</h2>
+    <p>Take the equation \(x^2 + 1 = 0\). Rearranged, that's \(x^2 = -1\). If you only know about real numbers, this has no solution — squaring any real number (positive, negative, or zero) always gives you something that's zero or positive. You can never square your way down to \(-1\).</p>
+    <p>For centuries mathematicians just called equations like this "unsolvable" and moved on. But it turns out that if you're willing to invent a new kind of number — one whose square is genuinely negative — a huge amount of mathematics opens up, and a lot of previously "impossible" problems become solvable. That new number is called \(i\), the <strong>imaginary unit</strong>.</p>
+    <div class="key-idea">
+      <strong>Definition:</strong> \(i\) is defined by the property \(i^2 = -1\). It isn't found on the real number line anywhere — it's a genuinely new kind of quantity.
+    </div>
+    <p>Once you have \(i\), you can build an entire new family of numbers by combining it with the real numbers you already know.</p>
+  </div>
+
+  <div class="blog-section">
+    <h2>Building a complex number</h2>
+    <p>A <strong>complex number</strong> is anything of the form</p>
+    <p>\[z = a + bi\]</p>
+    <p>where \(a\) and \(b\) are ordinary real numbers. \(a\) is called the <strong>real part</strong>, written \(\text{Re}(z)\), and \(b\) is called the <strong>imaginary part</strong>, written \(\text{Im}(z)\).</p>
+    <div class="key-idea">
+      A common point of confusion: \(\text{Im}(z) = b\), <em>not</em> \(bi\). The imaginary part is itself a plain real number — it's just the coefficient sitting in front of \(i\).
+    </div>
+    <p>Every real number is secretly a complex number too — just one where \(b = 0\). So complex numbers aren't replacing the real numbers, they're an extension that contains them.</p>
+  </div>
+
+  <div class="blog-section">
+    <h2>Adding and subtracting</h2>
+    <p>This part is refreshingly simple: treat \(i\) like a variable you can't simplify further (a bit like \(x\) in algebra), and combine "like terms" — real parts with real parts, imaginary parts with imaginary parts.</p>
+
+    <div class="worked-example">
+      <div class="we-label">Worked example</div>
+      Add \((3+2i)\) and \((1-5i)\):
+      \[(3+2i) + (1-5i) = (3+1) + (2-5)i = 4 - 3i\]
+      Subtract them instead:
+      \[(3+2i) - (1-5i) = (3-1) + (2-(-5))i = 2 + 7i\]
+    </div>
+
+    <div class="try-block">
+      <div class="try-q">Try it: Compute \((5-3i) + (-2+7i)\).</div>
+      <details class="answer-reveal">
+        <summary>Show answer</summary>
+        <div class="answer-body">
+          \[(5-3i) + (-2+7i) = (5-2) + (-3+7)i = 3 + 4i\]
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <div class="blog-section">
+    <h2>Multiplying complex numbers</h2>
+    <p>Multiplication works exactly like expanding two brackets in ordinary algebra (FOIL, if you were taught that name) — the only extra step is remembering to replace \(i^2\) with \(-1\) once it shows up.</p>
+
+    <div class="worked-example">
+      <div class="we-label">Worked example</div>
+      Multiply \((2+3i)(1-4i)\):
+      \[(2+3i)(1-4i) = 2(1) + 2(-4i) + 3i(1) + 3i(-4i)\]
+      \[= 2 - 8i + 3i - 12i^2\]
+      Now substitute \(i^2 = -1\):
+      \[= 2 - 5i - 12(-1) = 2 - 5i + 12 = 14 - 5i\]
+    </div>
+
+    <div class="try-block">
+      <div class="try-q">Try it: Compute \((1+i)(1-i)\). (Notice anything interesting about the result?)</div>
+      <details class="answer-reveal">
+        <summary>Show answer</summary>
+        <div class="answer-body">
+          \[(1+i)(1-i) = 1 - i + i - i^2 = 1 - (-1) = 2\]
+          The imaginary terms cancelled out completely, leaving a plain real number. This is not a coincidence — it's an example of multiplying a number by its <strong>conjugate</strong>, covered next.
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <div class="blog-section">
+    <h2>The complex conjugate — and why it matters</h2>
+    <p>Every complex number \(z = a+bi\) has a partner called its <strong>conjugate</strong>, written \(\bar{z}\), formed just by flipping the sign of the imaginary part:</p>
+    <p>\[\bar{z} = a - bi\]</p>
+    <p>Conjugates are useful because multiplying a number by its own conjugate always destroys the imaginary part and leaves something purely real:</p>
+    <div class="key-idea">
+      \[z\bar{z} = (a+bi)(a-bi) = a^2 - (bi)^2 = a^2 - b^2i^2 = a^2+b^2\]
+      Since \(a^2+b^2\) is always a real, non-negative number, this trick is extremely useful — especially for division.
+    </div>
+  </div>
+
+  <div class="blog-section">
+    <h2>Dividing complex numbers</h2>
+    <p>You can't "just divide" the way you can with real numbers, because having \(i\) in the denominator isn't considered a valid final answer. The fix: multiply top and bottom by the conjugate of the denominator. This turns the denominator into a real number, and then it's just ordinary division.</p>
+
+    <div class="worked-example">
+      <div class="we-label">Worked example</div>
+      Simplify \(\dfrac{1+i}{2-i}\):
+      <p>The conjugate of the denominator \(2-i\) is \(2+i\). Multiply top and bottom by it:</p>
+      \[\frac{1+i}{2-i} \times \frac{2+i}{2+i} = \frac{(1+i)(2+i)}{(2-i)(2+i)}\]
+      <p>Expand the top:</p>
+      \[(1+i)(2+i) = 2 + i + 2i + i^2 = 2+3i-1 = 1+3i\]
+      <p>Expand the bottom (using the conjugate shortcut from above):</p>
+      \[(2-i)(2+i) = 2^2+1^2 = 5\]
+      <p>So:</p>
+      \[\frac{1+i}{2-i} = \frac{1+3i}{5} = \frac{1}{5}+\frac{3}{5}i\]
+    </div>
+
+    <div class="try-block">
+      <div class="try-q">Try it: Simplify \(\dfrac{3}{1+i}\).</div>
+      <details class="answer-reveal">
+        <summary>Show answer</summary>
+        <div class="answer-body">
+          Multiply top and bottom by \(1-i\):
+          \[\frac{3}{1+i} \times \frac{1-i}{1-i} = \frac{3(1-i)}{1^2+1^2} = \frac{3-3i}{2} = \frac{3}{2}-\frac{3}{2}i\]
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <div class="blog-section">
+    <h2>A useful shortcut: powers of \(i\)</h2>
+    <p>Since \(i^2=-1\), you can work out any higher power of \(i\) just by repeatedly multiplying by \(i\):</p>
+    <p>\[i^1=i,\quad i^2=-1,\quad i^3=i^2 \cdot i=-i,\quad i^4=i^2\cdot i^2=1\]</p>
+    <p>And then it repeats: \(i^5=i\), \(i^6=-1\), and so on, forever, in a cycle of length 4. So to find \(i^n\) for any large \(n\), you don't need to multiply it out — just find the remainder when \(n\) is divided by 4.</p>
+
+    <div class="try-block">
+      <div class="try-q">Try it: What is \(i^{27}\)?</div>
+      <details class="answer-reveal">
+        <summary>Show answer</summary>
+        <div class="answer-body">
+          \(27 \div 4 = 6\) remainder \(3\), so \(i^{27} = i^3 = -i\).
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <div class="section-nav">
+    <span></span>
+    <a href="complex-argand-diagram.html">Part 2: The Argand Diagram →</a>
+  </div>
+
+</div>
+</div>
+
+<footer>Maths Study Hub</footer>
+
+</body>
+</html>

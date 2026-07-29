@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Complex Numbers: Polar & Exponential Form — Blog · Maths Study Hub</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.blog-wrap { max-width: 780px; margin: 0 auto; padding: 0 1rem 4rem; }
+.blog-tag { display: inline-block; background: #EEF2FF; color: #4F46E5; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 4px 12px; border-radius: 20px; margin-bottom: 14px; }
+.blog-h1 { font-size: 30px; font-weight: 700; color: #3730A3; margin-bottom: 8px; line-height: 1.25; }
+.blog-sub { font-size: 16px; color: #4B5563; margin-bottom: 8px; }
+.notes-link-back { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; color: #4F46E5; font-weight: 700; margin-bottom: 2rem; }
+.notes-link-back:hover { text-decoration: underline; }
+
+.blog-section { margin: 2.2rem 0; }
+.blog-section h2 { font-size: 22px; font-weight: 700; color: #3730A3; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 3px solid #EEF2FF; }
+.blog-section p { font-size: 16px; line-height: 1.85; margin-bottom: 14px; color: #1F2430; }
+
+.worked-example {
+  background: #F0FDF4;
+  border: 2px solid #16A34A;
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin: 18px 0;
+}
+.worked-example .we-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #16A34A; margin-bottom: 8px; }
+
+.key-idea {
+  background: #EEF2FF;
+  border-left: 5px solid #4F46E5;
+  border-radius: 0 10px 10px 0;
+  padding: 14px 18px;
+  margin: 18px 0;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.warn-note {
+  background: #FEF2F2;
+  border: 2px solid #DC2626;
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 18px 0;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.try-block {
+  background: #FFFBEB;
+  border: 2px solid #F59E0B;
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin: 16px 0;
+}
+.try-q { font-size: 16px; font-weight: 700; color: #92400E; margin-bottom: 10px; }
+details.answer-reveal { margin-top: 10px; }
+details.answer-reveal summary {
+  cursor: pointer;
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #4F46E5;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 8px;
+  width: fit-content;
+}
+details.answer-reveal summary::-webkit-details-marker { display: none; }
+details.answer-reveal summary:hover { opacity: 0.88; }
+details.answer-reveal[open] summary { border-radius: 8px 8px 0 0; }
+.answer-body {
+  background: #fff;
+  border: 2px solid #4F46E5;
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+  padding: 14px 18px;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.section-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid #E5E7EB;
+  font-size: 14px;
+}
+.section-nav a { color: #4F46E5; font-weight: 700; }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-brand">📚 Maths Study Hub</span>
+  <a href="../index.html" class="nav-link nav-home">Home</a>
+  <a href="../calendar.html" class="nav-link nav-cal">📅 Calendar</a>
+  <a href="../algebra.html" class="nav-link nav-alg active">Algebra</a>
+  <a href="../geometry.html" class="nav-link nav-geo">Geometry</a>
+  <a href="../calculus.html" class="nav-link nav-calc">Calculus</a>
+  <a href="../assignments.html" class="nav-link nav-assign">Assignments</a>
+  <a href="../exam-prep.html" class="nav-link nav-exam">Exam prep</a>
+  <a href="../study-resources.html" class="nav-link nav-res">Resources</a>
+</nav>
+
+<div class="page-hero" style="background:#EEF2FF; border-bottom:2px solid #4F46E5;">
+  <h1 style="color:#3730A3;">📖 Blog — Complex Numbers</h1>
+  <p style="color:#4F46E5;">Part 4 of 6: Polar & exponential form</p>
+</div>
+
+<div class="content">
+<div class="blog-wrap">
+
+  <span class="blog-tag">Complex Numbers · Part 4</span>
+  <h1 class="blog-h1">Rewriting complex numbers using distance and angle</h1>
+  <p class="blog-sub">Why polar and exponential form exist, and why they make multiplication so much easier.</p>
+  <a href="../notes/complex-polar-exponential.html" class="notes-link-back">📝 View the quick-reference notes sheet for this topic →</a>
+
+  <div class="blog-section">
+    <h2>From (a, b) to (r, θ)</h2>
+    <p>So far you've described a complex number two different ways: Cartesian form \(z=a+bi\) (real and imaginary parts), and separately, modulus \(r=|z|\) and argument \(\theta=\arg(z)\) (distance and angle). It turns out you can rebuild the Cartesian form directly from \(r\) and \(\theta\), using basic trigonometry:</p>
+    <p>\[a = r\cos\theta, \qquad b = r\sin\theta\]</p>
+    <p>Substituting these into \(z=a+bi\) gives the <strong>polar form</strong>:</p>
+    <p>\[z = r(\cos\theta+i\sin\theta)\]</p>
+    <p>This is exactly the same number as \(a+bi\) — just written in terms of distance and direction instead of horizontal and vertical components.</p>
+
+    <div class="worked-example">
+      <div class="we-label">Worked example</div>
+      Convert \(z=1+i\) into polar form.
+      <p>First find \(r\) and \(\theta\):</p>
+      \[r = \sqrt{1^2+1^2}=\sqrt2, \qquad \theta = \arctan(1) = \frac{\pi}{4} \text{ (1st quadrant, so no adjustment needed)}\]
+      <p>So:</p>
+      \[z = \sqrt2\left(\cos\frac{\pi}{4}+i\sin\frac{\pi}{4}\right)\]
+    </div>
+  </div>
+
+  <div class="blog-section">
+    <h2>Euler's formula: an even shorter way to write it</h2>
+    <p>One of the most remarkable results in all of mathematics is <strong>Euler's formula</strong>:</p>
+    <div class="key-idea">
+      \[e^{i\theta} = \cos\theta + i\sin\theta\]
+    </div>
+    <p>This says the (seemingly unrelated) exponential function, imaginary numbers, and trigonometry are all secretly connected. You don't need to derive this here — just accept it as a definition/identity you can use — but it lets you rewrite polar form even more compactly as <strong>exponential form</strong>:</p>
+    <p>\[z = re^{i\theta}\]</p>
+    <p>So the same number \(1+i\) from above can also be written as \(\sqrt2\,e^{i\pi/4}\).</p>
+  </div>
+
+  <div class="blog-section">
+    <h2>Why bother? Multiplication becomes addition</h2>
+    <p>Here's the payoff. Multiplying two complex numbers in Cartesian form means expanding brackets. In exponential form, the ordinary rules of exponents apply — multiplying just means <em>adding the angles and multiplying the moduli</em>:</p>
+    <p>\[z_1 z_2 = r_1e^{i\theta_1}\cdot r_2e^{i\theta_2} = r_1r_2\,e^{i(\theta_1+\theta_2)}\]</p>
+    <p>Written back in polar form, this is:</p>
+    <p>\[zw = rs\big(\cos(\theta+\phi)+i\sin(\theta+\phi)\big)\]</p>
+    <p>And division works the same way, but subtracting angles:</p>
+    <p>\[\frac{z}{w} = \frac{r}{s}\big(\cos(\theta-\phi)+i\sin(\theta-\phi)\big)\]</p>
+
+    <div class="worked-example">
+      <div class="we-label">Worked example</div>
+      Multiply \(z=2e^{i\pi/6}\) and \(w=3e^{i\pi/3}\):
+      \[zw = (2)(3)\,e^{i(\pi/6+\pi/3)} = 6e^{i\pi/2}\]
+      <p>Converting back: \(e^{i\pi/2} = \cos\frac{\pi}{2}+i\sin\frac{\pi}{2} = 0+i(1) = i\), so \(zw = 6i\).</p>
+    </div>
+
+    <div class="warn-note">
+      <strong>Watch your sign for \(r\):</strong> the modulus \(r\) must always come out non-negative. If a calculation ever gives you a negative "\(r\)", it means you should instead add \(\pi\) to \(\theta\) and make \(r\) positive — never leave \(r\) negative in a final polar/exponential answer.
+    </div>
+  </div>
+
+  <div class="blog-section">
+    <h2>Bonus: Euler's formula gives you trig identities for free</h2>
+    <p>Since \(e^{i\theta}=\cos\theta+i\sin\theta\) and \(e^{-i\theta}=\cos\theta - i\sin\theta\) (because cosine is even and sine is odd), adding or subtracting these two equations and rearranging gives:</p>
+    <p>\[\cos\theta = \frac{e^{i\theta}+e^{-i\theta}}{2}, \qquad \sin\theta = \frac{e^{i\theta}-e^{-i\theta}}{2i}\]</p>
+    <p>These identities become genuinely useful once you study calculus involving trig functions, or when proving other trig identities.</p>
+
+    <div class="try-block">
+      <div class="try-q">Try it: Convert \(z=-2\) into exponential form. (Hint: where does \(-2\) sit on the real axis, and what angle is that?)</div>
+      <details class="answer-reveal">
+        <summary>Show answer</summary>
+        <div class="answer-body">
+          \(-2\) sits on the negative real axis, distance 2 from the origin, at angle \(\pi\) (180°). So \(r=2\), \(\theta=\pi\), giving \(z = 2e^{i\pi}\). (This is actually the famous relation behind Euler's identity, covered in Part 6.)
+        </div>
+      </details>
+    </div>
+
+    <div class="try-block">
+      <div class="try-q">Try it: Divide \(z=6e^{i2\pi/3}\) by \(w=2e^{i\pi/3}\).</div>
+      <details class="answer-reveal">
+        <summary>Show answer</summary>
+        <div class="answer-body">
+          \[\frac{z}{w} = \frac{6}{2}e^{i(2\pi/3-\pi/3)} = 3e^{i\pi/3}\]
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <div class="section-nav">
+    <a href="complex-modulus-argument.html">← Part 3: Modulus & Argument</a>
+    <a href="complex-de-moivre-roots.html">Part 5: De Moivre's Formula & Roots →</a>
+  </div>
+
+</div>
+</div>
+
+<footer>Maths Study Hub</footer>
+
+</body>
+</html>
