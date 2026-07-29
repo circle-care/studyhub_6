@@ -1,0 +1,66 @@
+<div class="notes-header">
+  <div class="notes-header-cell"><span>Subject</span>Algebra</div>
+  <div class="notes-header-cell"><span>Subtopic</span>Complex Numbers</div>
+  <div class="notes-header-cell"><span>Sheet</span>Page 1 of 6</div>
+</div>
+
+<div class="notes-title-bar">
+  <div class="page-num">1</div>
+  What is a complex number, and how do we add, subtract, and multiply them?
+</div>
+
+<div class="notes-grid">
+  <div class="notes-col">
+    <div class="col-label">Main points</div>
+    <p>The imaginary unit \(i\) is defined by \(i^2 = -1\).</p>
+    <p>A complex number has the form \(z = a + bi\), where \(a, b \in \mathbb{R}\).</p>
+    <ul>
+      <li>\(a = \text{Re}(z)\) — the real part</li>
+      <li>\(b = \text{Im}(z)\) — the imaginary part (note: \(b\) itself is a real number)</li>
+    </ul>
+    <p>Addition/subtraction: combine real parts and imaginary parts separately.</p>
+    <p>Multiplication: expand like binomials, then replace \(i^2\) with \(-1\).</p>
+    <p>The complex conjugate of \(z = a+bi\) is \(\bar{z} = a - bi\).</p>
+  </div>
+
+  <div class="notes-col">
+    <div class="col-label">Examples / Explanation</div>
+    <div class="example-box">
+      \[(3+2i) + (1-5i) = 4 - 3i\]
+      \[(3+2i) - (1-5i) = 2 + 7i\]
+    </div>
+    <div class="example-box">
+      Multiply \((2+3i)(1-4i)\):
+      \[= 2 - 8i + 3i - 12i^2\]
+      \[= 2 - 5i - 12(-1) = 14 - 5i\]
+    </div>
+    <div class="key-box">
+      Conjugate property: \(z\bar{z} = |z|^2 = a^2 + b^2\), always a real, non-negative number.
+    </div>
+    <div class="example-box">
+      Divide using the conjugate:
+      \[\frac{1+i}{2-i} = \frac{(1+i)(2+i)}{(2-i)(2+i)} = \frac{1+3i}{5} = \frac{1}{5} + \frac{3}{5}i\]
+    </div>
+  </div>
+
+  <div class="notes-col">
+    <div class="col-label">Helpful points</div>
+    <div class="warn-box">
+      \(bi\) is called the "imaginary part" loosely — technically \(b\) alone is \(\text{Im}(z)\), and it's a real number.
+    </div>
+    <div class="highlight">
+      To divide by a complex number, multiply top and bottom by the conjugate of the denominator.
+    </div>
+    <div class="warn-box">
+      Don't forget \(i^2 = -1\) when expanding — this is the single most common slip.
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<div class="notes-alg" style="padding:16px;">
+  <div class="highlight">
+    Powers of \(i\) cycle every 4: \(i^1=i,\ i^2=-1,\ i^3=-i,\ i^4=1\), then it repeats. To find \(i^n\), just look at \(n \bmod 4\).
+  </div>
+</div>

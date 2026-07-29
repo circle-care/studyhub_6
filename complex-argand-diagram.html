@@ -1,0 +1,57 @@
+<div class="notes-header">
+  <div class="notes-header-cell"><span>Subject</span>Algebra</div>
+  <div class="notes-header-cell"><span>Subtopic</span>Complex Numbers</div>
+  <div class="notes-header-cell"><span>Sheet</span>Page 2 of 6</div>
+</div>
+
+<div class="notes-title-bar">
+  <div class="page-num">2</div>
+  How do we picture a complex number geometrically?
+</div>
+
+<div class="notes-grid">
+  <div class="notes-col">
+    <div class="col-label">Main points</div>
+    <p>The Argand diagram (complex plane) plots \(z = a+bi\) as the point \((a,b)\).</p>
+    <ul>
+      <li>Horizontal axis = real axis</li>
+      <li>Vertical axis = imaginary axis</li>
+    </ul>
+    <p>Adding complex numbers follows the same parallelogram law as vector addition.</p>
+    <p>Conjugation \(z \to \bar{z}\) is a reflection in the real axis.</p>
+    <p>Negation \(z \to -z\) is a rotation of \(180°\) (reflection through the origin).</p>
+  </div>
+
+  <div class="notes-col">
+    <div class="col-label">Examples / Explanation</div>
+    <div class="graph-box">
+      <svg viewBox="0 0 240 200" width="100%" height="180">
+        <defs>
+          <marker id="arrow2" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 z" fill="#4F46E5"/>
+          </marker>
+        </defs>
+        <line x1="20" y1="100" x2="220" y2="100" stroke="#4F46E5" stroke-width="1.5" marker-end="url(#arrow2)"/>
+        <line x1="120" y1="180" x2="120" y2="20" stroke="#4F46E5" stroke-width="1.5" marker-end="url(#arrow2)"/>
+        <circle cx="170" cy="60" r="4" fill="#4F46E5"/>
+        <text x="176" y="58" font-size="11">z = 5+4i</text>
+        <line x1="120" y1="100" x2="170" y2="60" stroke="#4F46E5" stroke-width="1" stroke-dasharray="3,2"/>
+        <circle cx="170" cy="140" r="4" fill="none" stroke="#4F46E5" stroke-width="1.5"/>
+        <text x="176" y="144" font-size="11">z̄ = 5−4i</text>
+      </svg>
+    </div>
+    <div class="example-box">
+      Add \((1+2i)\) and \((3+i)\): plot both points, complete the parallelogram — the sum \(4+3i\) is the far corner, exactly like vector addition.
+    </div>
+  </div>
+
+  <div class="notes-col">
+    <div class="col-label">Helpful points</div>
+    <div class="warn-box">
+      Don't confuse a point's position on the diagram with its modulus — the modulus is the *distance* from the origin, covered next page.
+    </div>
+    <div class="highlight">
+      Reflecting a point in the real axis (flip the sign of \(b\)) always gives the conjugate.
+    </div>
+  </div>
+</div>

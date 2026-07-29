@@ -1,0 +1,57 @@
+<div class="notes-header">
+  <div class="notes-header-cell"><span>Subject</span>Algebra</div>
+  <div class="notes-header-cell"><span>Subtopic</span>Complex Numbers</div>
+  <div class="notes-header-cell"><span>Sheet</span>Page 5 of 6</div>
+</div>
+
+<div class="notes-title-bar">
+  <div class="page-num">5</div>
+  Raising to powers and finding roots
+</div>
+
+<div class="notes-grid">
+  <div class="notes-col">
+    <div class="col-label">Main points</div>
+    <p><strong>De Moivre's formula:</strong></p>
+    <p>\[z^n = r^n(\cos n\theta + i\sin n\theta)\]</p>
+    <p>To find the \(n\) roots of \(z^n = w\) (with \(w = s(\cos\phi+i\sin\phi)\)):</p>
+    <p>\[z_k = s^{1/n}\left(\cos\frac{\phi+2\pi k}{n} + i\sin\frac{\phi+2\pi k}{n}\right)\]</p>
+    <p>for \(k = 0, 1, \dots, n-1\).</p>
+    <p><strong>Roots of unity</strong>: the \(n\) solutions to \(z^n=1\) are equally spaced around the unit circle.</p>
+  </div>
+
+  <div class="notes-col">
+    <div class="col-label">Examples / Explanation</div>
+    <div class="example-box">
+      Compute \((1+i)^4\): first convert to polar, \(1+i = \sqrt2\,e^{i\pi/4}\), then
+      \[(1+i)^4 = (\sqrt2)^4 e^{i\cdot4\cdot\pi/4} = 4e^{i\pi} = -4\]
+    </div>
+    <div class="example-box">
+      Solve \(z^3 = 1\): here \(s=1,\ \phi=0\), so
+      \[z_k = \cos\frac{2\pi k}{3} + i\sin\frac{2\pi k}{3}, \quad k=0,1,2\]
+      giving \(z_0 = 1\), \(z_1 = -\tfrac12+\tfrac{\sqrt3}{2}i\), \(z_2 = -\tfrac12-\tfrac{\sqrt3}{2}i\).
+    </div>
+    <div class="graph-box">
+      <svg viewBox="0 0 200 200" width="100%" height="160">
+        <circle cx="100" cy="100" r="70" fill="none" stroke="#4F46E5" stroke-width="1" stroke-dasharray="3,2"/>
+        <circle cx="170" cy="100" r="4" fill="#4F46E5"/>
+        <circle cx="65" cy="160" r="4" fill="#4F46E5"/>
+        <circle cx="65" cy="40" r="4" fill="#4F46E5"/>
+        <text x="176" y="104" font-size="11">1</text>
+      </svg>
+    </div>
+  </div>
+
+  <div class="notes-col">
+    <div class="col-label">Helpful points</div>
+    <div class="warn-box">
+      Always convert to polar/exponential form <em>before</em> applying De Moivre — it doesn't work directly on Cartesian form.
+    </div>
+    <div class="highlight">
+      The \(n\) roots are always evenly spaced by an angle of \(\dfrac{2\pi}{n}\) around a circle of radius \(s^{1/n}\).
+    </div>
+    <div class="warn-box">
+      Don't forget: every non-zero complex number has exactly \(n\) distinct \(n\)th roots, not just one.
+    </div>
+  </div>
+</div>
