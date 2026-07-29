@@ -66,6 +66,7 @@
         display: block !important;
         border-radius: 0 0 12px 12px;
         margin-bottom: 0 !important;
+        break-inside: auto !important;
       }
       .notes-col {
         border-right: none !important;
