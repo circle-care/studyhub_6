@@ -38,6 +38,16 @@
 
       nav, .pdf-download-btn, footer { display: none !important; }
       body { background: #fff !important; margin: 0 !important; }
+      html, body {
+        height: auto !important;
+        min-height: 0 !important;
+        display: block !important;
+      }
+      .content {
+        flex: none !important;
+        height: auto !important;
+        min-height: 0 !important;
+      }
       .content { max-width: 100% !important; margin: 0 !important; }
 
       /* shrink the hero right down for print instead of leaving
