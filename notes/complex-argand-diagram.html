@@ -1,29 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Complex Numbers: The Argand Diagram · Maths Study Hub</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="../pdf-download.js" defer></script>
+<style>
+.notes-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+  border: 3px solid #4F46E5;
+  border-radius: 12px 12px 0 0;
+  overflow: hidden;
+  margin-bottom: 0;
+  font-size: 14px;
+}
+.notes-header-cell {
+  padding: 10px 16px;
+  background: #4F46E5;
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  border-right: 2px solid rgba(255,255,255,0.3);
+}
+.notes-header-cell:last-child { border-right: none; }
+.notes-header-cell span { display: block; font-size: 11px; opacity: 0.75; font-weight: 400; margin-bottom: 2px; }
+
+.notes-title-bar {
+  background: #EEF2FF;
+  border: 3px solid #4F46E5;
+  border-top: none;
+  padding: 12px 20px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #3730A3;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.page-num {
+  background: #4F46E5;
+  color: #fff;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.notes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr 1fr;
+  border: 3px solid #4F46E5;
+  border-top: none;
+  border-radius: 0 0 12px 12px;
+  overflow: hidden;
+  margin-bottom: 2.5rem;
+}
+
+.notes-col {
+  padding: 20px;
+  border-right: 2px solid #e5e7eb;
+}
+.notes-col:last-child { border-right: none; }
+
+.col-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #4F46E5;
+  margin-bottom: 14px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid #EEF2FF;
+}
+
+.notes-col p { margin-bottom: 12px; font-size: 16px; line-height: 1.8; }
+.notes-col p:last-child { margin-bottom: 0; }
+
+.highlight {
+  background: #FEF9C3;
+  border-left: 4px solid #EAB308;
+  padding: 10px 14px;
+  border-radius: 0 8px 8px 0;
+  margin: 12px 0;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.key-box {
+  background: #EEF2FF;
+  border: 2px solid #4F46E5;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin: 12px 0;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.example-box {
+  background: #F0FDF4;
+  border: 2px solid #16A34A;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin: 12px 0;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.warn-box {
+  background: #FEF2F2;
+  border: 2px solid #DC2626;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin: 12px 0;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.graph-box {
+  background: #F9FAFB;
+  border: 2px dashed #e5e7eb;
+  border-radius: 10px;
+  padding: 16px;
+  margin: 12px 0;
+  text-align: center;
+}
+
+.divider { border: none; border-top: 2px solid #e5e7eb; margin: 16px 0; }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-brand">📚 Maths Study Hub</span>
+  <a href="../index.html" class="nav-link nav-home">Home</a>
+  <a href="../calendar.html" class="nav-link nav-cal">📅 Calendar</a>
+  <a href="../algebra.html" class="nav-link nav-alg active">Algebra</a>
+  <a href="../geometry.html" class="nav-link nav-geo">Geometry</a>
+  <a href="../calculus.html" class="nav-link nav-calc">Calculus</a>
+  <a href="../assignments.html" class="nav-link nav-assign">Assignments</a>
+  <a href="../exam-prep.html" class="nav-link nav-exam">Exam prep</a>
+  <a href="../study-resources.html" class="nav-link nav-res">Resources</a>
+</nav>
+
+<div class="page-hero" style="background:#EEF2FF; border-bottom:2px solid #4F46E5;">
+  <h1 style="color:#3730A3;">ℂ Algebra — Complex Numbers</h1>
+  <p style="color:#4F46E5;">Plotting complex numbers on the Argand diagram</p>
+</div>
+
+<div class="content">
+
 <div class="notes-header">
   <div class="notes-header-cell"><span>Subject</span>Algebra</div>
   <div class="notes-header-cell"><span>Subtopic</span>Complex Numbers</div>
-  <div class="notes-header-cell"><span>Sheet</span>Page 2 of 6</div>
+  <div class="notes-header-cell"><span>Sheet</span>2 of 6</div>
 </div>
-
 <div class="notes-title-bar">
   <div class="page-num">2</div>
   How do we picture a complex number geometrically?
 </div>
-
 <div class="notes-grid">
+
   <div class="notes-col">
     <div class="col-label">Main points</div>
+
     <p>The Argand diagram (complex plane) plots \(z = a+bi\) as the point \((a,b)\).</p>
-    <ul>
-      <li>Horizontal axis = real axis</li>
-      <li>Vertical axis = imaginary axis</li>
-    </ul>
+
+    <div class="key-box">
+      Horizontal axis = real axis<br>
+      Vertical axis = imaginary axis
+    </div>
+
+    <hr class="divider">
+
     <p>Adding complex numbers follows the same parallelogram law as vector addition.</p>
+
     <p>Conjugation \(z \to \bar{z}\) is a reflection in the real axis.</p>
+
     <p>Negation \(z \to -z\) is a rotation of \(180°\) (reflection through the origin).</p>
   </div>
 
   <div class="notes-col">
-    <div class="col-label">Examples / Explanation</div>
+    <div class="col-label">Examples / explanation</div>
+
     <div class="graph-box">
       <svg viewBox="0 0 240 200" width="100%" height="180">
         <defs>
@@ -40,6 +208,7 @@
         <text x="176" y="144" font-size="11">z̄ = 5−4i</text>
       </svg>
     </div>
+
     <div class="example-box">
       Add \((1+2i)\) and \((3+i)\): plot both points, complete the parallelogram — the sum \(4+3i\) is the far corner, exactly like vector addition.
     </div>
@@ -47,11 +216,23 @@
 
   <div class="notes-col">
     <div class="col-label">Helpful points</div>
+
     <div class="warn-box">
-      Don't confuse a point's position on the diagram with its modulus — the modulus is the *distance* from the origin, covered next page.
+      Don't confuse a point's position on the diagram with its modulus — the modulus is the <strong>distance</strong> from the origin, covered next page.
     </div>
+
+    <hr class="divider">
+
     <div class="highlight">
       Reflecting a point in the real axis (flip the sign of \(b\)) always gives the conjugate.
     </div>
   </div>
+
 </div>
+
+</div>
+
+<footer>Maths Study Hub</footer>
+
+</body>
+</html>
