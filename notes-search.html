@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Search Notes · Maths Study Hub</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <span class="nav-brand">📚 Maths Study Hub</span>
+  <a href="index.html" class="nav-link nav-home">Home</a>
+  <a href="algebra.html" class="nav-link nav-alg">Algebra</a>
+  <a href="geometry.html" class="nav-link nav-geo">Geometry</a>
+  <a href="calculus.html" class="nav-link nav-calc">Calculus</a>
+  <a href="blog.html" class="nav-link nav-blog">📖 Blog</a>
+  <a href="assignments.html" class="nav-link nav-assign">Assignments</a>
+  <a href="exam-prep.html" class="nav-link nav-exam">Exam prep</a>
+  <a href="study-resources.html" class="nav-link nav-res">Resources</a>
+  <a href="notes-search.html" class="nav-link nav-search active" title="Search all notes">🔍</a>
+</nav>
+
+<div class="page-hero" style="background:#F3F4F6; border-bottom-color:#374151;">
+  <h1 style="color:#1F2937;">🔍 Search Notes</h1>
+  <p style="color:#4B5563;">Find any notes sheet across every subject in one place</p>
+</div>
+
+<div class="content">
+
+  <div style="margin-bottom:2rem;">
+    <input
+      type="text"
+      id="notes-search"
+      placeholder="🔍 Search all notes — e.g. 'determinant', 'limits', 'roots'..."
+      style="width:100%; padding:12px 16px; font-size:16px; border:2px solid var(--border); border-radius:10px; font-family:inherit; background:var(--surface);"
+      oninput="filterNotes(this.value)"
+    >
+    <div id="notes-search-empty" style="display:none; text-align:center; padding:2rem; color:var(--muted); font-size:15px;">
+      No notes match your search.
+    </div>
+  </div>
+
+  <div class="notes-topic-group">
+  <div class="section-title" style="border-bottom-color:var(--alg-light); color:var(--alg-dark);">
+    🔢 Algebra — Matrices
+  </div>
+  <div class="unit-list">
+    <a href="notes/matrices-notation.html" class="unit-card" data-tags="matrix notation rows columns dimensions entry element scalar zero identity vector">
+      <div class="unit-num" style="background:var(--alg-light); color:var(--alg-dark);">1</div>
+      <div class="unit-info">
+        <div class="unit-title">Notation & basic operations</div>
+        <div class="unit-desc">Matrices · Page 1 of 6</div>
+      </div>
+      <span class="status-pill status-todo">View</span>
+    </a>
+    <a href="notes/matrices-multiplication.html" class="unit-card" data-tags="matrix multiplication row column compatibility commutative AB BA order">
+      <div class="unit-num" style="background:var(--alg-light); color:var(--alg-dark);">2</div>
+      <div class="unit-info">
+        <div class="unit-title">Matrix multiplication</div>
+        <div class="unit-desc">Matrices · Page 2 of 6</div>
+      </div>
+      <span class="status-pill status-todo">View</span>
+    </a>
+    <a href="notes/matrices-inverses-determinants.html" class="unit-card" data-tags="determinant inverse singular 2x2 ad minus bc">
+      <div class="unit-num" style="background:var(--alg-light); color:var(--alg-dark);">3</div>
+      <div class="unit-info">
+        <div class="unit-title">Determinants & inverses</div>
+        <div class="unit-desc">Matrices · Page 3 of 6</div>
+      </div>
+      <span class="status-pill status-todo">View</span>
+    </a>
+    <a href="notes/matrices-applications-linear-equations.html" class="unit-card" data-tags="linear equations simultaneous Ax=b solve system inverse">
+      <div class="unit-num" style="background:var(--alg-light); color:var(--alg-dark);">4</div>
+      <div class="unit-info">
+        <div class="unit-title">Applications & linear equations</div>
+        <div class="unit-desc">Matrices · Page 4 of 6</div>
+      </div>
+      <span class="status-pill status-todo">View</span>
+    </a>
+    <a href="notes/matrices-networks.html" class="unit-card" data-tags="network graph adjacency routes two-step connections squaring">
+      <div class="unit-num" style="background:var(--alg-light); color:var(--alg-dark);">5</div>
+      <div class="unit-info">
+        <div class="unit-title">Networks</div>
+        <div class="unit-desc">Matrices · Page 5 of 6</div>
+      </div>
+      <span class="status-pill status-todo">View</span>
+    </a>
+    <a href="notes/matrices-extras.html" class="unit-card" data-tags="powers properties identity inverse product traps determinant AB reverse">
+      <div class="unit-num" style="background:var(--alg-light); color:var(--alg-dark);">6</div>
+      <div class="unit-info">
+        <div class="unit-title">Extras — powers & properties</div>
+        <div class="unit-desc">Matrices · Page 6 of 6</div>
+      </div>
+      <span class="status-pill status-todo">View</span>
+    </a>
+  </div>
+  </div>
+
+  <div class="notes-topic-group">
+  <div class="section-title" style="border-bottom-color:var(--alg-light); color:var(--alg-dark);">
+    🔢 Algebra — Sequences & Series
+  </div>
+  <div class="unit-list">
+    <a href="notes/sequences-notation-types.html" class="unit-card" data-tags="sequence notation listing closed form recurrence arithmetic geometric common difference ratio">
+      <div class="unit-num" style="background:var(--alg-light); color:var(--alg-dark);">1</div>
+      <div class="unit-info">
+        <div class="unit-title">Notation & types</div>
+        <div class="unit-desc">Sequences · Page 1 of 6</div>
+      </div>
+      <span class="status-pill status-todo">View</span>
+    </a>
+    <a href="notes/sequences-convergence.html" class="unit-card" data-tags="convergence diverge oscillate limit geometric ratio r infinity">
+      <div class="unit-num" style="background:var(--alg-light); color:var(--alg-dark);">2</div>
+      <div class="unit-info">
+        <div class="unit-title">Convergence</div>
+        <div class="unit-desc">Sequences · Page 2 of 6</div>
+      </div>
+      <span class="status-pill status-todo">View</span>
+    </a>
+    <a href="notes/sequences-series-sigma.html" class="unit-card" data-tags="series sigma notation partial sum arithmetic geometric formula">
+      <div class="unit-num" style="background:var(--alg-light); color:var(--alg-dark);">3</div>
+      <div class="unit-info">
+        <div class="unit-title">Series & sigma notation</div>
+        <div class="unit-desc">Sequences · Page 3 of 6</div>
+      </div>
+      <span class="status-pill status-todo">View</span>
+    </a>
+    <a href="notes/sequences-binomial-theorem.html" class="unit-card" data-tags="binomial theorem pascal triangle expand coefficient nCk factorial negative">
+      <div class="unit-num" style="background:var(--alg-light); color:var(--alg-dark);">4</div>
+      <div class="unit-info">
+        <div class="unit-title">The binomial theorem</div>
+        <div class="unit-desc">Sequences · Page 4 of 6</div>
+      </div>
+      <span class="status-pill status-todo">View</span>
+    </a>
+    <a href="notes/sequences-standard-series.html" class="unit-card" data-tags="standard series sum k squared cubed formula manipulation splitting constant multiple">
+      <div class="unit-num" style="background:var(--alg-light); color:var(--alg-dark);">5</div>
+      <div class="unit-info">
+        <div class="unit-title">Standard series</div>
+        <div class="unit-desc">Sequences · Page 5 of 6</div>
+      </div>
+      <span class="status-pill status-todo">View</span>
+    </a>
+    <a href="notes/sequences-tricky-examples.html" class="unit-card" data-tags="recurring decimals fraction geometric series algebraic subtraction repeating">
+      <div class="unit-num" style="background:var(--alg-light); color:var(--alg-dark);">6</div>
+      <div class="unit-info">
+        <div class="unit-title">Tricky examples</div>
+        <div class="unit-desc">Sequences · Page 6 of 6</div>
+      </div>
+      <span class="status-pill status-todo">View</span>
+    </a>
+  </div>
+  </div>
+
+  <div class="notes-topic-group">
+  <div class="section-title" style="border-bottom-color:var(--alg-light); color:var(--alg-dark);">
+    🔢 Algebra — Complex Numbers
+  </div>
+  <div class="unit-list">
+    <a href="notes/complex-arithmetic.html" class="unit-card" data-tags="imaginary unit i squared conjugate divide multiply add subtract complex number real part">
+      <div class="unit-num" style="background:var(--alg-light); color:var(--alg-dark);">1</div>
+      <div class="unit-info">
+        <div class="unit-title">Arithmetic & the imaginary unit</div>
+        <div class="unit-desc">Complex Numbers · Page 1 of 6</div>
+      </div>
+      <span class="status-pill status-todo">View</span>
+    </a>
+    <a href="notes/complex-argand-diagram.html" class="unit-card" data-tags="argand diagram plot parallelogram reflection rotation conjugate complex plane point">
+      <div class="unit-num" style="background:var(--alg-light); color:var(--alg-dark);">2</div>
+      <div class="unit-info">
+        <div class="unit-title">The Argand diagram</div>
+        <div class="unit-desc">Complex Numbers · Page 2 of 6</div>
+      </div>
+      <span class="status-pill status-todo">View</span>
+    </a>
+    <a href="notes/complex-modulus-argument.html" class="unit-card" data-tags="modulus argument distance angle principal quadrant arctan magnitude">
+      <div class="unit-num" style="background:var(--alg-light); color:var(--alg-dark);">3</div>
+      <div class="unit-info">
+        <div class="unit-title">Modulus & argument</div>
+        <div class="unit-desc">Complex Numbers · Page 3 of 6</div>
+      </div>
+      <span class="status-pill status-todo">View</span>
+    </a>
+    <a href="notes/complex-polar-exponential.html" class="unit-card" data-tags="polar exponential euler formula r theta multiply divide angles">
+      <div class="unit-num" style="background:var(--alg-light); color:var(--alg-dark);">4</div>
+      <div class="unit-info">
+        <div class="unit-title">Polar & exponential form</div>
+        <div class="unit-desc">Complex Numbers · Page 4 of 6</div>
+      </div>
+      <span class="status-pill status-todo">View</span>
+    </a>
+    <a href="notes/complex-de-moivre-roots.html" class="unit-card" data-tags="de moivre roots unity nth root powers circle equally spaced">
+      <div class="unit-num" style="background:var(--alg-light); color:var(--alg-dark);">5</div>
+      <div class="unit-info">
+        <div class="unit-title">De Moivre's formula & roots</div>
+        <div class="unit-desc">Complex Numbers · Page 5 of 6</div>
+      </div>
+      <span class="status-pill status-todo">View</span>
+    </a>
+    <a href="notes/complex-polynomials-fta.html" class="unit-card" data-tags="polynomial fundamental theorem algebra conjugate root pair quadratic discriminant euler identity">
+      <div class="unit-num" style="background:var(--alg-light); color:var(--alg-dark);">6</div>
+      <div class="unit-info">
+        <div class="unit-title">Polynomials & the FTA</div>
+        <div class="unit-desc">Complex Numbers · Page 6 of 6</div>
+      </div>
+      <span class="status-pill status-todo">View</span>
+    </a>
+  </div>
+  </div>
+
+  <div class="notes-topic-group">
+  <div class="section-title" style="border-bottom-color:var(--calc-light); color:var(--calc-dark);">
+    ∫ Calculus — Limits & Continuity
+  </div>
+  <div class="unit-list">
+    <a href="notes/limits-intro.html" class="unit-card" data-tags="limits introduction definition approach value">
+      <div class="unit-num" style="background:var(--calc-light); color:var(--calc-dark);">1</div>
+      <div class="unit-info">
+        <div class="unit-title">Limits — Introduction</div>
+        <div class="unit-desc">Limits & Continuity · Page 1 of 10</div>
+      </div>
+      <span class="status-pill status-todo">View</span>
+    </a>
+    <a href="notes/one-sided-limits.html" class="unit-card" data-tags="one-sided limits left right infinity behaviour">
+      <div class="unit-num" style="background:var(--calc-light); color:var(--calc-dark);">2</div>
+      <div class="unit-info">
+        <div class="unit-title">One-Sided Limits & Infinity</div>
+        <div class="unit-desc">Limits & Continuity · Page 2 of 10</div>
+      </div>
+      <span class="status-pill status-todo">View</span>
+    </a>
+    <a href="notes/laws-of-limits.html" class="unit-card" data-tags="laws of limits addition subtraction multiplication division">
+      <div class="unit-num" style="background:var(--calc-light); color:var(--calc-dark);">3</div>
+      <div class="unit-info">
+        <div class="unit-title">Laws of Limits</div>
+        <div class="unit-desc">Limits & Continuity · Page 3 of 10</div>
+      </div>
+      <span class="status-pill status-todo">View</span>
+    </a>
+    <a href="notes/lim-quotients.html" class="unit-card" data-tags="limits of quotients fractions factorising DNE">
+      <div class="unit-num" style="background:var(--calc-light); color:var(--calc-dark);">4</div>
+      <div class="unit-info">
+        <div class="unit-title">Limits of Quotients</div>
+        <div class="unit-desc">Limits & Continuity · Page 4 of 10</div>
+      </div>
+      <span class="status-pill status-todo">View</span>
+    </a>
+    <a href="notes/infinite-limits.html" class="unit-card" data-tags="infinite limits DNE sign analysis does not exist">
+      <div class="unit-num" style="background:var(--calc-light); color:var(--calc-dark);">5</div>
+      <div class="unit-info">
+        <div class="unit-title">Infinite Limits — In What Way Does It DNE?</div>
+        <div class="unit-desc">Limits & Continuity · Page 5 of 10</div>
+      </div>
+      <span class="status-pill status-todo">View</span>
+    </a>
+    <a href="notes/continuity.html#sheet-1" class="unit-card" data-tags="continuity discontinuity definition point function">
+      <div class="unit-num" style="background:var(--calc-light); color:var(--calc-dark);">6</div>
+      <div class="unit-info">
+        <div class="unit-title">Continuity & Discontinuity</div>
+        <div class="unit-desc">Limits & Continuity · Page 6 of 10</div>
+      </div>
+      <span class="status-pill status-todo">View</span>
+    </a>
+    <a href="notes/continuity.html#sheet-2" class="unit-card" data-tags="continuous functions examples polynomial rational">
+      <div class="unit-num" style="background:var(--calc-light); color:var(--calc-dark);">7</div>
+      <div class="unit-info">
+        <div class="unit-title">Continuous Functions — Examples</div>
+        <div class="unit-desc">Limits & Continuity · Page 7 of 10</div>
+      </div>
+      <span class="status-pill status-todo">View</span>
+    </a>
+    <a href="notes/continuity-limit-laws.html" class="unit-card" data-tags="limit laws continuity combined rules">
+      <div class="unit-num" style="background:var(--calc-light); color:var(--calc-dark);">8</div>
+      <div class="unit-info">
+        <div class="unit-title">Limit Laws and Continuity</div>
+        <div class="unit-desc">Limits & Continuity · Page 8 of 10</div>
+      </div>
+      <span class="status-pill status-todo">View</span>
+    </a>
+    <a href="notes/ivt.html" class="unit-card" data-tags="intermediate value theorem IVT root existence">
+      <div class="unit-num" style="background:var(--calc-light); color:var(--calc-dark);">9</div>
+      <div class="unit-info">
+        <div class="unit-title">Intermediate Value Theorem</div>
+        <div class="unit-desc">Limits & Continuity · Page 9 of 10</div>
+      </div>
+      <span class="status-pill status-todo">View</span>
+    </a>
+    <a href="notes/combined-limits-graphs.html" class="unit-card" data-tags="reading limits from graphs open closed circle">
+      <div class="unit-num" style="background:var(--calc-light); color:var(--calc-dark);">10</div>
+      <div class="unit-info">
+        <div class="unit-title">Reading Combined Limits from Graphs</div>
+        <div class="unit-desc">Limits & Continuity · Page 10 of 10</div>
+      </div>
+      <span class="status-pill status-todo">View</span>
+    </a>
+    <a href="notes/continuity-cheat-sheet.html" class="unit-card" data-tags="continuity cheat sheet quick reference decision tree">
+      <div class="unit-num" style="background:var(--calc-light); color:var(--calc-dark);">⭐</div>
+      <div class="unit-info">
+        <div class="unit-title">Continuity Cheat Sheet</div>
+        <div class="unit-desc">Limits & Continuity · Quick reference</div>
+      </div>
+      <span class="status-pill status-todo">View</span>
+    </a>
+  </div>
+  </div>
+
+  <div class="notes-topic-group">
+  <div class="section-title" style="border-bottom-color:var(--calc-light); color:var(--calc-dark);">
+    ∫ Calculus — Differentiation
+  </div>
+  <div class="unit-list">
+    <a href="notes/derivatives-intro.html" class="unit-card" data-tags="derivatives introduction differentiation rate of change">
+      <div class="unit-num" style="background:var(--calc-light); color:var(--calc-dark);">1</div>
+      <div class="unit-info">
+        <div class="unit-title">Introduction to Derivatives</div>
+        <div class="unit-desc">Differentiation</div>
+      </div>
+      <span class="status-pill status-todo">View</span>
+    </a>
+    <a href="notes/chain-rule.html" class="unit-card" data-tags="chain rule product rule differentiation composite functions">
+      <div class="unit-num" style="background:var(--calc-light); color:var(--calc-dark);">2</div>
+      <div class="unit-info">
+        <div class="unit-title">The Chain Rule & Product Rule</div>
+        <div class="unit-desc">Differentiation</div>
+      </div>
+      <span class="status-pill status-todo">View</span>
+    </a>
+  </div>
+  </div>
+
+  <div class="notes-topic-group">
+  <div class="section-title" style="border-bottom-color:var(--calc-light); color:var(--calc-dark);">
+    ∫ Calculus — Integration
+  </div>
+  <div class="unit-list">
+    <a href="notes/integration-basics.html" class="unit-card" data-tags="definite indefinite integrals integration basics">
+      <div class="unit-num" style="background:var(--calc-light); color:var(--calc-dark);">1</div>
+      <div class="unit-info">
+        <div class="unit-title">Definite and Indefinite Integrals</div>
+        <div class="unit-desc">Integration</div>
+      </div>
+      <span class="status-pill status-todo">View</span>
+    </a>
+  </div>
+  </div>
+
+  <!-- GEOMETRY: no notes pages built yet — nothing to index -->
+
+</div>
+
+<footer>Maths Study Hub</footer>
+
+<script>
+function filterNotes(query) {
+  const q = query.trim().toLowerCase();
+  const groups = document.querySelectorAll('.notes-topic-group');
+  let anyVisible = false;
+
+  groups.forEach(group => {
+    const cards = group.querySelectorAll('.unit-card');
+    let groupHasMatch = false;
+
+    cards.forEach(card => {
+      const title = card.querySelector('.unit-title')?.textContent.toLowerCase() || '';
+      const desc = card.querySelector('.unit-desc')?.textContent.toLowerCase() || '';
+      const tags = (card.getAttribute('data-tags') || '').toLowerCase();
+      const matches = q === '' || title.includes(q) || desc.includes(q) || tags.includes(q);
+      card.style.display = matches ? '' : 'none';
+      if (matches) groupHasMatch = true;
+    });
+
+    group.style.display = groupHasMatch ? '' : 'none';
+    if (groupHasMatch) anyVisible = true;
+  });
+
+  document.getElementById('notes-search-empty').style.display = anyVisible ? 'none' : 'block';
+}
+</script>
+
+</body>
+</html>

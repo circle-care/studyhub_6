@@ -19,6 +19,7 @@
   <a href="assignments.html" class="nav-link nav-assign">Assignments</a>
   <a href="exam-prep.html" class="nav-link nav-exam">Exam prep</a>
   <a href="study-resources.html" class="nav-link nav-res">Resources</a>
+  <a href="notes-search.html" class="nav-link nav-search" title="Search all notes">🔍</a>
 </nav>
 
 <div class="page-hero" style="background:var(--blog-light); border-bottom-color:var(--blog);">
@@ -217,6 +218,274 @@
 </div>
 
 <footer>Maths Study Hub</footer>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog · Maths Study Hub</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <span class="nav-brand">📚 Maths Study Hub</span>
+  <a href="index.html" class="nav-link nav-home">Home</a>
+  <a href="calendar.html" class="nav-link nav-cal">📅 Calendar</a>
+  <a href="algebra.html" class="nav-link nav-alg">Algebra</a>
+  <a href="geometry.html" class="nav-link nav-geo">Geometry</a>
+  <a href="calculus.html" class="nav-link nav-calc">Calculus</a>
+  <a href="blog.html" class="nav-link nav-blog active">Blog</a>
+  <a href="assignments.html" class="nav-link nav-assign">Assignments</a>
+  <a href="exam-prep.html" class="nav-link nav-exam">Exam prep</a>
+  <a href="study-resources.html" class="nav-link nav-res">Resources</a>
+  <a href="notes-search.html" class="nav-link nav-search" title="Search all notes">🔍</a>
+</nav>
+
+<div class="page-hero" style="background:var(--blog-light); border-bottom-color:var(--blog);">
+  <h1 style="color:var(--blog-dark);">📖 Blog</h1>
+  <p style="color:var(--blog);">Ground-up explanations, worked examples, and practice questions — an alternative to a textbook</p>
+</div>
+
+<div class="content">
+
+  <div style="margin-bottom:2rem;">
+    <input
+      type="text"
+      id="blog-search"
+      placeholder="🔍 Search posts by topic — e.g. 'roots', 'matrix', 'series'..."
+      style="width:100%; padding:12px 16px; font-size:16px; border:2px solid var(--border); border-radius:10px; font-family:inherit; background:var(--surface);"
+      oninput="filterBlogPosts(this.value)"
+    >
+    <div id="blog-search-empty" style="display:none; text-align:center; padding:2rem; color:var(--muted); font-size:15px;">
+      No posts match your search.
+    </div>
+  </div>
+
+  <div class="blog-topic-group">
+  <div class="section-title" style="border-bottom-color:var(--blog-light); color:var(--blog-dark);">
+    ℂ Complex Numbers
+  </div>
+
+  <div class="unit-list">
+
+    <a href="blog/complex-arithmetic.html" class="unit-card" data-tags="imaginary unit i squared conjugate divide multiply add subtract complex number real part">
+      <div class="unit-num" style="background:var(--blog-light); color:var(--blog-dark);">1</div>
+      <div class="unit-info">
+        <div class="unit-title">Arithmetic & the imaginary unit</div>
+        <div class="unit-desc">What actually is a complex number, and how do you add, subtract, multiply and divide with it?</div>
+      </div>
+      <span class="status-pill status-todo">Read</span>
+    </a>
+
+    <a href="blog/complex-argand-diagram.html" class="unit-card" data-tags="argand diagram plot parallelogram reflection rotation conjugate complex plane point">
+      <div class="unit-num" style="background:var(--blog-light); color:var(--blog-dark);">2</div>
+      <div class="unit-info">
+        <div class="unit-title">The Argand diagram</div>
+        <div class="unit-desc">Giving complex numbers a home — why they can be plotted as points, and what that picture tells you.</div>
+      </div>
+      <span class="status-pill status-todo">Read</span>
+    </a>
+
+    <a href="blog/complex-modulus-argument.html" class="unit-card" data-tags="modulus argument distance angle principal quadrant arctan magnitude">
+      <div class="unit-num" style="background:var(--blog-light); color:var(--blog-dark);">3</div>
+      <div class="unit-info">
+        <div class="unit-title">Modulus & argument</div>
+        <div class="unit-desc">Measuring a complex number: how far from the origin, and in which direction.</div>
+      </div>
+      <span class="status-pill status-todo">Read</span>
+    </a>
+
+    <a href="blog/complex-polar-exponential.html" class="unit-card" data-tags="polar exponential euler formula r theta multiply divide angles rcos rsin">
+      <div class="unit-num" style="background:var(--blog-light); color:var(--blog-dark);">4</div>
+      <div class="unit-info">
+        <div class="unit-title">Polar & exponential form</div>
+        <div class="unit-desc">Rewriting complex numbers using distance and angle — and why it makes multiplication so much easier.</div>
+      </div>
+      <span class="status-pill status-todo">Read</span>
+    </a>
+
+    <a href="blog/complex-de-moivre-roots.html" class="unit-card" data-tags="de moivre roots unity nth root powers circle equally spaced">
+      <div class="unit-num" style="background:var(--blog-light); color:var(--blog-dark);">5</div>
+      <div class="unit-info">
+        <div class="unit-title">De Moivre's formula & roots</div>
+        <div class="unit-desc">Powers made easy, and the secret to finding all n roots of a complex number.</div>
+      </div>
+      <span class="status-pill status-todo">Read</span>
+    </a>
+
+    <a href="blog/complex-polynomials-fta.html" class="unit-card" data-tags="polynomial fundamental theorem algebra conjugate root pair quadratic discriminant euler identity">
+      <div class="unit-num" style="background:var(--blog-light); color:var(--blog-dark);">6</div>
+      <div class="unit-info">
+        <div class="unit-title">Polynomials & the Fundamental Theorem of Algebra</div>
+        <div class="unit-desc">Why every polynomial equation has a solution — and maths' most famous equation.</div>
+      </div>
+      <span class="status-pill status-todo">Read</span>
+    </a>
+
+  </div>
+  </div>
+
+  <div class="blog-topic-group">
+  <div class="section-title" style="border-bottom-color:var(--blog-light); color:var(--blog-dark);">
+    ▦ Matrices
+  </div>
+
+  <div class="unit-list">
+
+    <a href="blog/matrices-notation.html" class="unit-card" data-tags="matrix notation rows columns dimensions entry element scalar zero identity vector">
+      <div class="unit-num" style="background:var(--blog-light); color:var(--blog-dark);">1</div>
+      <div class="unit-info">
+        <div class="unit-title">Notation & basic operations</div>
+        <div class="unit-desc">What a matrix actually is, and how to add, subtract, and scalar multiply.</div>
+      </div>
+      <span class="status-pill status-todo">Read</span>
+    </a>
+
+    <a href="blog/matrices-multiplication.html" class="unit-card" data-tags="matrix multiplication row column compatibility commutative AB BA order">
+      <div class="unit-num" style="background:var(--blog-light); color:var(--blog-dark);">2</div>
+      <div class="unit-info">
+        <div class="unit-title">Matrix multiplication</div>
+        <div class="unit-desc">The row-times-column method, the compatibility rule, and why order matters.</div>
+      </div>
+      <span class="status-pill status-todo">Read</span>
+    </a>
+
+    <a href="blog/matrices-inverses-determinants.html" class="unit-card" data-tags="determinant inverse singular 2x2 ad minus bc">
+      <div class="unit-num" style="background:var(--blog-light); color:var(--blog-dark);">3</div>
+      <div class="unit-info">
+        <div class="unit-title">Determinants & inverses</div>
+        <div class="unit-desc">A single number that summarises a matrix, and how to "divide" by one.</div>
+      </div>
+      <span class="status-pill status-todo">Read</span>
+    </a>
+
+    <a href="blog/matrices-applications-linear-equations.html" class="unit-card" data-tags="linear equations simultaneous Ax=b solve system inverse">
+      <div class="unit-num" style="background:var(--blog-light); color:var(--blog-dark);">4</div>
+      <div class="unit-info">
+        <div class="unit-title">Applications & linear equations</div>
+        <div class="unit-desc">Turning a system of equations into a single matrix equation and solving it in one step.</div>
+      </div>
+      <span class="status-pill status-todo">Read</span>
+    </a>
+
+    <a href="blog/matrices-networks.html" class="unit-card" data-tags="network graph adjacency routes two-step connections squaring">
+      <div class="unit-num" style="background:var(--blog-light); color:var(--blog-dark);">5</div>
+      <div class="unit-info">
+        <div class="unit-title">Networks</div>
+        <div class="unit-desc">Using a matrix to represent connections, and what squaring it reveals.</div>
+      </div>
+      <span class="status-pill status-todo">Read</span>
+    </a>
+
+    <a href="blog/matrices-extras.html" class="unit-card" data-tags="powers properties identity inverse product traps determinant AB reverse">
+      <div class="unit-num" style="background:var(--blog-light); color:var(--blog-dark);">6</div>
+      <div class="unit-info">
+        <div class="unit-title">Extras — powers & properties</div>
+        <div class="unit-desc">Raising a matrix to a power, key properties, and common exam traps.</div>
+      </div>
+      <span class="status-pill status-todo">Read</span>
+    </a>
+
+  </div>
+  </div>
+
+  <div class="blog-topic-group">
+  <div class="section-title" style="border-bottom-color:var(--blog-light); color:var(--blog-dark);">
+    Σ Sequences & Series
+  </div>
+
+  <div class="unit-list">
+
+    <a href="blog/sequences-notation-types.html" class="unit-card" data-tags="sequence notation listing closed form recurrence arithmetic geometric common difference ratio">
+      <div class="unit-num" style="background:var(--blog-light); color:var(--blog-dark);">1</div>
+      <div class="unit-info">
+        <div class="unit-title">Notation & types</div>
+        <div class="unit-desc">Three ways to describe a sequence, plus arithmetic and geometric patterns.</div>
+      </div>
+      <span class="status-pill status-todo">Read</span>
+    </a>
+
+    <a href="blog/sequences-convergence.html" class="unit-card" data-tags="convergence diverge oscillate limit geometric ratio r infinity">
+      <div class="unit-num" style="background:var(--blog-light); color:var(--blog-dark);">2</div>
+      <div class="unit-info">
+        <div class="unit-title">Convergence</div>
+        <div class="unit-desc">Where a sequence ends up: converges, diverges, or oscillates.</div>
+      </div>
+      <span class="status-pill status-todo">Read</span>
+    </a>
+
+    <a href="blog/sequences-series-sigma.html" class="unit-card" data-tags="series sigma notation partial sum arithmetic geometric formula">
+      <div class="unit-num" style="background:var(--blog-light); color:var(--blog-dark);">3</div>
+      <div class="unit-info">
+        <div class="unit-title">Series & sigma notation</div>
+        <div class="unit-desc">From sequences to series — adding the terms up, and the shorthand for writing sums.</div>
+      </div>
+      <span class="status-pill status-todo">Read</span>
+    </a>
+
+    <a href="blog/sequences-binomial-theorem.html" class="unit-card" data-tags="binomial theorem pascal triangle expand coefficient nCk factorial negative">
+      <div class="unit-num" style="background:var(--blog-light); color:var(--blog-dark);">4</div>
+      <div class="unit-info">
+        <div class="unit-title">The binomial theorem</div>
+        <div class="unit-desc">Expanding (a+b)ⁿ directly, without multiplying out bracket after bracket.</div>
+      </div>
+      <span class="status-pill status-todo">Read</span>
+    </a>
+
+    <a href="blog/sequences-standard-series.html" class="unit-card" data-tags="standard series sum k squared cubed formula manipulation splitting constant multiple">
+      <div class="unit-num" style="background:var(--blog-light); color:var(--blog-dark);">5</div>
+      <div class="unit-info">
+        <div class="unit-title">Standard series</div>
+        <div class="unit-desc">Ready-made formulas for common sums, and the rules for combining them.</div>
+      </div>
+      <span class="status-pill status-todo">Read</span>
+    </a>
+
+    <a href="blog/sequences-tricky-examples.html" class="unit-card" data-tags="recurring decimals fraction geometric series algebraic subtraction repeating">
+      <div class="unit-num" style="background:var(--blog-light); color:var(--blog-dark);">6</div>
+      <div class="unit-info">
+        <div class="unit-title">Tricky examples</div>
+        <div class="unit-desc">Turning recurring decimals into fractions — a surprising use of geometric series.</div>
+      </div>
+      <span class="status-pill status-todo">Read</span>
+    </a>
+
+  </div>
+  </div>
+
+</div>
+
+<footer>Maths Study Hub</footer>
+
+<script>
+function filterBlogPosts(query) {
+  const q = query.trim().toLowerCase();
+  const groups = document.querySelectorAll('.blog-topic-group');
+  let anyVisible = false;
+
+  groups.forEach(group => {
+    const cards = group.querySelectorAll('.unit-card');
+    let groupHasMatch = false;
+
+    cards.forEach(card => {
+      const title = card.querySelector('.unit-title')?.textContent.toLowerCase() || '';
+      const desc = card.querySelector('.unit-desc')?.textContent.toLowerCase() || '';
+      const tags = (card.getAttribute('data-tags') || '').toLowerCase();
+      const matches = q === '' || title.includes(q) || desc.includes(q) || tags.includes(q);
+      card.style.display = matches ? '' : 'none';
+      if (matches) groupHasMatch = true;
+    });
+
+    group.style.display = groupHasMatch ? '' : 'none';
+    if (groupHasMatch) anyVisible = true;
+  });
+
+  document.getElementById('blog-search-empty').style.display = anyVisible ? 'none' : 'block';
+}
+</script>
 
 </body>
 </html>
