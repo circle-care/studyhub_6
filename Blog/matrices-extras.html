@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Matrices: Extras — Blog · Maths Study Hub</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.blog-wrap { max-width: 780px; margin: 0 auto; padding: 0 1rem 4rem; }
+.blog-tag { display: inline-block; background: #EEF2FF; color: #4F46E5; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 4px 12px; border-radius: 20px; margin-bottom: 14px; }
+.blog-h1 { font-size: 30px; font-weight: 700; color: #3730A3; margin-bottom: 8px; line-height: 1.25; }
+.blog-sub { font-size: 16px; color: #4B5563; margin-bottom: 8px; }
+.notes-link-back { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; color: #4F46E5; font-weight: 700; margin-bottom: 2rem; }
+.notes-link-back:hover { text-decoration: underline; }
+.blog-section { margin: 2.2rem 0; }
+.blog-section h2 { font-size: 22px; font-weight: 700; color: #3730A3; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 3px solid #EEF2FF; }
+.blog-section p { font-size: 16px; line-height: 1.85; margin-bottom: 14px; color: #1F2430; }
+.worked-example { background: #F0FDF4; border: 2px solid #16A34A; border-radius: 12px; padding: 18px 20px; margin: 18px 0; }
+.worked-example .we-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #16A34A; margin-bottom: 8px; }
+.key-idea { background: #EEF2FF; border-left: 5px solid #4F46E5; border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 18px 0; font-size: 16px; line-height: 1.8; }
+.warn-note { background: #FEF2F2; border: 2px solid #DC2626; border-radius: 10px; padding: 14px 18px; margin: 18px 0; font-size: 15px; line-height: 1.8; }
+.try-block { background: #FFFBEB; border: 2px solid #F59E0B; border-radius: 12px; padding: 18px 20px; margin: 16px 0; }
+.try-q { font-size: 16px; font-weight: 700; color: #92400E; margin-bottom: 10px; }
+details.answer-reveal { margin-top: 10px; }
+details.answer-reveal summary { cursor: pointer; list-style: none; display: inline-flex; align-items: center; gap: 8px; background: #4F46E5; color: #fff; font-size: 13px; font-weight: 700; padding: 8px 16px; border-radius: 8px; width: fit-content; }
+details.answer-reveal summary::-webkit-details-marker { display: none; }
+details.answer-reveal summary:hover { opacity: 0.88; }
+details.answer-reveal[open] summary { border-radius: 8px 8px 0 0; }
+.answer-body { background: #fff; border: 2px solid #4F46E5; border-top: none; border-radius: 0 0 10px 10px; padding: 14px 18px; font-size: 15px; line-height: 1.8; }
+.section-nav { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 1.5rem; border-top: 2px solid #E5E7EB; font-size: 14px; }
+.section-nav a { color: #4F46E5; font-weight: 700; }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-brand">📚 Maths Study Hub</span>
+  <a href="../index.html" class="nav-link nav-home">Home</a>
+  <a href="../algebra.html" class="nav-link nav-alg">Algebra</a>
+  <a href="../geometry.html" class="nav-link nav-geo">Geometry</a>
+  <a href="../calculus.html" class="nav-link nav-calc">Calculus</a>
+  <a href="../blog.html" class="nav-link nav-blog active">📖 Blog</a>
+  <a href="../assignments.html" class="nav-link nav-assign">Assignments</a>
+  <a href="../exam-prep.html" class="nav-link nav-exam">Exam prep</a>
+  <a href="../study-resources.html" class="nav-link nav-res">Resources</a>
+</nav>
+
+<div class="page-hero" style="background:#EEF2FF; border-bottom:2px solid #4F46E5;">
+  <h1 style="color:#3730A3;">📖 Blog — Matrices</h1>
+  <p style="color:#4F46E5;">Part 6 of 6: Extras — powers & properties</p>
+</div>
+
+<div class="content">
+<div class="blog-wrap">
+
+  <span class="blog-tag">Matrices · Part 6</span>
+  <h1 class="blog-h1">Tying up loose ends: powers, properties, and common traps</h1>
+  <p class="blog-sub">A few extra pieces that round out the unit and catch people out in exams.</p>
+  <a href="../notes/matrices-extras.html" class="notes-link-back">📝 View the quick-reference notes sheet for this topic →</a>
+
+  <div class="blog-section">
+    <h2>Raising a matrix to a power</h2>
+    <p>\(A^2\) simply means \(A\times A\) — multiply the matrix by itself, using the row-times-column method from Part 2. \(A^3\) means \(A\times A\times A\), and so on. Unlike numbers, this can get computationally heavy fast, since each multiplication is its own row-times-column process.</p>
+
+    <div class="worked-example">
+      <div class="we-label">Worked example</div>
+      Find \(A^2\) for \(A=\begin{pmatrix}1&1\\0&1\end{pmatrix}\):
+      \[A^2 = \begin{pmatrix}1&1\\0&1\end{pmatrix}\begin{pmatrix}1&1\\0&1\end{pmatrix} = \begin{pmatrix}(1)(1)+(1)(0) & (1)(1)+(1)(1) \\ (0)(1)+(1)(0) & (0)(1)+(1)(1)\end{pmatrix} = \begin{pmatrix}1&2\\0&1\end{pmatrix}\]
+    </div>
+  </div>
+
+  <div class="blog-section">
+    <h2>Properties worth memorising</h2>
+    <div class="key-idea">
+      \(AI = IA = A\) (multiplying by the identity changes nothing, from either side)<br><br>
+      \((A^{-1})^{-1} = A\) (the inverse of the inverse gets you back to the original)<br><br>
+      \((AB)^{-1} = B^{-1}A^{-1}\) — notice the order <strong>reverses</strong> when you take the inverse of a product. This is easy to forget and a common exam trap.
+    </div>
+  </div>
+
+  <div class="blog-section">
+    <h2>Common traps to watch for</h2>
+    <div class="warn-note">
+      <strong>Trap 1:</strong> assuming \(AB=BA\). As covered in Part 2, matrix multiplication is not commutative — always keep the order you're given.<br><br>
+      <strong>Trap 2:</strong> assuming every matrix has an inverse. Only matrices with a non-zero determinant do (Part 3) — always check \(\det(A)\neq0\) before trying to find \(A^{-1}\).<br><br>
+      <strong>Trap 3:</strong> forgetting the order reverses in \((AB)^{-1}=B^{-1}A^{-1}\) when simplifying expressions involving multiple matrices.
+    </div>
+
+    <div class="try-block">
+      <div class="try-q">Try it: If \(\det(A)=4\) and \(\det(B)=3\), is it possible to find \(\det(AB)\) without knowing the actual matrices? (Hint: for square matrices, \(\det(AB)=\det(A)\det(B)\).)</div>
+      <details class="answer-reveal">
+        <summary>Show answer</summary>
+        <div class="answer-body">
+          Yes — using \(\det(AB)=\det(A)\det(B)\):
+          \[\det(AB) = (4)(3) = 12\]
+        </div>
+      </details>
+    </div>
+
+    <div class="try-block">
+      <div class="try-q">Try it: Find \(A^3\) for \(A=\begin{pmatrix}2&0\\0&3\end{pmatrix}\). (Hint: for a diagonal matrix, powers are easier than you'd expect.)</div>
+      <details class="answer-reveal">
+        <summary>Show answer</summary>
+        <div class="answer-body">
+          For a diagonal matrix, each power just raises the diagonal entries to that power individually:
+          \[A^3 = \begin{pmatrix}2^3&0\\0&3^3\end{pmatrix} = \begin{pmatrix}8&0\\0&27\end{pmatrix}\]
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <div class="section-nav">
+    <a href="matrices-networks.html">← Part 5: Networks</a>
+    <a href="../algebra.html">Back to Algebra hub →</a>
+  </div>
+
+</div>
+</div>
+
+<footer>Maths Study Hub</footer>
+
+</body>
+</html>

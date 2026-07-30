@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sequences: Tricky Examples — Blog · Maths Study Hub</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.blog-wrap { max-width: 780px; margin: 0 auto; padding: 0 1rem 4rem; }
+.blog-tag { display: inline-block; background: #EEF2FF; color: #4F46E5; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 4px 12px; border-radius: 20px; margin-bottom: 14px; }
+.blog-h1 { font-size: 30px; font-weight: 700; color: #3730A3; margin-bottom: 8px; line-height: 1.25; }
+.blog-sub { font-size: 16px; color: #4B5563; margin-bottom: 8px; }
+.notes-link-back { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; color: #4F46E5; font-weight: 700; margin-bottom: 2rem; }
+.notes-link-back:hover { text-decoration: underline; }
+.blog-section { margin: 2.2rem 0; }
+.blog-section h2 { font-size: 22px; font-weight: 700; color: #3730A3; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 3px solid #EEF2FF; }
+.blog-section p { font-size: 16px; line-height: 1.85; margin-bottom: 14px; color: #1F2430; }
+.worked-example { background: #F0FDF4; border: 2px solid #16A34A; border-radius: 12px; padding: 18px 20px; margin: 18px 0; }
+.worked-example .we-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #16A34A; margin-bottom: 8px; }
+.key-idea { background: #EEF2FF; border-left: 5px solid #4F46E5; border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 18px 0; font-size: 16px; line-height: 1.8; }
+.warn-note { background: #FEF2F2; border: 2px solid #DC2626; border-radius: 10px; padding: 14px 18px; margin: 18px 0; font-size: 15px; line-height: 1.8; }
+.try-block { background: #FFFBEB; border: 2px solid #F59E0B; border-radius: 12px; padding: 18px 20px; margin: 16px 0; }
+.try-q { font-size: 16px; font-weight: 700; color: #92400E; margin-bottom: 10px; }
+details.answer-reveal { margin-top: 10px; }
+details.answer-reveal summary { cursor: pointer; list-style: none; display: inline-flex; align-items: center; gap: 8px; background: #4F46E5; color: #fff; font-size: 13px; font-weight: 700; padding: 8px 16px; border-radius: 8px; width: fit-content; }
+details.answer-reveal summary::-webkit-details-marker { display: none; }
+details.answer-reveal summary:hover { opacity: 0.88; }
+details.answer-reveal[open] summary { border-radius: 8px 8px 0 0; }
+.answer-body { background: #fff; border: 2px solid #4F46E5; border-top: none; border-radius: 0 0 10px 10px; padding: 14px 18px; font-size: 15px; line-height: 1.8; }
+.section-nav { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 1.5rem; border-top: 2px solid #E5E7EB; font-size: 14px; }
+.section-nav a { color: #4F46E5; font-weight: 700; }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-brand">📚 Maths Study Hub</span>
+  <a href="../index.html" class="nav-link nav-home">Home</a>
+  <a href="../algebra.html" class="nav-link nav-alg">Algebra</a>
+  <a href="../geometry.html" class="nav-link nav-geo">Geometry</a>
+  <a href="../calculus.html" class="nav-link nav-calc">Calculus</a>
+  <a href="../blog.html" class="nav-link nav-blog active">📖 Blog</a>
+  <a href="../assignments.html" class="nav-link nav-assign">Assignments</a>
+  <a href="../exam-prep.html" class="nav-link nav-exam">Exam prep</a>
+  <a href="../study-resources.html" class="nav-link nav-res">Resources</a>
+</nav>
+
+<div class="page-hero" style="background:#EEF2FF; border-bottom:2px solid #4F46E5;">
+  <h1 style="color:#3730A3;">📖 Blog — Sequences & Series</h1>
+  <p style="color:#4F46E5;">Part 6 of 6: Tricky examples</p>
+</div>
+
+<div class="content">
+<div class="blog-wrap">
+
+  <span class="blog-tag">Sequences · Part 6</span>
+  <h1 class="blog-h1">Turning recurring decimals into fractions</h1>
+  <p class="blog-sub">A surprising application of geometric series: recurring decimals are secretly infinite geometric sums.</p>
+  <a href="../notes/sequences-tricky-examples.html" class="notes-link-back">📝 View the quick-reference notes sheet for this topic →</a>
+
+  <div class="blog-section">
+    <h2>Why a recurring decimal is a geometric series in disguise</h2>
+    <p>Take \(0.777\ldots\) (the 7 repeating forever). This is secretly the sum:</p>
+    <p>\[0.7+0.07+0.007+\cdots\]</p>
+    <p>Each term is \(\frac{1}{10}\) of the one before it — that's a geometric series with \(a=0.7\) and \(r=0.1\). Since \(|r|<1\), this infinite series actually converges to a finite value (this is the "sum to infinity" idea), given by:</p>
+    <p>\[S_\infty = \frac{a}{1-r}\]</p>
+  </div>
+
+  <div class="blog-section">
+    <h2>Method 1: the geometric series formula</h2>
+    <div class="worked-example">
+      <div class="we-label">Worked example</div>
+      Convert \(0.777\ldots\) to a fraction using \(a=0.7\), \(r=0.1\):
+      \[S_\infty = \frac{0.7}{1-0.1} = \frac{0.7}{0.9} = \frac{7}{9}\]
+      Check: \(7\div9 = 0.777\ldots\) ✓
+    </div>
+  </div>
+
+  <div class="blog-section">
+    <h2>Method 2: algebraic subtraction</h2>
+    <p>There's a second, purely algebraic method that doesn't require recognising the geometric series at all — useful as a cross-check, or if the series formula slips your mind under exam pressure.</p>
+
+    <div class="worked-example">
+      <div class="we-label">Worked example</div>
+      <p>Let \(x=0.777\ldots\). Multiply both sides by 10 (shifting the decimal point past one repeating block):</p>
+      \[10x = 7.777\ldots\]
+      <p>Subtract the original equation from this one — the repeating parts cancel exactly:</p>
+      \[10x-x = 7.777\ldots-0.777\ldots\]
+      \[9x = 7\]
+      \[x = \frac{7}{9}\]
+    </div>
+
+    <div class="key-idea">
+      Both methods agree, as they should — pick whichever feels more natural to you. The algebraic method generalises well to longer repeating blocks (e.g. multiply by 100 if two digits repeat, by 1000 if three digits repeat, and so on).
+    </div>
+  </div>
+
+  <div class="blog-section">
+    <h2>A longer repeating block</h2>
+    <div class="worked-example">
+      <div class="we-label">Worked example</div>
+      Convert \(0.\overline{45}\) (i.e. \(0.454545\ldots\), with "45" repeating) using the algebraic method:
+      <p>Since two digits repeat, multiply by 100:</p>
+      \[x=0.454545\ldots \qquad 100x=45.454545\ldots\]
+      \[100x-x = 45.454545\ldots - 0.454545\ldots\]
+      \[99x=45 \quad\Rightarrow\quad x=\frac{45}{99}=\frac{5}{11}\]
+    </div>
+
+    <div class="warn-note">
+      Always simplify your final fraction fully — \(\frac{45}{99}\) reduces to \(\frac{5}{11}\) by dividing top and bottom by their common factor of 9. Exam mark schemes generally expect the fraction in lowest terms.
+    </div>
+
+    <div class="try-block">
+      <div class="try-q">Try it: Convert \(0.333\ldots\) to a fraction using the geometric series method (\(a=0.3\), \(r=0.1\)).</div>
+      <details class="answer-reveal">
+        <summary>Show answer</summary>
+        <div class="answer-body">
+          \[S_\infty = \frac{0.3}{1-0.1} = \frac{0.3}{0.9} = \frac{1}{3}\]
+        </div>
+      </details>
+    </div>
+
+    <div class="try-block">
+      <div class="try-q">Try it: Convert \(0.\overline{18}\) (i.e. \(0.181818\ldots\)) to a fraction using the algebraic method.</div>
+      <details class="answer-reveal">
+        <summary>Show answer</summary>
+        <div class="answer-body">
+          \(x=0.181818\ldots\), multiply by 100 (two digits repeat):
+          \[100x=18.181818\ldots\]
+          \[100x-x=18 \quad\Rightarrow\quad 99x=18 \quad\Rightarrow\quad x=\frac{18}{99}=\frac{2}{11}\]
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <div class="section-nav">
+    <a href="sequences-standard-series.html">← Part 5: Standard Series</a>
+    <a href="../algebra.html">Back to Algebra hub →</a>
+  </div>
+
+</div>
+</div>
+
+<footer>Maths Study Hub</footer>
+
+</body>
+</html>

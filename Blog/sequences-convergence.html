@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sequences: Convergence — Blog · Maths Study Hub</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.blog-wrap { max-width: 780px; margin: 0 auto; padding: 0 1rem 4rem; }
+.blog-tag { display: inline-block; background: #EEF2FF; color: #4F46E5; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 4px 12px; border-radius: 20px; margin-bottom: 14px; }
+.blog-h1 { font-size: 30px; font-weight: 700; color: #3730A3; margin-bottom: 8px; line-height: 1.25; }
+.blog-sub { font-size: 16px; color: #4B5563; margin-bottom: 8px; }
+.notes-link-back { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; color: #4F46E5; font-weight: 700; margin-bottom: 2rem; }
+.notes-link-back:hover { text-decoration: underline; }
+.blog-section { margin: 2.2rem 0; }
+.blog-section h2 { font-size: 22px; font-weight: 700; color: #3730A3; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 3px solid #EEF2FF; }
+.blog-section p { font-size: 16px; line-height: 1.85; margin-bottom: 14px; color: #1F2430; }
+.worked-example { background: #F0FDF4; border: 2px solid #16A34A; border-radius: 12px; padding: 18px 20px; margin: 18px 0; }
+.worked-example .we-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #16A34A; margin-bottom: 8px; }
+.key-idea { background: #EEF2FF; border-left: 5px solid #4F46E5; border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 18px 0; font-size: 16px; line-height: 1.8; }
+.warn-note { background: #FEF2F2; border: 2px solid #DC2626; border-radius: 10px; padding: 14px 18px; margin: 18px 0; font-size: 15px; line-height: 1.8; }
+.try-block { background: #FFFBEB; border: 2px solid #F59E0B; border-radius: 12px; padding: 18px 20px; margin: 16px 0; }
+.try-q { font-size: 16px; font-weight: 700; color: #92400E; margin-bottom: 10px; }
+details.answer-reveal { margin-top: 10px; }
+details.answer-reveal summary { cursor: pointer; list-style: none; display: inline-flex; align-items: center; gap: 8px; background: #4F46E5; color: #fff; font-size: 13px; font-weight: 700; padding: 8px 16px; border-radius: 8px; width: fit-content; }
+details.answer-reveal summary::-webkit-details-marker { display: none; }
+details.answer-reveal summary:hover { opacity: 0.88; }
+details.answer-reveal[open] summary { border-radius: 8px 8px 0 0; }
+.answer-body { background: #fff; border: 2px solid #4F46E5; border-top: none; border-radius: 0 0 10px 10px; padding: 14px 18px; font-size: 15px; line-height: 1.8; }
+.section-nav { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 1.5rem; border-top: 2px solid #E5E7EB; font-size: 14px; }
+.section-nav a { color: #4F46E5; font-weight: 700; }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-brand">📚 Maths Study Hub</span>
+  <a href="../index.html" class="nav-link nav-home">Home</a>
+  <a href="../algebra.html" class="nav-link nav-alg">Algebra</a>
+  <a href="../geometry.html" class="nav-link nav-geo">Geometry</a>
+  <a href="../calculus.html" class="nav-link nav-calc">Calculus</a>
+  <a href="../blog.html" class="nav-link nav-blog active">📖 Blog</a>
+  <a href="../assignments.html" class="nav-link nav-assign">Assignments</a>
+  <a href="../exam-prep.html" class="nav-link nav-exam">Exam prep</a>
+  <a href="../study-resources.html" class="nav-link nav-res">Resources</a>
+</nav>
+
+<div class="page-hero" style="background:#EEF2FF; border-bottom:2px solid #4F46E5;">
+  <h1 style="color:#3730A3;">📖 Blog — Sequences & Series</h1>
+  <p style="color:#4F46E5;">Part 2 of 6: Convergence</p>
+</div>
+
+<div class="content">
+<div class="blog-wrap">
+
+  <span class="blog-tag">Sequences · Part 2</span>
+  <h1 class="blog-h1">Where does a sequence end up?</h1>
+  <p class="blog-sub">Convergence, divergence, and oscillation — what happens to a sequence as n gets large.</p>
+  <a href="../notes/sequences-convergence.html" class="notes-link-back">📝 View the quick-reference notes sheet for this topic →</a>
+
+  <div class="blog-section">
+    <h2>Three possible behaviours</h2>
+    <p>As \(n\) gets larger and larger, a sequence's terms can behave in one of three ways:</p>
+    <div class="key-idea">
+      <strong>Converges:</strong> the terms settle down and get arbitrarily close to a single fixed number, called the limit.<br><br>
+      <strong>Diverges:</strong> the terms grow without bound (towards \(+\infty\) or \(-\infty\)), never settling anywhere.<br><br>
+      <strong>Oscillates:</strong> the terms keep jumping between values (or ranges of values) without ever settling down.
+    </div>
+  </div>
+
+  <div class="blog-section">
+    <h2>Examples of each behaviour</h2>
+    <div class="worked-example">
+      <div class="we-label">Converges</div>
+      \(a_n = \dfrac{1}{n}\): the terms are \(1, \tfrac12, \tfrac13, \tfrac14,\ldots\), getting closer and closer to 0 — this sequence <strong>converges to 0</strong>.
+    </div>
+    <div class="worked-example">
+      <div class="we-label">Diverges</div>
+      \(a_n = n^2\): the terms are \(1,4,9,16,\ldots\), growing without any bound — this sequence <strong>diverges to \(+\infty\)</strong>.
+    </div>
+    <div class="worked-example">
+      <div class="we-label">Oscillates</div>
+      \(a_n = (-1)^n\): the terms are \(-1,1,-1,1,\ldots\), forever alternating — this sequence <strong>oscillates</strong> and has no limit at all.
+    </div>
+  </div>
+
+  <div class="blog-section">
+    <h2>Geometric sequences and the value of r</h2>
+    <p>For a geometric sequence \(x_n=ar^{n-1}\), the value of the common ratio \(r\) completely determines its long-term behaviour:</p>
+    <div class="key-idea">
+      \(|r|<1\): converges to 0 (each term shrinks towards zero)<br>
+      \(r=1\): constant sequence, converges (trivially) to \(a\) itself<br>
+      \(r>1\): diverges to \(+\infty\)<br>
+      \(r\leq-1\): oscillates (alternates sign, and if \(|r|>1\), also grows in size without bound)
+    </div>
+
+    <div class="worked-example">
+      <div class="we-label">Worked example</div>
+      For \(x_n = 5(0.8)^{n-1}\): since \(|0.8|<1\), this sequence <strong>converges to 0</strong> — each term is 0.8 times the one before, shrinking steadily.
+    </div>
+  </div>
+
+  <div class="blog-section">
+    <h2>Try it yourself</h2>
+    <div class="try-block">
+      <div class="try-q">Try it: Does \(a_n = \dfrac{3n+1}{n}\) converge, diverge, or oscillate? (Hint: rewrite it as \(3+\dfrac{1}{n}\) first.)</div>
+      <details class="answer-reveal">
+        <summary>Show answer</summary>
+        <div class="answer-body">
+          Rewriting: \(a_n = 3+\dfrac1n\). As \(n\) grows, \(\dfrac1n\to0\), so \(a_n\to3\). This sequence <strong>converges to 3</strong>.
+        </div>
+      </details>
+    </div>
+
+    <div class="try-block">
+      <div class="try-q">Try it: A geometric sequence has \(r=-2\). Does it converge, diverge, or oscillate?</div>
+      <details class="answer-reveal">
+        <summary>Show answer</summary>
+        <div class="answer-body">
+          Since \(r=-2\leq-1\), this sequence <strong>oscillates</strong> — it alternates in sign every term, and since \(|r|=2>1\), the size of the terms also grows without bound each time.
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <div class="section-nav">
+    <a href="sequences-notation-types.html">← Part 1: Notation & Types</a>
+    <a href="sequences-series-sigma.html">Part 3: Series & Sigma Notation →</a>
+  </div>
+
+</div>
+</div>
+
+<footer>Maths Study Hub</footer>
+
+</body>
+</html>

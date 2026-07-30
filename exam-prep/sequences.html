@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exam Prep: Sequences & Series · Maths Study Hub</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.ep-wrap { max-width: 820px; margin: 0 auto; }
+.ep-section-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #991B1B; margin: 2.5rem 0 0.75rem; }
+.ep-section-label:first-child { margin-top: 0; }
+.revision-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; margin-bottom: 1rem; }
+.revision-card { background: #fff; border: 2px solid #FEE2E2; border-radius: 12px; padding: 16px 18px; }
+.revision-card h3 { font-size: 15px; font-weight: 700; color: #7F1D1D; margin-bottom: 8px; }
+.revision-card p { font-size: 14px; line-height: 1.6; margin-bottom: 8px; color: #1F2430; }
+.revision-card p:last-child { margin-bottom: 0; }
+.revision-card .rc-key { font-size: 14px; background: #FEF2F2; border-radius: 6px; padding: 6px 10px; margin-top: 6px; }
+.q-card { background: #fff; border: 2px solid #E5E7EB; border-radius: 14px; padding: 20px 22px; margin-bottom: 18px; }
+.q-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.q-num { width: 32px; height: 32px; border-radius: 50%; background: #991B1B; color: #fff; font-weight: 700; font-size: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.q-diff { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; padding: 4px 10px; border-radius: 20px; }
+.diff-foundation { background: #D1FAE5; color: #065F46; }
+.diff-core       { background: #FEF3C7; color: #92400E; }
+.diff-challenge  { background: #FFEDD5; color: #9A3412; }
+.diff-advanced   { background: #FEE2E2; color: #991B1B; }
+.q-text { font-size: 16px; line-height: 1.7; margin-bottom: 14px; }
+details.answer-reveal { margin-top: 4px; }
+details.answer-reveal summary { cursor: pointer; list-style: none; display: inline-flex; align-items: center; gap: 8px; background: #991B1B; color: #fff; font-size: 13px; font-weight: 700; padding: 8px 16px; border-radius: 8px; width: fit-content; }
+details.answer-reveal summary::-webkit-details-marker { display: none; }
+details.answer-reveal summary:hover { opacity: 0.88; }
+details.answer-reveal[open] summary { border-radius: 8px 8px 0 0; }
+.answer-body { background: #FEF2F2; border: 2px solid #991B1B; border-top: none; border-radius: 0 0 10px 10px; padding: 16px 18px; font-size: 15px; line-height: 1.8; }
+.answer-body .step-label { font-size: 12px; font-weight: 700; text-transform: uppercase; color: #7F1D1D; margin: 10px 0 4px; }
+.answer-body .step-label:first-child { margin-top: 0; }
+.answer-body .final { font-weight: 700; margin-top: 8px; }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-brand">📚 Maths Study Hub</span>
+  <a href="../index.html" class="nav-link nav-home">Home</a>
+  <a href="../algebra.html" class="nav-link nav-alg">Algebra</a>
+  <a href="../geometry.html" class="nav-link nav-geo">Geometry</a>
+  <a href="../calculus.html" class="nav-link nav-calc">Calculus</a>
+  <a href="../blog.html" class="nav-link nav-blog">📖 Blog</a>
+  <a href="../assignments.html" class="nav-link nav-assign">Assignments</a>
+  <a href="../exam-prep.html" class="nav-link nav-exam active">Exam prep</a>
+  <a href="../study-resources.html" class="nav-link nav-res">Resources</a>
+</nav>
+
+<div class="page-hero" style="background:var(--exam-light); border-bottom:2px solid var(--exam);">
+  <h1 style="color:var(--exam-dark);">✏️ Exam Prep — Sequences & Series</h1>
+  <p style="color:var(--exam);">Quick revision, then 10 practice questions from foundation to advanced</p>
+</div>
+
+<div class="content">
+<div class="ep-wrap">
+
+  <div class="ep-section-label">Quick revision</div>
+
+  <div class="revision-grid">
+    <div class="revision-card">
+      <h3>1. Notation & types</h3>
+      <p>Three ways to specify a sequence: listing, closed form, recurrence. Arithmetic: \(x_n=a+(n-1)d\). Geometric: \(x_n=ar^{n-1}\).</p>
+      <div class="rc-key">Check consecutive differences (arithmetic) or ratios (geometric) — verify with more than one pair.</div>
+    </div>
+    <div class="revision-card">
+      <h3>2. Convergence</h3>
+      <p>Sequences converge (settle to a limit), diverge (grow unboundedly), or oscillate (never settle).</p>
+      <div class="rc-key">For geometric: \(|r|<1\) converges to 0, \(r>1\) diverges, \(r\leq-1\) oscillates.</div>
+    </div>
+    <div class="revision-card">
+      <h3>3. Series & sigma notation</h3>
+      <p>A series is the sum of a sequence's terms. \(\sum_{k=1}^n a_k\) means add \(a_k\) from \(k=1\) to \(n\).</p>
+      <div class="rc-key">Arithmetic sum: \(S_n=\frac{n}{2}(2a+(n-1)d)\). Geometric sum: \(S_n=\frac{a(1-r^n)}{1-r}\).</div>
+    </div>
+    <div class="revision-card">
+      <h3>4. The binomial theorem</h3>
+      <p>\((a+b)^n=\sum_{k=0}^n\binom{n}{k}a^{n-k}b^k\). Powers of \(a\) decrease, powers of \(b\) increase, always summing to \(n\).</p>
+      <div class="rc-key">Watch signs carefully when \(b\) is negative — odd powers keep the negative sign.</div>
+    </div>
+    <div class="revision-card">
+      <h3>5. Standard series</h3>
+      <p>\(\sum k = \frac{n(n+1)}{2}\), \(\sum k^2=\frac{n(n+1)(2n+1)}{6}\), \(\sum k^3=\left(\frac{n(n+1)}{2}\right)^2\).</p>
+      <div class="rc-key">Sums not starting at \(k=1\): split as a difference of two sums that do.</div>
+    </div>
+    <div class="revision-card">
+      <h3>6. Tricky examples</h3>
+      <p>Recurring decimals are geometric series in disguise. Use \(S_\infty=\frac{a}{1-r}\), or the algebraic ×10/×100 subtraction method.</p>
+      <div class="rc-key">Always simplify the final fraction to lowest terms.</div>
+    </div>
+  </div>
+
+  <div class="ep-section-label">Practice questions — foundation to advanced</div>
+
+  <div class="q-card">
+    <div class="q-meta"><div class="q-num">1</div><span class="q-diff diff-foundation">Foundation</span></div>
+    <div class="q-text">Find \(x_8\) for the arithmetic sequence with \(a=7\), \(d=4\).</div>
+    <details class="answer-reveal">
+      <summary>Show worked answer</summary>
+      <div class="answer-body">
+        <div class="step-label">Apply x_n = a + (n-1)d</div>
+        \[x_8 = 7+(7)(4) = 7+28\]
+        <div class="final">Answer: 35</div>
+      </div>
+    </details>
+  </div>
+
+  <div class="q-card">
+    <div class="q-meta"><div class="q-num">2</div><span class="q-diff diff-foundation">Foundation</span></div>
+    <div class="q-text">Find \(x_5\) for the geometric sequence with \(a=2\), \(r=3\).</div>
+    <details class="answer-reveal">
+      <summary>Show worked answer</summary>
+      <div class="answer-body">
+        <div class="step-label">Apply x_n = ar^(n-1)</div>
+        \[x_5 = 2(3)^4 = 2(81)\]
+        <div class="final">Answer: 162</div>
+      </div>
+    </details>
+  </div>
+
+  <div class="q-card">
+    <div class="q-meta"><div class="q-num">3</div><span class="q-diff diff-core">Core</span></div>
+    <div class="q-text">Does the sequence \(a_n=\dfrac{2n+3}{n}\) converge, diverge, or oscillate? If it converges, find the limit.</div>
+    <details class="answer-reveal">
+      <summary>Show worked answer</summary>
+      <div class="answer-body">
+        <div class="step-label">Rewrite as a sum of simpler terms</div>
+        \[a_n = 2+\frac{3}{n}\]
+        <div class="step-label">Consider what happens as n grows</div>
+        As \(n\to\infty\), \(\frac3n\to0\), so \(a_n\to2\).
+        <div class="final">Answer: converges to 2</div>
+      </div>
+    </details>
+  </div>
+
+  <div class="q-card">
+    <div class="q-meta"><div class="q-num">4</div><span class="q-diff diff-core">Core</span></div>
+    <div class="q-text">Evaluate \(\displaystyle\sum_{k=1}^{6}k\) using the standard formula.</div>
+    <details class="answer-reveal">
+      <summary>Show worked answer</summary>
+      <div class="answer-body">
+        <div class="step-label">Apply the formula n(n+1)/2</div>
+        \[\frac{6(7)}{2}\]
+        <div class="final">Answer: 21</div>
+      </div>
+    </details>
+  </div>
+
+  <div class="q-card">
+    <div class="q-meta"><div class="q-num">5</div><span class="q-diff diff-core">Core</span></div>
+    <div class="q-text">Expand \((x-3)^3\) using the binomial theorem.</div>
+    <details class="answer-reveal">
+      <summary>Show worked answer</summary>
+      <div class="answer-body">
+        <div class="step-label">Use coefficients 1, 3, 3, 1 with a = x, b = -3</div>
+        \[x^3 + 3x^2(-3) + 3x(-3)^2 + (-3)^3\]
+        \[= x^3-9x^2+27x-27\]
+        <div class="final">Answer: \(x^3-9x^2+27x-27\)</div>
+      </div>
+    </details>
+  </div>
+
+  <div class="q-card">
+    <div class="q-meta"><div class="q-num">6</div><span class="q-diff diff-challenge">Challenging</span></div>
+    <div class="q-text">Find the sum to infinity of the geometric series with \(a=8\), \(r=0.5\).</div>
+    <details class="answer-reveal">
+      <summary>Show worked answer</summary>
+      <div class="answer-body">
+        <div class="step-label">Check |r| &lt; 1 (required for convergence)</div>
+        \(|0.5|<1\), so the sum to infinity exists.
+        <div class="step-label">Apply S∞ = a/(1-r)</div>
+        \[S_\infty = \frac{8}{1-0.5} = \frac{8}{0.5}\]
+        <div class="final">Answer: 16</div>
+      </div>
+    </details>
+  </div>
+
+  <div class="q-card">
+    <div class="q-meta"><div class="q-num">7</div><span class="q-diff diff-challenge">Challenging</span></div>
+    <div class="q-text">Evaluate \(\displaystyle\sum_{k=1}^{5}(4k^2-3k)\).</div>
+    <details class="answer-reveal">
+      <summary>Show worked answer</summary>
+      <div class="answer-body">
+        <div class="step-label">Split using the sum/difference rule, pull out constants</div>
+        \[4\sum_{k=1}^5 k^2 - 3\sum_{k=1}^5 k\]
+        <div class="step-label">Apply the standard formulas (n = 5)</div>
+        \[4\left(\frac{5(6)(11)}{6}\right) - 3\left(\frac{5(6)}{2}\right) = 4(55)-3(15)\]
+        \[= 220-45\]
+        <div class="final">Answer: 175</div>
+      </div>
+    </details>
+  </div>
+
+  <div class="q-card">
+    <div class="q-meta"><div class="q-num">8</div><span class="q-diff diff-challenge">Challenging</span></div>
+    <div class="q-text">Find the coefficient of \(x^3\) in the expansion of \((x+2)^5\).</div>
+    <details class="answer-reveal">
+      <summary>Show worked answer</summary>
+      <div class="answer-body">
+        <div class="step-label">Identify which term gives x³ (power of a is n-k)</div>
+        Need \(n-k=3\) with \(n=5\), so \(k=2\).
+        <div class="step-label">Apply the binomial coefficient formula</div>
+        \[\binom{5}{2}x^3(2)^2 = 10\times x^3\times4 = 40x^3\]
+        <div class="final">Answer: 40</div>
+      </div>
+    </details>
+  </div>
+
+  <div class="q-card">
+    <div class="q-meta"><div class="q-num">9</div><span class="q-diff diff-advanced">Advanced</span></div>
+    <div class="q-text">Convert \(0.\overline{27}\) (i.e. \(0.272727\ldots\)) to a fraction in lowest terms.</div>
+    <details class="answer-reveal">
+      <summary>Show worked answer</summary>
+      <div class="answer-body">
+        <div class="step-label">Set up x and multiply by 100 (two digits repeat)</div>
+        \[x = 0.272727\ldots \qquad 100x = 27.272727\ldots\]
+        <div class="step-label">Subtract to cancel the repeating part</div>
+        \[100x-x = 27 \quad\Rightarrow\quad 99x=27\]
+        <div class="step-label">Solve and simplify</div>
+        \[x = \frac{27}{99} = \frac{3}{11}\]
+        <div class="final">Answer: \(\dfrac{3}{11}\)</div>
+      </div>
+    </details>
+  </div>
+
+  <div class="q-card">
+    <div class="q-meta"><div class="q-num">10</div><span class="q-diff diff-advanced">Advanced</span></div>
+    <div class="q-text">Evaluate \(\displaystyle\sum_{k=6}^{10}k^2\) by splitting into two sums that start at \(k=1\).</div>
+    <details class="answer-reveal">
+      <summary>Show worked answer</summary>
+      <div class="answer-body">
+        <div class="step-label">Split as a difference of two standard sums</div>
+        \[\sum_{k=6}^{10}k^2 = \sum_{k=1}^{10}k^2 - \sum_{k=1}^{5}k^2\]
+        <div class="step-label">Apply the standard formula to each</div>
+        \[\frac{10(11)(21)}{6} - \frac{5(6)(11)}{6} = 385-55\]
+        <div class="final">Answer: 330</div>
+      </div>
+    </details>
+  </div>
+
+</div>
+</div>
+
+<footer>Maths Study Hub</footer>
+
+</body>
+</html>

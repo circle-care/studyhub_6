@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Series & Sigma Notation — Blog · Maths Study Hub</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.blog-wrap { max-width: 780px; margin: 0 auto; padding: 0 1rem 4rem; }
+.blog-tag { display: inline-block; background: #EEF2FF; color: #4F46E5; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 4px 12px; border-radius: 20px; margin-bottom: 14px; }
+.blog-h1 { font-size: 30px; font-weight: 700; color: #3730A3; margin-bottom: 8px; line-height: 1.25; }
+.blog-sub { font-size: 16px; color: #4B5563; margin-bottom: 8px; }
+.notes-link-back { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; color: #4F46E5; font-weight: 700; margin-bottom: 2rem; }
+.notes-link-back:hover { text-decoration: underline; }
+.blog-section { margin: 2.2rem 0; }
+.blog-section h2 { font-size: 22px; font-weight: 700; color: #3730A3; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 3px solid #EEF2FF; }
+.blog-section p { font-size: 16px; line-height: 1.85; margin-bottom: 14px; color: #1F2430; }
+.worked-example { background: #F0FDF4; border: 2px solid #16A34A; border-radius: 12px; padding: 18px 20px; margin: 18px 0; }
+.worked-example .we-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #16A34A; margin-bottom: 8px; }
+.key-idea { background: #EEF2FF; border-left: 5px solid #4F46E5; border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 18px 0; font-size: 16px; line-height: 1.8; }
+.warn-note { background: #FEF2F2; border: 2px solid #DC2626; border-radius: 10px; padding: 14px 18px; margin: 18px 0; font-size: 15px; line-height: 1.8; }
+.try-block { background: #FFFBEB; border: 2px solid #F59E0B; border-radius: 12px; padding: 18px 20px; margin: 16px 0; }
+.try-q { font-size: 16px; font-weight: 700; color: #92400E; margin-bottom: 10px; }
+details.answer-reveal { margin-top: 10px; }
+details.answer-reveal summary { cursor: pointer; list-style: none; display: inline-flex; align-items: center; gap: 8px; background: #4F46E5; color: #fff; font-size: 13px; font-weight: 700; padding: 8px 16px; border-radius: 8px; width: fit-content; }
+details.answer-reveal summary::-webkit-details-marker { display: none; }
+details.answer-reveal summary:hover { opacity: 0.88; }
+details.answer-reveal[open] summary { border-radius: 8px 8px 0 0; }
+.answer-body { background: #fff; border: 2px solid #4F46E5; border-top: none; border-radius: 0 0 10px 10px; padding: 14px 18px; font-size: 15px; line-height: 1.8; }
+.section-nav { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 1.5rem; border-top: 2px solid #E5E7EB; font-size: 14px; }
+.section-nav a { color: #4F46E5; font-weight: 700; }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-brand">📚 Maths Study Hub</span>
+  <a href="../index.html" class="nav-link nav-home">Home</a>
+  <a href="../algebra.html" class="nav-link nav-alg">Algebra</a>
+  <a href="../geometry.html" class="nav-link nav-geo">Geometry</a>
+  <a href="../calculus.html" class="nav-link nav-calc">Calculus</a>
+  <a href="../blog.html" class="nav-link nav-blog active">📖 Blog</a>
+  <a href="../assignments.html" class="nav-link nav-assign">Assignments</a>
+  <a href="../exam-prep.html" class="nav-link nav-exam">Exam prep</a>
+  <a href="../study-resources.html" class="nav-link nav-res">Resources</a>
+</nav>
+
+<div class="page-hero" style="background:#EEF2FF; border-bottom:2px solid #4F46E5;">
+  <h1 style="color:#3730A3;">📖 Blog — Sequences & Series</h1>
+  <p style="color:#4F46E5;">Part 3 of 6: Series & sigma notation</p>
+</div>
+
+<div class="content">
+<div class="blog-wrap">
+
+  <span class="blog-tag">Sequences · Part 3</span>
+  <h1 class="blog-h1">From sequences to series: adding the terms up</h1>
+  <p class="blog-sub">What a series actually is, and the compact sigma notation used to write sums.</p>
+  <a href="../notes/sequences-series-sigma.html" class="notes-link-back">📝 View the quick-reference notes sheet for this topic →</a>
+
+  <div class="blog-section">
+    <h2>Sequence vs series — the key difference</h2>
+    <p>A <strong>sequence</strong> is a list of terms: \(a_1, a_2, a_3, \ldots\). A <strong>series</strong> is what you get when you <em>add</em> those terms together: \(a_1+a_2+a_3+\cdots\). It's easy to mix the two words up, but they describe different things — a list versus a running total of that list.</p>
+    <div class="key-idea">
+      The sum of the first \(n\) terms of a sequence is called a <strong>partial sum</strong>, usually written \(S_n\): \(S_n = a_1+a_2+\cdots+a_n\).
+    </div>
+  </div>
+
+  <div class="blog-section">
+    <h2>Sigma notation: a shorthand for sums</h2>
+    <p>Writing out long sums term by term gets tedious, so mathematicians use the Greek letter \(\Sigma\) (capital sigma) as shorthand:</p>
+    <p>\[\sum_{k=1}^{n} a_k = a_1+a_2+\cdots+a_n\]</p>
+    <div class="key-idea">
+      Read this as: "sum up \(a_k\), starting at \(k=1\), ending at \(k=n\)." The letter under the \(\Sigma\) (here \(k\)) is just a counting variable — it doesn't matter what letter you use, as long as you're consistent.
+    </div>
+
+    <div class="worked-example">
+      <div class="we-label">Worked example</div>
+      \[\sum_{k=1}^{4} k^2 = 1^2+2^2+3^2+4^2 = 1+4+9+16=30\]
+    </div>
+
+    <div class="warn-note">
+      Always double-check the starting and ending values under and above the \(\Sigma\) — a sum from \(k=1\) to \(4\) has 4 terms, but a sum from \(k=3\) to \(4\) only has 2 (the terms for \(k=3\) and \(k=4\)). It's a common mistake to assume the number of terms equals the top limit.
+    </div>
+  </div>
+
+  <div class="blog-section">
+    <h2>Sum of an arithmetic series</h2>
+    <p>There's a direct formula for the sum of the first \(n\) terms of an arithmetic sequence, without needing to add them one by one:</p>
+    <p>\[S_n = \frac{n}{2}\big(2a+(n-1)d\big)\]</p>
+
+    <div class="worked-example">
+      <div class="we-label">Worked example</div>
+      Sum the first 10 terms of the arithmetic sequence with \(a=5\), \(d=3\):
+      \[S_{10} = \frac{10}{2}\big(2(5)+(9)(3)\big) = 5(10+27) = 5(37)=185\]
+    </div>
+  </div>
+
+  <div class="blog-section">
+    <h2>Sum of a geometric series</h2>
+    <p>Similarly, geometric series have their own direct formula (for \(r\neq1\)):</p>
+    <p>\[S_n = \frac{a(1-r^n)}{1-r}\]</p>
+
+    <div class="worked-example">
+      <div class="we-label">Worked example</div>
+      Sum the first 5 terms of the geometric sequence with \(a=3\), \(r=2\):
+      \[S_5 = \frac{3(1-2^5)}{1-2} = \frac{3(1-32)}{-1} = \frac{3(-31)}{-1} = 93\]
+    </div>
+
+    <div class="try-block">
+      <div class="try-q">Try it: Evaluate \(\displaystyle\sum_{k=1}^{5}(2k+1)\) by expanding it term by term.</div>
+      <details class="answer-reveal">
+        <summary>Show answer</summary>
+        <div class="answer-body">
+          \[(2(1)+1)+(2(2)+1)+(2(3)+1)+(2(4)+1)+(2(5)+1) = 3+5+7+9+11 = 35\]
+        </div>
+      </details>
+    </div>
+
+    <div class="try-block">
+      <div class="try-q">Try it: Find the sum of the first 6 terms of the arithmetic sequence with \(a=2\), \(d=5\), using the formula.</div>
+      <details class="answer-reveal">
+        <summary>Show answer</summary>
+        <div class="answer-body">
+          \[S_6 = \frac{6}{2}\big(2(2)+(5)(5)\big) = 3(4+25)=3(29)=87\]
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <div class="section-nav">
+    <a href="sequences-convergence.html">← Part 2: Convergence</a>
+    <a href="sequences-binomial-theorem.html">Part 4: The Binomial Theorem →</a>
+  </div>
+
+</div>
+</div>
+
+<footer>Maths Study Hub</footer>
+
+</body>
+</html>

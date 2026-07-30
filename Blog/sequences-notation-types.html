@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sequences: Notation & Types — Blog · Maths Study Hub</title>
+<link rel="stylesheet" href="../style.css">
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.blog-wrap { max-width: 780px; margin: 0 auto; padding: 0 1rem 4rem; }
+.blog-tag { display: inline-block; background: #EEF2FF; color: #4F46E5; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 4px 12px; border-radius: 20px; margin-bottom: 14px; }
+.blog-h1 { font-size: 30px; font-weight: 700; color: #3730A3; margin-bottom: 8px; line-height: 1.25; }
+.blog-sub { font-size: 16px; color: #4B5563; margin-bottom: 8px; }
+.notes-link-back { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; color: #4F46E5; font-weight: 700; margin-bottom: 2rem; }
+.notes-link-back:hover { text-decoration: underline; }
+.blog-section { margin: 2.2rem 0; }
+.blog-section h2 { font-size: 22px; font-weight: 700; color: #3730A3; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 3px solid #EEF2FF; }
+.blog-section p { font-size: 16px; line-height: 1.85; margin-bottom: 14px; color: #1F2430; }
+.worked-example { background: #F0FDF4; border: 2px solid #16A34A; border-radius: 12px; padding: 18px 20px; margin: 18px 0; }
+.worked-example .we-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #16A34A; margin-bottom: 8px; }
+.key-idea { background: #EEF2FF; border-left: 5px solid #4F46E5; border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 18px 0; font-size: 16px; line-height: 1.8; }
+.warn-note { background: #FEF2F2; border: 2px solid #DC2626; border-radius: 10px; padding: 14px 18px; margin: 18px 0; font-size: 15px; line-height: 1.8; }
+.try-block { background: #FFFBEB; border: 2px solid #F59E0B; border-radius: 12px; padding: 18px 20px; margin: 16px 0; }
+.try-q { font-size: 16px; font-weight: 700; color: #92400E; margin-bottom: 10px; }
+details.answer-reveal { margin-top: 10px; }
+details.answer-reveal summary { cursor: pointer; list-style: none; display: inline-flex; align-items: center; gap: 8px; background: #4F46E5; color: #fff; font-size: 13px; font-weight: 700; padding: 8px 16px; border-radius: 8px; width: fit-content; }
+details.answer-reveal summary::-webkit-details-marker { display: none; }
+details.answer-reveal summary:hover { opacity: 0.88; }
+details.answer-reveal[open] summary { border-radius: 8px 8px 0 0; }
+.answer-body { background: #fff; border: 2px solid #4F46E5; border-top: none; border-radius: 0 0 10px 10px; padding: 14px 18px; font-size: 15px; line-height: 1.8; }
+.section-nav { display: flex; justify-content: space-between; margin-top: 3rem; padding-top: 1.5rem; border-top: 2px solid #E5E7EB; font-size: 14px; }
+.section-nav a { color: #4F46E5; font-weight: 700; }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-brand">📚 Maths Study Hub</span>
+  <a href="../index.html" class="nav-link nav-home">Home</a>
+  <a href="../algebra.html" class="nav-link nav-alg">Algebra</a>
+  <a href="../geometry.html" class="nav-link nav-geo">Geometry</a>
+  <a href="../calculus.html" class="nav-link nav-calc">Calculus</a>
+  <a href="../blog.html" class="nav-link nav-blog active">📖 Blog</a>
+  <a href="../assignments.html" class="nav-link nav-assign">Assignments</a>
+  <a href="../exam-prep.html" class="nav-link nav-exam">Exam prep</a>
+  <a href="../study-resources.html" class="nav-link nav-res">Resources</a>
+</nav>
+
+<div class="page-hero" style="background:#EEF2FF; border-bottom:2px solid #4F46E5;">
+  <h1 style="color:#3730A3;">📖 Blog — Sequences & Series</h1>
+  <p style="color:#4F46E5;">Part 1 of 6: Notation & types</p>
+</div>
+
+<div class="content">
+<div class="blog-wrap">
+
+  <span class="blog-tag">Sequences · Part 1</span>
+  <h1 class="blog-h1">Three ways to describe a sequence</h1>
+  <p class="blog-sub">Listing, closed form, and recurrence — plus the two most common patterns, arithmetic and geometric.</p>
+  <a href="../notes/sequences-notation-types.html" class="notes-link-back">📝 View the quick-reference notes sheet for this topic →</a>
+
+  <div class="blog-section">
+    <h2>What is a sequence?</h2>
+    <p>A <strong>sequence</strong> is simply an ordered list of numbers, one for each positive integer index: \(a_1, a_2, a_3, \ldots\). There are three common ways to specify exactly what a sequence is.</p>
+
+    <div class="key-idea">
+      <strong>1. Listing terms:</strong> write out the first few and assume the pattern continues (risky — see below).<br><br>
+      <strong>2. Closed form:</strong> a direct formula for \(a_n\) in terms of \(n\), letting you jump straight to any term.<br><br>
+      <strong>3. Recurrence:</strong> a rule defining \(a_n\) using the previous term \(a_{n-1}\), plus a starting value.
+    </div>
+
+    <div class="worked-example">
+      <div class="we-label">Worked example — all three side by side</div>
+      <p><strong>Listing:</strong> \(4, 7, 10, 13, \ldots\) (add 3 each time, assumed pattern)</p>
+      <p><strong>Closed form:</strong> \(a_n = 3n+1\) → instantly gives \(a_1=4\), \(a_{10}=31\), no earlier terms needed.</p>
+      <p><strong>Recurrence:</strong> \(a_1=4\), \(a_n=a_{n-1}+3\) → each term needs the one before it computed first.</p>
+    </div>
+
+    <div class="warn-note">
+      Listing terms alone is <strong>ambiguous</strong> — \(2,4,6,8\) could continue as \(10,12,\ldots\) (arithmetic), or could follow a completely different rule. Prefer a closed form or recurrence whenever precision actually matters.
+    </div>
+  </div>
+
+  <div class="blog-section">
+    <h2>Arithmetic sequences: constant difference</h2>
+    <p>An <strong>arithmetic sequence</strong> adds the same fixed amount, called the common difference \(d\), each time. Its closed form is:</p>
+    <p>\[x_n = a+(n-1)d\]</p>
+    <div class="key-idea">
+      Notice it's \((n-1)\), not \(n\) — because the first term \(x_1\) shouldn't have \(d\) added at all: \(x_1=a+(0)d=a\), exactly the starting value.
+    </div>
+
+    <div class="worked-example">
+      <div class="we-label">Worked example</div>
+      \(a=5\), \(d=3\): the sequence runs \(5,8,11,14,\ldots\), and
+      \[x_{10} = 5+(9)(3) = 32\]
+    </div>
+  </div>
+
+  <div class="blog-section">
+    <h2>Geometric sequences: constant ratio</h2>
+    <p>A <strong>geometric sequence</strong> multiplies by the same fixed amount, the common ratio \(r\), each time. Its closed form is:</p>
+    <p>\[x_n = ar^{n-1}\]</p>
+
+    <div class="worked-example">
+      <div class="we-label">Worked example</div>
+      \(a=3\), \(r=2\): the sequence runs \(3,6,12,24,\ldots\), and
+      \[x_6 = 3(2)^5 = 3(32)=96\]
+    </div>
+  </div>
+
+  <div class="blog-section">
+    <h2>Going from listed terms to a closed form</h2>
+    <p>Given the first few terms, spot which type you have by checking whether consecutive terms have a <strong>constant difference</strong> (arithmetic) or a <strong>constant ratio</strong> (geometric) — always checking more than one pair, since one match could be a coincidence.</p>
+
+    <div class="try-block">
+      <div class="try-q">Try it: Given the sequence \(4, 12, 36, 108, \ldots\), find its type, its recurrence, and its closed form.</div>
+      <details class="answer-reveal">
+        <summary>Show answer</summary>
+        <div class="answer-body">
+          Checking ratios: \(12/4=3\), \(36/12=3\), \(108/36=3\) — consistent, so this is <strong>geometric</strong> with \(a=4\), \(r=3\).<br><br>
+          Recurrence: \(x_1=4\), \(x_n=3x_{n-1}\).<br><br>
+          Closed form: \(x_n = 4(3)^{n-1}\). Check \(x_4\): \(4(3)^3=4(27)=108\) ✓
+        </div>
+      </details>
+    </div>
+
+    <div class="try-block">
+      <div class="try-q">Try it: Find \(x_7\) for the arithmetic sequence with \(a=10\), \(d=-4\).</div>
+      <details class="answer-reveal">
+        <summary>Show answer</summary>
+        <div class="answer-body">
+          \[x_7 = 10+(6)(-4) = 10-24=-14\]
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <div class="section-nav">
+    <span></span>
+    <a href="sequences-convergence.html">Part 2: Convergence →</a>
+  </div>
+
+</div>
+</div>
+
+<footer>Maths Study Hub</footer>
+
+</body>
+</html>
