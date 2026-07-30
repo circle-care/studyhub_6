@@ -14,6 +14,7 @@
   --assign: #0E7490; --assign-light: #CFFAFE; --assign-dark: #164E63;
   --exam:   #991B1B; --exam-light:   #FEE2E2; --exam-dark:   #7F1D1D;
   --res:    #9D174D; --res-light:    #FCE7F3; --res-dark:    #831843;
+  --blog:   #C2410C; --blog-light:   #FFEDD5; --blog-dark:   #7C2D12;
 
   --success: #065F46; --success-light: #D1FAE5;
   --warn: #92400E; --warn-light: #FEF3C7;
@@ -71,6 +72,7 @@ nav {
 .nav-assign.active { background: var(--assign); }
 .nav-exam.active   { background: var(--exam); }
 .nav-res.active    { background: var(--res); }
+.nav-blog.active   { background: var(--blog); }
 .nav-home.active   { background: #374151; }
 
 .page-hero {
@@ -392,7 +394,7 @@ footer {
   nav, .pdf-download-btn, footer { display: none !important; }
   .page-hero { border: none !important; }
   body { background: #fff !important; }
-  .notes-grid, .notes-header, .notes-title-bar {
+  .notes-header, .notes-title-bar {
     box-shadow: none !important;
     break-inside: avoid;
   }
